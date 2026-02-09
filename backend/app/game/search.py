@@ -8,11 +8,8 @@ import sys
 from typing import Dict, List, Optional, Any
 from pathlib import Path
 
-# Add lib directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent))
-
-from json_ops import JsonOperations
-from campaign_manager import CampaignManager
+from app.game.json_ops import JsonOperations
+from app.game.campaign_manager import CampaignManager
 
 
 class WorldSearcher:

@@ -1,24 +1,130 @@
 """DM orchestrator — Claude API tool-use loop driving the game session."""
 
+import json
+import os
 from pathlib import Path
+from typing import AsyncGenerator
+
+import anthropic
+
+from app.orchestrator.tools import TOOL_SCHEMAS, ToolHandler
 
 PROMPTS_DIR = Path(__file__).parent / "prompts"
+MAX_TOOL_ROUNDS = 10
 
 
 def load_system_prompt() -> str:
-    """Load the DM system prompt from prompts/dm_system.md."""
+    """Load the DM system prompt."""
     return (PROMPTS_DIR / "dm_system.md").read_text()
 
 
-async def run_dm_turn(player_message: str, campaign_dir: Path):
-    """Execute one DM turn: gather context, resolve mechanics, narrate.
+def build_context_block(campaign_dir: Path) -> str:
+    """Build initial context from campaign state for the system prompt."""
+    parts = []
 
-    Yields message dicts: {"type": "text"|"audio"|"state", ...}
-    """
-    # TODO: Implement Claude API streaming with tool use
-    # 1. Build messages array (history + player input)
-    # 2. Call Claude with tools (search, dice, player/npc updates, 5e API)
-    # 3. Stream response, parsing inline markers
-    # 4. For each marker segment, dispatch to audio pipeline
-    # 5. Yield text chunks, audio chunks, and state updates
-    yield {"type": "text", "content": f"[DM orchestrator stub] {player_message}"}
+    # Campaign overview
+    overview_path = campaign_dir / "campaign-overview.json"
+    if overview_path.exists():
+        overview = json.loads(overview_path.read_text())
+        parts.append(f"Campaign: {overview.get('campaign_name', 'Unknown')}")
+        pos = overview.get("player_position", {})
+        if pos.get("current_location"):
+            parts.append(f"Current location: {pos['current_location']}")
+        parts.append(f"Time: {overview.get('time_of_day', '?')} on {overview.get('current_date', '?')}")
+
+    # Character summary
+    char_path = campaign_dir / "character.json"
+    if char_path.exists():
+        char = json.loads(char_path.read_text())
+        parts.append(
+            f"Player character: {char.get('name', '?')} — "
+            f"Level {char.get('level', 1)} {char.get('race', '?')} {char.get('class', '?')}, "
+            f"HP {char.get('hp', {}).get('current', '?')}/{char.get('hp', {}).get('max', '?')}"
+        )
+
+    # Session log tail
+    log_path = campaign_dir / "session-log.md"
+    if log_path.exists():
+        lines = log_path.read_text().strip().split("\n")
+        tail = lines[-20:] if len(lines) > 20 else lines
+        parts.append(f"Recent session log:\n{''.join(l + chr(10) for l in tail)}")
+
+    return "\n\n".join(parts)
+
+
+class DMOrchestrator:
+    """Runs the DM agent loop via Claude API with tool use."""
+
+    def __init__(self, campaign_dir: Path, data_dir: Path):
+        self.campaign_dir = campaign_dir
+        self.data_dir = data_dir
+        self.client = anthropic.Anthropic()
+        self.model = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-5-20250929")
+        self.tools = ToolHandler(campaign_dir, data_dir)
+        self.system_prompt = load_system_prompt()
+        self.context = build_context_block(campaign_dir)
+        self.messages: list[dict] = []
+
+    async def run_turn(self, player_message: str) -> AsyncGenerator[dict, None]:
+        """Execute one DM turn. Yields message dicts for the WebSocket.
+
+        Yields:
+            {"type": "text", "content": "..."} — streamed narration text
+            {"type": "state", "updates": {...}} — character state changes
+            {"type": "tool_use", "name": "...", "result": {...}} — tool results (for dice, etc.)
+        """
+        self.messages.append({"role": "user", "content": player_message})
+
+        system = f"{self.system_prompt}\n\n## Current Campaign State\n\n{self.context}"
+
+        for _ in range(MAX_TOOL_ROUNDS):
+            response = self.client.messages.create(
+                model=self.model,
+                max_tokens=4096,
+                system=system,
+                messages=self.messages,
+                tools=TOOL_SCHEMAS,
+            )
+
+            # Collect text and tool uses from this response
+            assistant_content = []
+            tool_results = []  # Cache results to avoid double-execution
+
+            for block in response.content:
+                if block.type == "text":
+                    assistant_content.append({"type": "text", "text": block.text})
+                    yield {"type": "text", "content": block.text}
+
+                elif block.type == "tool_use":
+                    assistant_content.append({
+                        "type": "tool_use",
+                        "id": block.id,
+                        "name": block.name,
+                        "input": block.input,
+                    })
+
+                    # Execute the tool once
+                    result = self.tools.execute(block.name, block.input)
+
+                    # Cache for the continuation message
+                    tool_results.append({
+                        "type": "tool_result",
+                        "tool_use_id": block.id,
+                        "content": json.dumps(result, default=str),
+                    })
+
+                    # Emit dice rolls and state changes to the client
+                    if block.name == "roll_dice":
+                        yield {"type": "tool_use", "name": "roll_dice", "result": result}
+                    elif block.name in ("update_hp", "update_xp", "update_inventory", "update_gold"):
+                        yield {"type": "state", "updates": result}
+
+            # Add assistant response to history
+            self.messages.append({"role": "assistant", "content": assistant_content})
+
+            if not tool_results:
+                # No tool calls — DM is done narrating
+                break
+
+            # Continue the loop with tool results
+            self.messages.append({"role": "user", "content": tool_results})

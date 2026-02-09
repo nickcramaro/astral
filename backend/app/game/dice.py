@@ -8,14 +8,8 @@ import random
 import re
 from typing import List, Tuple, Dict
 
-# Import colors for formatted output
-try:
-    from lib.colors import Colors, format_roll_result
-except ImportError:
-    # Fallback if running directly
-    try:
-        from colors import Colors, format_roll_result
-    except ImportError:
+# No terminal colors needed in web backend
+if True:
         # No colors available - use plain text
         class Colors:
             RESET = ""

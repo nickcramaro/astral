@@ -9,8 +9,18 @@ via cosine similarity with threshold-based assignment.
 from typing import Dict, List, Tuple, Optional
 import numpy as np
 
-from lib.rag.embedder import LocalEmbedder
-from lib.rag.extraction_queries import EXTRACTION_QUERIES, get_all_types
+from app.import_pipeline.embedder import LocalEmbedder
+
+# Extraction queries for semantic categorization
+EXTRACTION_QUERIES: dict[str, list[str]] = {
+    "npcs": ["character names", "dialogue", "NPC description", "person mentioned"],
+    "locations": ["places", "rooms", "settings", "geography", "buildings"],
+    "items": ["treasures", "equipment", "artifacts", "weapons", "magical items"],
+    "plots": ["quests", "hooks", "storylines", "objectives", "missions"],
+}
+
+def get_all_types() -> list[str]:
+    return list(EXTRACTION_QUERIES.keys())
 
 
 class SemanticChunker:

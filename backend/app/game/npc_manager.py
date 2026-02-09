@@ -8,10 +8,7 @@ import sys
 from typing import Dict, List, Optional, Any
 from pathlib import Path
 
-# Add lib directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent))
-
-from entity_manager import EntityManager
+from app.game.entity_manager import EntityManager
 
 
 # Default character sheet for new party members

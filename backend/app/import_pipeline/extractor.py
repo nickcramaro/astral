@@ -16,8 +16,8 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 
-from lib.rag.embedder import LocalEmbedder
-from lib.rag.vector_store import CampaignVectorStore
+from app.import_pipeline.embedder import LocalEmbedder
+from app.import_pipeline.vector_store import CampaignVectorStore
 
 
 class RAGExtractor:
