@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+
+# Node
+node_modules/
+dist/
+
+# Environment
+.env
+backend/.env
+
+# Data
+backend/data/campaigns/*/vectors/
+audio-cache/*.mp3
+audio-cache/*.wav
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# uv
+uv.lock
