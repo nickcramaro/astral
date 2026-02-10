@@ -158,5 +158,31 @@ export function useAudio() {
     [getContext, getGain]
   );
 
-  return { playVoice, playAmbient, playSfx, setMode, setVolume, getContext };
+  /** Stop all audio playback — voice queue, ambient, everything. */
+  const stopAll = useCallback(() => {
+    // Clear voice queue and stop current playback
+    voiceQueue.current = [];
+    voicePlaying.current = false;
+
+    // Stop ambient
+    if (ambientSource.current) {
+      try {
+        ambientSource.current.stop();
+      } catch {
+        /* already stopped */
+      }
+      ambientSource.current = null;
+      ambientFadeGain.current = null;
+    }
+
+    // Close and reset the AudioContext
+    if (ctx.current) {
+      ctx.current.close();
+      ctx.current = null;
+      // Reset gain node refs so they're recreated fresh
+      gains.current = { narrator: null, npc: null, ambient: null, sfx: null };
+    }
+  }, []);
+
+  return { playVoice, playAmbient, playSfx, setMode, setVolume, stopAll, getContext };
 }

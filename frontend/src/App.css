@@ -191,10 +191,15 @@
   padding-bottom: 0;
 }
 
-.back-btn {
-  width: 100%;
-  text-align: left;
+.sidebar-header {
+  display: flex;
+  gap: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.back-btn {
+  flex: 1;
+  text-align: left;
   padding: 0.5rem 0.75rem;
   font-size: 0.85rem;
   background: transparent;
@@ -205,6 +210,24 @@
 .back-btn:hover {
   border-color: var(--accent-dim);
   color: var(--text-warm);
+}
+
+.settings-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-warm);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.settings-toggle:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent-gold);
 }
 
 .main-panel {
@@ -449,42 +472,152 @@
   border-color: var(--accent-gold);
 }
 
-/* ========== Settings Panel ========== */
-.settings-panel {
-  margin-top: 0;
-}
-
-.settings-toggle {
+/* ========== Modal ========== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-  text-align: left;
-  padding: 0.5rem 0.75rem;
+  justify-content: center;
+  z-index: 100;
+  animation: fade-in 0.2s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-warm);
+  border-radius: 12px;
+  width: 380px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 60px rgba(201, 165, 90, 0.06);
+  animation: modal-enter 0.2s ease-out;
+}
+
+@keyframes modal-enter {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.modal-title {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: var(--text-warm);
+}
+
+.modal-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ========== Confirmation Dialog ========== */
+.confirm-modal {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.confirm-icon {
+  color: var(--accent-gold);
+  margin-bottom: 0.75rem;
+}
+
+.confirm-title {
+  font-family: "Cinzel", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-warm);
+  margin: 0 0 0.5rem;
+}
+
+.confirm-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.confirm-stay {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  font-family: "Cinzel", serif;
   font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(201, 165, 90, 0.15);
+  border: 1px solid var(--accent-dim);
+  color: var(--accent-gold);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.confirm-stay:hover {
+  background: rgba(201, 165, 90, 0.25);
+  border-color: var(--accent-gold);
+}
+
+.confirm-leave {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   background: transparent;
   border: 1px solid var(--border-warm);
   color: var(--text-muted);
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
-.settings-toggle:hover {
-  border-color: var(--accent-dim);
-  color: var(--text-warm);
+.confirm-leave:hover {
+  background: rgba(220, 80, 80, 0.1);
+  border-color: rgba(220, 80, 80, 0.3);
+  color: #dc5050;
 }
 
-.settings-toggle svg {
-  flex-shrink: 0;
-}
-
-.settings-content {
-  margin-top: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
+/* ========== Settings Sections ========== */
 .settings-section {
   display: flex;
   flex-direction: column;
