@@ -18,7 +18,7 @@ function App() {
     [playVoice, playAmbient, playSfx]
   );
 
-  const { messages, character, connected, send, sendRaw } = useSession(
+  const { messages, character, connected, loading, waiting, send, sendRaw } = useSession(
     selectedCampaign,
     audioCallbacks
   );
@@ -50,6 +50,20 @@ function App() {
     );
   }
 
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <div className="loading-content">
+          <h1 className="loading-title">Astral</h1>
+          <div className="loading-orb">
+            <div className="loading-orb-inner" />
+          </div>
+          <p className="loading-text">Summoning the Dungeon Master</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="app-layout" onClick={handleInteraction}>
       <aside className="sidebar">
@@ -64,7 +78,7 @@ function App() {
         </div>
       </aside>
       <main className="main-panel">
-        <Chat messages={messages} onSend={send} connected={connected} />
+        <Chat messages={messages} onSend={send} connected={connected} waiting={waiting} />
       </main>
     </div>
   );

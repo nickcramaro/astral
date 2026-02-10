@@ -44,6 +44,8 @@ export function useSession(
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [character, setCharacter] = useState<CharacterState | null>(null);
   const [connected, setConnected] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [waiting, setWaiting] = useState(false);
   const audioRef = useRef(audio);
   audioRef.current = audio;
 
@@ -54,6 +56,8 @@ export function useSession(
     setMessages([]);
     setCharacter(null);
     setConnected(false);
+    setLoading(true);
+    setWaiting(false);
 
     const socket = new WebSocket(`ws://localhost:8000/ws/session/${campaignId}`);
     ws.current = socket;
@@ -65,6 +69,8 @@ export function useSession(
       const msg: ServerMessage = JSON.parse(event.data);
 
       if (msg.type === "text") {
+        setLoading(false);
+        setWaiting(false);
         setMessages((prev) => [
           ...prev,
           {
@@ -100,6 +106,7 @@ export function useSession(
   const send = useCallback((message: string) => {
     if (!ws.current || ws.current.readyState !== WebSocket.OPEN) return;
 
+    setWaiting(true);
     setMessages((prev) => [
       ...prev,
       {
@@ -119,5 +126,5 @@ export function useSession(
     ws.current.send(JSON.stringify(data));
   }, []);
 
-  return { messages, character, connected, send, sendRaw };
+  return { messages, character, connected, loading, waiting, send, sendRaw };
 }
