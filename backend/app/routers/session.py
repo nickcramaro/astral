@@ -39,7 +39,39 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
         char = json.loads(char_path.read_text())
         await websocket.send_json({"type": "state", "updates": char})
 
-    await websocket.send_json({"type": "text", "content": "[Connected to campaign. What do you do?]"})
+    # Generate an opening DM turn — recap if there's session history, otherwise fresh start
+    log_path = campaign_dir / "session-log.md"
+    has_history = False
+    if log_path.exists():
+        log_text = log_path.read_text().strip()
+        # Check for actual session content beyond the boilerplate header
+        has_history = "### Session Ended:" in log_text
+
+    if has_history:
+        opening_prompt = (
+            "[System] The player has reconnected. Give a brief, atmospheric recap of where "
+            "they are and what just happened based on the session log. Set the scene, remind "
+            "them of their situation, and end with a prompt for action. Use your inline markers."
+        )
+    else:
+        opening_prompt = (
+            "[System] This is the start of a new campaign. Set the opening scene — describe "
+            "where the player character is, what's happening around them, and draw them into "
+            "the story. Use your inline markers."
+        )
+
+    raw_texts: list[str] = []
+    async for msg in dm.run_turn(opening_prompt):
+        raw = msg.pop("_raw", None)
+        await websocket.send_json(msg)
+        if raw:
+            raw_texts.append(raw)
+
+    if raw_texts:
+        full_raw = "\n\n".join(raw_texts)
+        audio_task = asyncio.create_task(
+            _generate_audio(websocket, audio, full_raw)
+        )
 
     try:
         while True:
