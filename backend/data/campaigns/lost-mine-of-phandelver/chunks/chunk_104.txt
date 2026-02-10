@@ -1,0 +1,83 @@
+# Chunk 105 of 140
+---
+
+Poison Gas. Whenever a creature attempts to cross 
+the cavern, the carpets of fungi that cover most of the 
+floor release poisonous gas into the air. Each creature in 
+the cavern must succeed on a DC 11 Constitution saving 
+throw or take 3d6 poison damage and be poisoned for 10 
+
+
+
+Ghoul 
+
+
+PART 4: WAVE ECHO CAVE 
+
+
+minutes (see the rulebook for more information on the 
+poisoned condition). The gas disperses after 1 minute, 
+but until then, any living creature that ends its turn in the 
+cavern must repeat the saving throw. 
+
+9. Great Cavern 
+
+This cave once served as the banquet room, meeting area, 
+and mead hall for the miners. 
+
+Steep escarpments divide this large cavern into three 
+sections — high ledges at either end, and a lower section in 
+the middle. Carved stone stairs climb up to the ledges. Two 
+large tables stand in the middle section, along with a pair 
+of old braziers. A smaller table stands on the eastern ledge. 
+The skeletal remains of dozens of dead warriors — dwarves, 
+gnomes, ores, and ogres — attest to the fierceness of the 
+fighting that took place here long ago. 
+
+Seven ghouls lurk in the shadows on the western ledge. 
+They notice any light or noise elsewhere in the cave and 
+quickly bound down to attack. The undead are hungry and 
+fight until destroyed. 
+
+The escarpments are 10 feet high and require a 
+successful DC 12 Strength (Athletics) check to climb. A 
+creature that falls or is knocked from the top of a ledge 
+takes ld6 bludgeoning damage and lands prone. 
+
+10^ Dark Pool 
+
+Treasure is concealed in this water-filled cave. 
+
+A still pool fills much of this cavern. The water is dark, 
+revealing little of what might lie within. The shore of the pool 
+consists of a thin layer of broken shells from strange, pale 
+mussels, and a fishy odor hangs in the air. 
+
+A passage leads south from this area, and a set of steps 
+climbs up to the east. A sluggish stream flows out of the cave 
+to the northeast. 
+
+The pool is 20 feet deep in the middle. The stream to the 
+northeast is 3 feet deep, and the ceiling of the passage is 
+2 to 3 feet above the water. Characters can easily wade 
+through the stream to area 18. 
+
+A character who explores the pool finds an old skeleton 
+lying on the bottom, 10 feet from the shore and under 10 
+feet of water. These are the remains of a human wizard 
+from old Phandalin who died defending the mines against 
+the ore attackers. Several ore arrows are still lodged in the 
+skeleton’s ribcage. 
+
+Treasure 
+
+The skeleton wears two platinum rings (75 gp each) and 
+clutches a wand of magic missiles in its bony fingers. 
+
+11. North Barracks 
+
+The eastern door is barricaded from inside the room and 
+requires a successful DC 20 Strength check to force open. 
+A character who listens at either door and succeeds on 
+a DC 10 Wisdom (Perception) check hears gruff voices 
+speaking Goblin and talking about how hungry they are.

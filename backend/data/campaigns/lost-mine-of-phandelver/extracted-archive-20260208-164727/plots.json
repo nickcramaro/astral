@@ -1,0 +1,456 @@
+{
+  "plot_hooks": {
+    "Meet Me in Phandalin": {
+      "description": "Gundren Rockseeker hires the party to escort a wagonload of provisions from Neverwinter to Barthen's Provisions in Phandalin. Gundren has gone ahead with his warrior escort Sildar Hallwinter, claiming he and his brothers found 'something big.' The wagon contains mining supplies and food worth 100 gp total.",
+      "quest_giver": "Gundren Rockseeker",
+      "objectives": [
+        "Escort the wagon of supplies from Neverwinter to Phandalin",
+        "Deliver the wagon safely to Barthen's Provisions"
+      ],
+      "rewards": "10 gp per character from Elmar Barthen upon delivery",
+      "location": "Neverwinter to Phandalin via Triboar Trail",
+      "status": "available",
+      "part": "Introduction / Adventure Hook"
+    },
+    "Goblin Ambush": {
+      "description": "While traveling the Triboar Trail, the party encounters two dead horses (belonging to Gundren and Sildar) and is ambushed by four goblins of the Cragmaw tribe. The goblins have been using this spot for ambushes. A trail leads to the Cragmaw Hideout where Sildar is held captive.",
+      "quest_giver": "Triggered by story events",
+      "objectives": [
+        "Survive the goblin ambush",
+        "Discover the goblin trail leading to the Cragmaw Hideout",
+        "Identify the dead horses as belonging to Gundren and Sildar"
+      ],
+      "rewards": "75 XP per character for arriving at the hideout",
+      "location": "Triboar Trail, half-day's march from Phandalin",
+      "status": "available",
+      "part": "Part 1: Goblin Arrows"
+    },
+    "Rescue Sildar Hallwinter": {
+      "description": "Sildar Hallwinter, a member of the Lords' Alliance, is held prisoner in the Cragmaw Hideout (area 6, the Goblin Den). He has been beaten and is at 1 HP. The goblin leader Yeemik holds him hostage and may try to bargain. Sildar knows Gundren and his map were sent to Cragmaw Castle.",
+      "quest_giver": "Story-driven (discovered during Cragmaw Hideout exploration)",
+      "objectives": [
+        "Rescue Sildar from the Cragmaw Hideout",
+        "Escort Sildar safely to Phandalin",
+        "Learn about Gundren's capture and the Black Spider"
+      ],
+      "rewards": "50 gp from Sildar for escort to Phandalin; 275 XP per character for completing the Cragmaw Hideout",
+      "location": "Cragmaw Hideout",
+      "status": "available",
+      "part": "Part 1: Goblin Arrows"
+    },
+    "Clear the Cragmaw Hideout": {
+      "description": "The Cragmaw tribe hideout is led by a bugbear named Klarg, who has orders from King Grol to plunder caravans and waylay Gundren Rockseeker. The hideout contains stolen Lionshield Coster goods, Klarg's treasure, and information about the Black Spider's involvement.",
+      "quest_giver": "Sildar Hallwinter (implicit)",
+      "objectives": [
+        "Defeat Klarg the bugbear and his forces",
+        "Recover stolen Lionshield Coster supplies",
+        "Learn about King Grol and Cragmaw Castle"
+      ],
+      "rewards": "275 XP per character; treasure including 600 cp, 110 sp, two potions of healing, jade frog statuette (40 gp)",
+      "location": "Cragmaw Hideout, 5 miles northwest of the ambush site",
+      "status": "available",
+      "part": "Part 1: Goblin Arrows"
+    },
+    "Return Stolen Lionshield Goods": {
+      "description": "Crates and supplies in Klarg's cave (area 8 of Cragmaw Hideout) are marked with the blue lion symbol of the Lionshield Coster. Linene Graywind at the Lionshield Coster trading post in Phandalin is the rightful owner and will reward the party for returning them.",
+      "quest_giver": "Linene Graywind (Lionshield Coster)",
+      "objectives": [
+        "Recover the stolen supplies from the Cragmaw Hideout",
+        "Return them to Linene Graywind at the Lionshield Coster in Phandalin"
+      ],
+      "rewards": "50 gp and Linene's friendship and future assistance",
+      "location": "Cragmaw Hideout (recovery) / Phandalin (delivery)",
+      "status": "available",
+      "part": "Part 1 / Part 2"
+    },
+    "Confront the Redbrands": {
+      "description": "The Redbrands are a gang of ruffians terrorizing Phandalin, led by a mysterious figure called Glasstaff. They hang out at the Sleeping Giant tap house and have a base under Tresendar Manor. Multiple NPCs in Phandalin urge the characters to deal with them. The Redbrands murdered woodcarver Thel Dendrar and kidnapped his family.",
+      "quest_giver": "Multiple Phandalin NPCs (Toblen Stonehill, Daran Edermath, Barthen, townsfolk)",
+      "objectives": [
+        "Confront the Redbrand ruffians",
+        "Investigate Tresendar Manor",
+        "Storm the Redbrand Hideout",
+        "Defeat or capture Glasstaff (Iarno Albrek)"
+      ],
+      "rewards": "400 XP for defeating ruffians at Sleeping Giant; additional XP throughout the hideout",
+      "location": "Phandalin - Sleeping Giant tap house / Tresendar Manor",
+      "status": "available",
+      "part": "Part 2: Phandalin"
+    },
+    "Finding Iarno Albrek": {
+      "description": "Sildar Hallwinter's fellow Lords' Alliance member, Iarno Albrek, disappeared two months ago after arriving in Phandalin to establish order. Sildar asks the party to investigate Tresendar Manor to find Iarno. Unknown to Sildar, Iarno IS Glasstaff, leader of the Redbrands, who betrayed the Alliance to work for the Black Spider.",
+      "quest_giver": "Sildar Hallwinter",
+      "objectives": [
+        "Investigate Tresendar Manor and surrounding area",
+        "Find Iarno Albrek (discover he is Glasstaff)",
+        "Capture Iarno and return him to face justice, or eliminate the Redbrand threat"
+      ],
+      "rewards": "200 gp from Sildar for eliminating the Redbrand threat",
+      "location": "Redbrand Hideout beneath Tresendar Manor, Phandalin",
+      "status": "available",
+      "part": "Part 2: Phandalin"
+    },
+    "Halia's Job Offer": {
+      "description": "Halia Thornton, guildmaster of the Phandalin Miner's Exchange and secret Zhentarim agent, offers to pay the characters to eliminate the Redbrand leader Glasstaff and bring her any correspondence found in his quarters. She secretly wants to take over the Redbrand operation herself. A DC 15 Wisdom (Insight) check reveals her ulterior motives.",
+      "quest_giver": "Halia Thornton (Zhentarim agent)",
+      "objectives": [
+        "Eliminate the Redbrand leader (Glasstaff)",
+        "Bring Halia any correspondence found in Glasstaff's quarters"
+      ],
+      "rewards": "100 gp from Halia; possible Zhentarim membership (title of Fang)",
+      "location": "Phandalin Miner's Exchange / Redbrand Hideout",
+      "status": "available",
+      "part": "Part 2: Phandalin"
+    },
+    "Rescue the Dendrar Family": {
+      "description": "The Redbrands murdered woodcarver Thel Dendrar and kidnapped his wife Mirna and their two teenage children (Nars, 13, and Nilsa, 18). They are held in the slave pens (area 5) of the Redbrand Hideout beneath Tresendar Manor, intended to be sold into slavery. Thel's body is in the crevasse in area 8.",
+      "quest_giver": "Trilena (innkeeper's wife at Stonehill Inn, provides rumor)",
+      "objectives": [
+        "Find and rescue Mirna Dendrar and her children from the Redbrand slave pens",
+        "Return the family safely to Phandalin"
+      ],
+      "rewards": "200 XP for defeating guards + 100 XP if Dendrars make it back alive; leads to Mirna's Heirloom side quest",
+      "location": "Redbrand Hideout, Area 5 (Slave Pens)",
+      "status": "hidden",
+      "part": "Part 2: Phandalin"
+    },
+    "Mirna's Heirloom": {
+      "description": "Mirna Dendrar, if rescued from the Redbrand slave pens, tells the party about a family heirloom left behind when her family fled Thundertree years ago. An emerald necklace is hidden in a case beneath storage shelves in her family's old herb and alchemy shop in the southeast part of Thundertree.",
+      "quest_giver": "Mirna Dendrar",
+      "objectives": [
+        "Travel to the ruins of Thundertree",
+        "Find the old herb and alchemy shop in the southeast part of town",
+        "Search beneath the storage shelves for the hidden case (DC 15 Perception, auto-success if Mirna sent them)"
+      ],
+      "rewards": "Gold necklace with emerald pendant (200 gp); 200 XP bonus if returned to Mirna instead of kept",
+      "location": "Ruins of Thundertree, southeast section (Area 9 - Herbalist's Shop)",
+      "status": "hidden",
+      "part": "Part 2 / Part 3"
+    },
+    "The Banshee's Bargain": {
+      "description": "Sister Garaele of the Shrine of Luck (a Harper agent) was tasked by her superiors to persuade the banshee Agatha to reveal the location of Bowgentle's spellbook. Garaele failed and asks the party to bring Agatha a jeweled silver comb as a gift and ask about the spellbook. Agatha can answer one question -- she traded the spellbook to a necromancer named Tsernoth from Iriaebor over a hundred years ago.",
+      "quest_giver": "Sister Garaele (Harper agent)",
+      "objectives": [
+        "Travel to Conyberry and find Agatha's lair in Neverwinter Wood",
+        "Present the jeweled silver comb to Agatha",
+        "Flatter Agatha and persuade her (DC 15 Persuasion, auto-success with comb) to answer a question",
+        "Ask about Bowgentle's spellbook (or choose another question)"
+      ],
+      "rewards": "Three potions of healing from Sister Garaele; 200 XP per character; possible Harper membership (title of Watcher)",
+      "location": "Conyberry / Agatha's Lair in Neverwinter Wood",
+      "status": "available",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Old Owl Trouble": {
+      "description": "Daran Edermath (retired adventurer, Order of the Gauntlet member) has heard that someone is digging around the ruins of Old Owl Well, an ancient Netherese watchtower, and that undead have been seen guarding the area. He asks the party to investigate. The ruins are occupied by Hamun Kost, a Red Wizard of Thay (necromancer), who has twelve zombies as guards and is researching the site's arcane history.",
+      "quest_giver": "Daran Edermath (Order of the Gauntlet)",
+      "objectives": [
+        "Travel to Old Owl Well (a couple days' march northeast of Phandalin)",
+        "Discover who is camped there and what they are doing",
+        "Report findings back to Daran Edermath"
+      ],
+      "rewards": "200 XP for parlaying with Hamun Kost and reporting back; 800 XP if Kost and zombies are defeated; possible Order of the Gauntlet membership (title of Chevall)",
+      "location": "Old Owl Well, hills northeast of Phandalin",
+      "status": "available",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Hamun Kost's Bargain": {
+      "description": "Hamun Kost, the Red Wizard at Old Owl Well, is willing to trade information if the party does favors for him. He wants the orcs at Wyvern Tor removed (they've scouted his camp), and he wants to know the name of the wizard who built Old Owl Well's tower (the answer is Arthindol, which Agatha the banshee knows).",
+      "quest_giver": "Hamun Kost (Red Wizard of Thay)",
+      "objectives": [
+        "Remove the orcs from Wyvern Tor (overlaps with Orc Trouble quest)",
+        "Ask Agatha the banshee the name of the wizard who built Old Owl Well (answer: Arthindol)"
+      ],
+      "rewards": "Information about Cragmaw Castle, Wave Echo Cave, or other adventure elements from Kost",
+      "location": "Old Owl Well / Wyvern Tor / Agatha's Lair",
+      "status": "hidden",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Orc Trouble": {
+      "description": "Townmaster Harbin Wester has posted a notice seeking adventurers to deal with orc raiders near Wyvern Tor on the east end of the Triboar Trail. The orcs are scouts of the Many Arrows tribe led by Brughor Axe-Biter, with six ordinary orcs and an ogre named Gog. They have been raiding homesteads and waylaying travelers.",
+      "quest_giver": "Townmaster Harbin Wester",
+      "objectives": [
+        "Travel east on the Triboar Trail to Wyvern Tor",
+        "Find the hidden orc camp (DC 15 Perception or DC 10 Survival per hour)",
+        "Defeat or drive off the orc band including Brughor Axe-Biter and the ogre Gog"
+      ],
+      "rewards": "100 gp from Harbin Wester; 1,250 XP total for defeating the orcs and ogre; also fulfills Hamun Kost's request",
+      "location": "Wyvern Tor, hills northeast of the Sword Mountains",
+      "status": "available",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Reidoth the Druid": {
+      "description": "Qelline Alderleaf suggests the party seek out her friend Reidoth, a druid of the Emerald Enclave, who recently set out for the ruins of Thundertree. Reidoth knows the locations of Cragmaw Castle and Wave Echo Cave. He will provide directions to Cragmaw Castle freely, but will only guide the party to Wave Echo Cave if they first chase off the green dragon Venomfang from Thundertree.",
+      "quest_giver": "Qelline Alderleaf",
+      "objectives": [
+        "Travel to the ruins of Thundertree (~50 miles northwest of Phandalin)",
+        "Find Reidoth the druid (Area 4)",
+        "Learn the location of Cragmaw Castle and/or Wave Echo Cave"
+      ],
+      "rewards": "Directions to Cragmaw Castle (free); guide to Wave Echo Cave (if Venomfang is driven off); possible Emerald Enclave membership (title of Springwarden)",
+      "location": "Ruins of Thundertree",
+      "status": "available",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Drive Off Venomfang": {
+      "description": "A young green dragon named Venomfang has claimed the ruined tower in Thundertree as its lair, killing the giant spiders that previously dwelled there. Reidoth wants the dragon driven off. Venomfang will flee if reduced to half HP. A group of cultists led by Favric has also come to Thundertree to treat with the dragon.",
+      "quest_giver": "Reidoth the Druid",
+      "objectives": [
+        "Confront Venomfang in the tower (Area 7)",
+        "Drive the dragon away (reduce to half HP) or defeat it",
+        "Optionally deal with the cultists (Area 13) who serve the dragon"
+      ],
+      "rewards": "2,000 XP for driving away Venomfang (3,900 XP if slain); treasure in tower: 800 sp, 150 gp, four silver goblets with moonstones (60 gp each), scroll of misty step, scroll of lightning bolt, +1 battleaxe Hew; Reidoth guides party to Wave Echo Cave",
+      "location": "Ruins of Thundertree, Area 7 (Dragon Tower)",
+      "status": "available",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Finding Cragmaw Castle": {
+      "description": "Sildar Hallwinter offers a substantial reward for locating Cragmaw Castle, the stronghold of King Grol and the Cragmaw goblin tribe. Gundren Rockseeker and his map to Wave Echo Cave were taken there. Multiple paths lead to the castle: captured goblins can provide directions, Reidoth knows the way, Agatha can reveal the location, or wilderness patrols can be followed.",
+      "quest_giver": "Sildar Hallwinter",
+      "objectives": [
+        "Locate Cragmaw Castle (about 20 miles northeast of the Cragmaw Hideout, in Neverwinter Wood)",
+        "Defeat or drive off King Grol and the Cragmaw tribe",
+        "Rescue Gundren Rockseeker",
+        "Recover Gundren's map to Wave Echo Cave"
+      ],
+      "rewards": "500 gp from Sildar for locating and defeating the tribe's chieftain; possible Lords' Alliance membership (title of Cloak)",
+      "location": "Cragmaw Castle, Neverwinter Wood",
+      "status": "available",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Rescue Gundren Rockseeker": {
+      "description": "Gundren Rockseeker is held unconscious (0 HP, stable) in King Grol's quarters at Cragmaw Castle (Area 14). King Grol (a bugbear with 45 HP) is negotiating with Vyerith, a doppelganger disguised as a female drow, who is a messenger from the Black Spider sent to collect Gundren and the map. Grol wants to sell the map instead. Gundren's map to Wave Echo Cave is hidden under Grol's bed mattress.",
+      "quest_giver": "Story-driven / Sildar Hallwinter",
+      "objectives": [
+        "Infiltrate or storm Cragmaw Castle",
+        "Defeat King Grol and the doppelganger Vyerith",
+        "Revive and rescue Gundren Rockseeker",
+        "Recover Gundren's map to Wave Echo Cave"
+      ],
+      "rewards": "950 XP for defeating King Grol, wolf, and doppelganger; 200 XP for rescuing Gundren and escorting him to Phandalin; 25 gp each from Gundren; promise of 10% share of mine profits; map to Wave Echo Cave",
+      "location": "Cragmaw Castle, Area 14 (King's Quarters)",
+      "status": "available",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Wave Echo Cave - The Lost Mine": {
+      "description": "The main quest of the adventure. Wave Echo Cave contains the lost mine of the Phandelver's Pact, including the legendary Forge of Spells. Nezznar the Black Spider (a drow) and his followers are exploring the cave, searching for the Forge. The mine is overrun with undead, strange monsters, and Nezznar's bugbear servants. The party must navigate the dangers, defeat Nezznar, rescue Nundro Rockseeker, and secure the mine.",
+      "quest_giver": "Gundren Rockseeker / Story-driven",
+      "objectives": [
+        "Travel to Wave Echo Cave (15 miles east of Phandalin, in the Sword Mountains)",
+        "Explore the mine and discover the Forge of Spells",
+        "Defeat Nezznar the Black Spider (drow mage in Area 19)",
+        "Rescue Nundro Rockseeker (prisoner in Area 20)",
+        "Clear the mine of undead and monsters",
+        "Secure the Forge of Spells and the mine's treasures"
+      ],
+      "rewards": "XP from numerous encounters throughout the cave; major treasure including Lightbringer (+1 mace), Dragonguard (+1 breastplate), gauntlets of ogre power, boots of striding and springing, spider staff, multiple potions and scrolls, thousands of coins and gems; 10% share of mine profits; double XP if Nezznar captured alive; 200 XP for rescuing Nundro",
+      "location": "Wave Echo Cave, Sword Mountains (15 miles east of Phandalin)",
+      "status": "available",
+      "part": "Part 4: Wave Echo Cave"
+    },
+    "Defeat the Black Spider": {
+      "description": "Nezznar, a drow adventurer known as the Black Spider, is the main villain of the adventure. He controls a network of bandit gangs (Redbrands) and goblin tribes (Cragmaws) and orchestrated the capture of Gundren Rockseeker. He is searching Wave Echo Cave for the Forge of Spells to craft powerful magic items. He is found in Area 19 (Temple of Dumathoin) with two giant spiders and up to four bugbears.",
+      "quest_giver": "Story-driven / Gundren Rockseeker / Sildar Hallwinter",
+      "objectives": [
+        "Reach Nezznar's position in Wave Echo Cave (Area 19)",
+        "Defeat or capture Nezznar and his minions (2 giant spiders, up to 4 bugbears)",
+        "Prevent the Black Spider from controlling the Forge of Spells"
+      ],
+      "rewards": "Nezznar's XP value (double if captured alive); spider staff, potion of healing, iron key to Area 20; Nezznar's treasure sack (190 ep, 130 gp, 15 pp, nine gemstones worth 10 gp each, electrum ale mug worth 100 gp)",
+      "location": "Wave Echo Cave, Area 19 (Temple of Dumathoin)",
+      "status": "available",
+      "part": "Part 4: Wave Echo Cave"
+    },
+    "Rescue Nundro Rockseeker": {
+      "description": "Nundro Rockseeker, the youngest of the three Rockseeker brothers, is held prisoner by Nezznar in Area 20 (Priests' Quarters) of Wave Echo Cave. The door is locked (DC 15 Dexterity with thieves' tools). Nezznar has been interrogating Nundro harshly, trying to learn more about the mine. Tharden, the other brother, was killed and his body lies at the cave entrance (Area 1).",
+      "quest_giver": "Gundren Rockseeker / Story-driven",
+      "objectives": [
+        "Find Nundro in the locked Priests' Quarters (Area 20)",
+        "Obtain the key from Nezznar or pick the lock",
+        "Free Nundro and ensure his safety"
+      ],
+      "rewards": "200 XP if Nundro is rescued and survives the adventure",
+      "location": "Wave Echo Cave, Area 20 (Priests' Quarters)",
+      "status": "hidden",
+      "part": "Part 4: Wave Echo Cave"
+    },
+    "Find the Forge of Spells": {
+      "description": "The Forge of Spells (Area 15) is the legendary workshop where human wizards, allied with the dwarves and gnomes of the Phandelver's Pact, used powerful magic to enchant weapons and armor. The forge's power has waned but its brazier of green flame can still temporarily enchant weapons and armor (+1 for 1d12 hours). A deranged spectator guards the forge and its remaining treasures: Lightbringer and Dragonguard.",
+      "quest_giver": "Story-driven / Historical lore",
+      "objectives": [
+        "Navigate through Wave Echo Cave to find the Forge of Spells",
+        "Deal with the spectator guardian (defeat, trick with DC 15 Deception, or blind it)",
+        "Recover Lightbringer (+1 mace) and Dragonguard (+1 breastplate)",
+        "Optionally use the brazier to temporarily enchant equipment"
+      ],
+      "rewards": "Lightbringer (+1 mace, extra 1d6 radiant vs undead, glows like torch on command); Dragonguard (+1 breastplate, advantage on saves vs dragon breath); temporary +1 enchantment from brazier",
+      "location": "Wave Echo Cave, Area 15 (Forge of Spells)",
+      "status": "hidden",
+      "part": "Part 4: Wave Echo Cave"
+    },
+    "Mormesk the Wraith's Bargain": {
+      "description": "The wraith Mormesk haunts the Wizards' Quarters (Area 14) of Wave Echo Cave, guarding treasure he amassed in life. He leads the undead of the cave. Mormesk can be negotiated with if offered something valuable (magic items, scrolls, spellbooks) -- he will trade access to his treasure and books in exchange for the party killing the spectator in Area 15. His books contain a map to a dungeon that can serve as a future adventure hook.",
+      "quest_giver": "Mormesk the Wraith",
+      "objectives": [
+        "Negotiate with Mormesk by offering a magic gift (DC 10 Persuasion to convince him of its value)",
+        "Kill the spectator in the Forge of Spells (Area 15) per Mormesk's request",
+        "Search his books for the hidden map (DC 12 Investigation)"
+      ],
+      "rewards": "Access to Mormesk's treasure (1,100 cp, 160 sp, 50 ep, three diamonds worth 100 gp each); map to future adventure dungeon in a preserved tome",
+      "location": "Wave Echo Cave, Area 14 (Wizards' Quarters)",
+      "status": "hidden",
+      "part": "Part 4: Wave Echo Cave"
+    },
+    "Carp's Secret Tunnel": {
+      "description": "Carp Alderleaf, the spirited 10-year-old son of Qelline Alderleaf, discovered a secret tunnel near Tresendar Manor while playing in the woods. He saw 'big ugly bandits' emerge from it and meet with Redbrands. The tunnel leads directly to Area 8 of the Redbrand Hideout, providing an alternative entrance that bypasses the main stronghold.",
+      "quest_giver": "Carp Alderleaf (via Pip at Stonehill Inn, or directly from Qelline)",
+      "objectives": [
+        "Speak with Carp Alderleaf about the secret tunnel",
+        "Use the tunnel to infiltrate the Redbrand Hideout (leads to Area 8)"
+      ],
+      "rewards": "Tactical advantage -- secret entrance to the Redbrand Hideout",
+      "location": "Woods near Tresendar Manor, Phandalin",
+      "status": "available",
+      "part": "Part 2: Phandalin"
+    },
+    "Deal with the Thundertree Cultists": {
+      "description": "A group of cultists led by Favric have come to the ruins of Thundertree (Area 13) to treat with the green dragon Venomfang. Favric has a coffer of tribute (three diamonds worth 100 gp each) and a potion of flying. If the characters express interest in the dragon, Favric proposes an alliance but secretly plans to offer them to the dragon as tribute.",
+      "quest_giver": "Discovered during Thundertree exploration",
+      "objectives": [
+        "Discover the cultists in Thundertree",
+        "Defeat or drive away the cultists",
+        "Optionally prevent them from allying with Venomfang"
+      ],
+      "rewards": "150 XP; three diamonds (100 gp each); potion of flying from Favric",
+      "location": "Ruins of Thundertree, Area 13",
+      "status": "hidden",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Faction Recruitment - Harpers": {
+      "description": "If the party helps Sister Garaele complete the Banshee's Bargain quest and learns the fate of Bowgentle's spellbook, Garaele privately approaches party members who exemplify the Harpers' values (equality, opposing abuse of power, aiding the oppressed) and urges them to join the Harpers.",
+      "quest_giver": "Sister Garaele",
+      "objectives": [
+        "Complete the Banshee's Bargain quest",
+        "Accept Sister Garaele's invitation to join the Harpers"
+      ],
+      "rewards": "Title of Watcher in the Harpers",
+      "location": "Shrine of Luck, Phandalin",
+      "status": "hidden",
+      "part": "Part 2 / Part 3"
+    },
+    "Faction Recruitment - Order of the Gauntlet": {
+      "description": "If the party deals with the Redbrands and investigates Old Owl Well, Daran Edermath privately approaches party members who exemplify the Order's virtues (honor, vigilance) and urges them to join the Order of the Gauntlet.",
+      "quest_giver": "Daran Edermath",
+      "objectives": [
+        "Deal with the Redbrands in Phandalin",
+        "Investigate Old Owl Well",
+        "Accept Daran's invitation to join the Order of the Gauntlet"
+      ],
+      "rewards": "Title of Chevall in the Order of the Gauntlet",
+      "location": "Edermath Orchard, Phandalin",
+      "status": "hidden",
+      "part": "Part 2 / Part 3"
+    },
+    "Faction Recruitment - Lords' Alliance": {
+      "description": "If the party eliminates the goblin threat from Cragmaw Castle or uncovers Iarno's treachery, Sildar Hallwinter privately approaches party members who desire security of civilization through action and urges them to join the Lords' Alliance.",
+      "quest_giver": "Sildar Hallwinter",
+      "objectives": [
+        "Eliminate the Cragmaw Castle goblin threat OR uncover Iarno's treachery",
+        "Accept Sildar's invitation to join the Lords' Alliance"
+      ],
+      "rewards": "Title of Cloak in the Lords' Alliance",
+      "location": "Townmaster's Hall, Phandalin",
+      "status": "hidden",
+      "part": "Part 2 / Part 3"
+    },
+    "Faction Recruitment - Zhentarim": {
+      "description": "If the party disposes of the Redbrand leader (Glasstaff), Halia Thornton approaches party members who share the Zhentarim's pursuits (wealth and power) and urges them to join the Zhentarim. Even if the party wipes out the entire Redbrand gang, Halia might extend the offer to gain friends and spies within the party.",
+      "quest_giver": "Halia Thornton",
+      "objectives": [
+        "Eliminate Glasstaff (Iarno Albrek)",
+        "Accept Halia's invitation to join the Zhentarim"
+      ],
+      "rewards": "Title of Fang in the Zhentarim",
+      "location": "Phandalin Miner's Exchange, Phandalin",
+      "status": "hidden",
+      "part": "Part 2 / Part 3"
+    },
+    "Faction Recruitment - Emerald Enclave": {
+      "description": "If the party helps Reidoth by driving off Venomfang from Thundertree, the druid privately approaches party members who exemplify protecting the natural order and urges them to join the Emerald Enclave.",
+      "quest_giver": "Reidoth the Druid",
+      "objectives": [
+        "Drive off Venomfang from Thundertree",
+        "Accept Reidoth's invitation to join the Emerald Enclave"
+      ],
+      "rewards": "Title of Springwarden in the Emerald Enclave",
+      "location": "Ruins of Thundertree",
+      "status": "hidden",
+      "part": "Part 3: The Spider's Web"
+    },
+    "The Black Spider's Letter": {
+      "description": "In Glasstaff's quarters (Area 12 of the Redbrand Hideout), the characters find a letter from the Black Spider ordering Iarno to capture or kill strangers arriving in Phandalin who might be working for the dwarves, and to deliver any dwarven maps. This reveals the Black Spider's identity as an organized villain and connects the Redbrands to the larger plot.",
+      "quest_giver": "Discovered in Glasstaff's quarters",
+      "objectives": [
+        "Find the Black Spider's letter in Glasstaff's quarters",
+        "Learn about the conspiracy connecting the Redbrands, Cragmaw goblins, and the Black Spider"
+      ],
+      "rewards": "Key plot information connecting the adventure threads; evidence of Iarno's betrayal",
+      "location": "Redbrand Hideout, Area 12 (Glasstaff's Quarters)",
+      "status": "hidden",
+      "part": "Part 2: Phandalin"
+    },
+    "Bowgentle's Spellbook": {
+      "description": "The Harpers want to know the location of a spellbook belonging to the legendary mage Bowgentle. Agatha the banshee knows the answer: she traded it to a necromancer named Tsernoth from the city of Iriaebor more than a hundred years ago. This information allows the Harpers to continue their search.",
+      "quest_giver": "Sister Garaele / The Harpers",
+      "objectives": [
+        "Ask Agatha about the spellbook's location",
+        "Learn that it was traded to Tsernoth of Iriaebor",
+        "Report back to Sister Garaele"
+      ],
+      "rewards": "Three potions of healing; 200 XP; Harper membership opportunity",
+      "location": "Agatha's Lair, near Conyberry",
+      "status": "available",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Claim Wave Echo Cave": {
+      "description": "The ultimate conclusion of the adventure. With the Black Spider defeated, the mine cleared of monsters, and the Rockseeker brothers rescued, the adventurers help establish the mine under Gundren and Nundro's administration. The restored mines will bring great riches to Phandalin and help establish peace and prosperity in the area.",
+      "quest_giver": "Gundren Rockseeker",
+      "objectives": [
+        "Defeat the Black Spider in Wave Echo Cave",
+        "Clear the mine of remaining threats",
+        "Rescue both surviving Rockseeker brothers",
+        "Secure the Forge of Spells"
+      ],
+      "rewards": "10% share of the mine's profits; permanent warm welcome in Phandalin; characters reach 5th level; option to restore Tresendar Manor or establish homes",
+      "location": "Wave Echo Cave / Phandalin",
+      "status": "available",
+      "part": "Part 4: Conclusion"
+    },
+    "The Hobgoblin Bounty": {
+      "description": "The Black Spider has placed a bounty on the adventurers. Hobgoblin patrols in the Triboar Trail area carry a crude sketch of one party member with '25 gold pieces for this one' and a black spider symbol. This is encountered as a wilderness random encounter.",
+      "quest_giver": "Discovered during wilderness travel",
+      "objectives": [
+        "Survive or defeat hobgoblin bounty hunters",
+        "Learn about the Black Spider's bounty on the party"
+      ],
+      "rewards": "XP from defeating hobgoblins; knowledge that the Black Spider is actively hunting the party",
+      "location": "Triboar Trail wilderness",
+      "status": "hidden",
+      "part": "Part 3: The Spider's Web"
+    },
+    "Agatha's Question": {
+      "description": "The banshee Agatha is a powerful diviner who will answer exactly one question if properly approached with respect and flattery (and ideally Sister Garaele's silver comb). While the default question is about Bowgentle's spellbook, the characters can ask about anything: the location of Cragmaw Castle, Wave Echo Cave, the identity of the Black Spider, or Hamun Kost's question about Old Owl Well's builder.",
+      "quest_giver": "Agatha the Banshee / Sister Garaele",
+      "objectives": [
+        "Present a gift and be respectful to Agatha",
+        "Ask one question (DC 15 Persuasion, auto-success with comb)",
+        "Choose wisely - only one question allowed"
+      ],
+      "rewards": "Answer to one question about any adventure topic; 200 XP",
+      "location": "Agatha's Lair, Neverwinter Wood near Conyberry",
+      "status": "available",
+      "part": "Part 3: The Spider's Web"
+    }
+  }
+}

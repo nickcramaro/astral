@@ -1,0 +1,63 @@
+# Chunk 119 of 140
+---
+
+For example, a chaotic evil creature might be difficult to 
+reason with and might attack characters on sight, whereas 
+a neutral creature might be willing to negotiate. Alignment 
+indicates whether a creature leans toward law or chaos 
+and good or evil or whether a creature is neutral. 
+
+Any Alignment Some creatures, such as the warrior, 
+can have any alignment. In other words, you choose the 
+creature’s alignment. Depending on the creature, its 
+alignment entry might indicate a tendency or aversion 
+toward law, chaos, good, or evil. 
+
+Unaligned. Many creatures of low intelligence have no 
+comprehension of law or chaos, good or evil. They don’t 
+make moral or ethical choices, but rather act on instinct. 
+These creatures are unaligned, which means they don’t 
+have an alignment. 
+
+Armor Glass 
+
+A creature that wears armor or carries a shield has an AC 
+that takes its armor, shield, and Dexterity into account. 
+Otherwise, a creature’s AC is based on its Dexterity 
+modifier and any natural armor or supernatural resilience 
+it might possess. 
+
+If a creature wears armor or carries a shield, the kind of 
+armor it wears or shield it carries is noted in parentheses 
+after its AC value. 
+
+Hit Points 
+
+A creature usually dies or is destroyed when its hit points 
+drop to 0. For more on hit points, see the rulebook. 
+
+Speed 
+
+A creature’s speed tells you how far it can move on its turn. 
+For more information on speed, see the rulebook. 
+
+All creatures have a walking speed; creatures that 
+have no form of ground-based locomotion have a 
+speed of 0 feet. 
+
+Many of the creatures herein have one or more 
+additional movement modes. 
+
+Climb. A creature that has a climbing speed can use all 
+or part of its movement to move on vertical surfaces. The 
+creature doesn’t need to spend extra movement to climb. 
+
+Fly. A creature that has a flying speed can use all or part 
+of its movement to fly. If the creature is incapacitated or 
+knocked prone while flying, it falls unless it can hover. 
+
+Swim. A creature that has a swimming speed doesn’t 
+need to spend extra movement to swim. 
+
+
+54APPENDIX B:

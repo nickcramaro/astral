@@ -1,0 +1,109 @@
+# Chunk 101 of 140
+---
+
+The drow is searching for the Forge of Spells, where 
+the human mages of old Phandalin enchanted dwarven 
+weapons and gnome gadgets. However, Nezznar’s 
+exploration has been hindered by the restless undead and 
+dangerous monsters that lurk in Wave Echo Cave, forcing 
+him to proceed with great caution. 
+
+The adventurers now have the chance to aid Gundren, 
+avenge his kin, and put a stop to the nefarious schemes 
+of the Black Spider. And of course, the hoard of powerful 
+magic rumored to be hidden in the mines is a rich prize. 
+
+Character Level 
+
+This part of the adventure is designed for characters of 
+at least 4th level and assumes that each character has 
+earned at least 2,700 XP. If the adventurers skipped too 
+many of the optional investigations and encounters in part 
+3, they might not be 4th level, and many of the encounters 
+in this section might be difficult for them. 
+
+Experience Point Awards 
+
+In this part of the adventure, XP is awarded for 
+overcoming monsters, as in parts 2 and 3. However, 
+
+XP awards for monsters is not given in the encounter 
+description. Instead, the amount of XP that a monster 
+is worth is noted in its stat block (see appendix B). You 
+calculate the award by totaling the value for each monster 
+the characters overcome. Additional XP awards, and the 
+reasons for them, are described in the text, under the 
+“Awarding Experience Points” heading. 
+
+Wandering Monsters 
+
+Monsters roam through all areas of the mine. Random 
+encounters remind players that monsters aren’t 
+
+
+necessarily confined to specific areas, and that no part of 
+the dungeon is safe. Encounters with wandering monsters 
+are an effective way to keep the players and characters 
+on their toes, alleviate player boredom, and tax party 
+resources. However, having too many random encounters 
+can become tedious, so use them sparingly. 
+
+If the characters spend a long time in a given area, you 
+can check for wandering monsters by rolling a d20. On a 
+roll of 17-20, an encounter takes place. Conversely, if the 
+players seem restless, you can decide that an encounter 
+occurs. Roll a dl2 and consult the Wandering Monsters 
+table to determine what the party meets. 
+
+
+Wandering Monsters 
+
+
+d!2 Roll 
+
+Result 
+
+1-3 
+
+Stirges (2d4) 
+
+4-5 
+
+Ghouls (ld4) 
+
+6 
+
+Gricks (ld4) 
+
+7-8 
+
+Bugbears (ld4) 
+
+9 
+
+Skeletons (ld6) 
+
+10 
+
+Zombies (1 d6) 
+
+11-12 
+
+Ochre Jelly (1) 
+
+
+General Features 
+
+The mine is cold, damp, and surprisingly drafty. A 
+noticeable breeze blows through many of its passages, 
+flowing from area 1 toward area 16. 
+
+Ceilings . Tunnels are 10 feet high unless noted 
+otherwise. Rooms have 20-foot-high ceilings, while 
+natural caverns have 30-foot-high ceilings dotted 
+with stalactites. 
+
+Doors . Unless noted otherwise, all doors are 6 feet tall, 
+4 feet wide, and made of six-inch-thick cut slabs of stone 
+fitted with iron handles and hinges. The doors are low and 
+wide— perfect for dwarves.

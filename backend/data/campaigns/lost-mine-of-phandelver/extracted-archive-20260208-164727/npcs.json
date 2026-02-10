@@ -1,0 +1,589 @@
+{
+  "npcs": {
+    "Gundren Rockseeker": {
+      "description": "A dwarf prospector and patron who hired the adventurers. Excited and secretive about his discovery of Wave Echo Cave. One of three Rockseeker brothers who found the entrance to the lost mine. Captured by Cragmaw goblins on orders from the Black Spider.",
+      "location": "Cragmaw Castle (captured), later Phandalin",
+      "attitude": "friendly",
+      "events": [],
+      "quests": ["Escort wagon to Phandalin", "Rescue from Cragmaw Castle", "Reclaim Wave Echo Cave"],
+      "tags": {
+        "race": "dwarf",
+        "role": "quest giver, patron",
+        "faction": "Rockseeker brothers"
+      }
+    },
+    "Sildar Hallwinter": {
+      "description": "A kindhearted human male of nearly fifty years who holds a place of honor in the famous griffon cavalry of the great city of Waterdeep. An agent of the Lords' Alliance concerned with mutual security and prosperity. Captured alongside Gundren by goblins and held prisoner in the Cragmaw Hideout at 1 HP.",
+      "location": "Cragmaw Hideout (captured), then Phandalin (Townmaster's Hall)",
+      "attitude": "friendly",
+      "events": [],
+      "quests": ["Finding Iarno Albrek", "Finding Cragmaw Castle", "Rescue Gundren Rockseeker"],
+      "tags": {
+        "race": "human",
+        "role": "warrior, agent",
+        "faction": "Lords' Alliance"
+      }
+    },
+    "Nezznar the Black Spider": {
+      "description": "A drow (dark elf) adventurer and the main villain. Controls a network of bandit gangs and goblin tribes. Uses the Cragmaw goblins and Redbrands to keep Wave Echo Cave's location secret. Dressed in black leather armor and robes, he clutches a black staff with a carved spider at the top. Curious about his enemies but utterly treacherous. Will say or do anything to put characters off guard.",
+      "location": "Wave Echo Cave (Temple of Dumathoin, area 19)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": ["Stop the Black Spider"],
+      "tags": {
+        "race": "drow",
+        "role": "main villain, mage",
+        "faction": "Independent"
+      }
+    },
+    "Iarno Albrek": {
+      "description": "A short, dark-bearded human wizard in his thirties, also known as Glasstaff. A former member of the Lords' Alliance who was sent to Phandalin to establish order but instead created the Redbrands gang for personal profit. He carries a glass staff (staff of defense) and wears a princely mantle of ermine. Puts on airs of gentility, addressing ruffians as 'my good gentlemen' and referring to kidnapping as 'that unpleasant little business.' Beneath his genteel demeanor, he is thuggish and arrogant. Values his life above all else.",
+      "location": "Redbrand Hideout (area 12, Glasstaff's Quarters) under Tresendar Manor, Phandalin",
+      "attitude": "hostile",
+      "events": [],
+      "quests": ["Finding Iarno (given by Sildar)", "Halia's Job Offer (eliminate Glasstaff)"],
+      "tags": {
+        "race": "human",
+        "role": "villain, wizard, Redbrand leader",
+        "alias": "Glasstaff",
+        "faction": "Redbrands (leader), formerly Lords' Alliance"
+      }
+    },
+    "Toblen Stonehill": {
+      "description": "A short, friendly young human male innkeeper. Native of the town of Triboar to the east. Came to Phandalin to prospect but realized he knew more about running an inn than mining. Upset that the Redbrands terrorize the town and that Harbin Wester has done nothing, but tries not to stir up trouble for fear of retaliation against his wife and children.",
+      "location": "Stonehill Inn, Phandalin",
+      "attitude": "friendly",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "innkeeper"
+      }
+    },
+    "Trilena Stonehill": {
+      "description": "The innkeeper Toblen's wife. A gossip who shares information about the Redbrands' murder of Thel Dendrar the woodcarver and the disappearance of his family.",
+      "location": "Stonehill Inn, Phandalin",
+      "attitude": "friendly",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "innkeeper's wife, rumor source"
+      }
+    },
+    "Pip Stonehill": {
+      "description": "Toblen's young son at the Stonehill Inn. Shares the rumor about Carp Alderleaf finding a secret tunnel in the woods near Tresendar Manor.",
+      "location": "Stonehill Inn, Phandalin",
+      "attitude": "friendly",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "child, rumor source"
+      }
+    },
+    "Elmar Barthen": {
+      "description": "A lean and balding human male shopkeeper of fifty years with a kindly manner. Proprietor of Barthen's Provisions, the biggest trading post in Phandalin. Considers Gundren Rockseeker a friend. Pays the adventurers for delivering supplies. Knows about the Rockseeker brothers but not their fate.",
+      "location": "Barthen's Provisions, Phandalin",
+      "attitude": "friendly",
+      "events": [],
+      "quests": ["Deliver wagon to Barthen's Provisions"],
+      "tags": {
+        "race": "human",
+        "role": "shopkeeper"
+      }
+    },
+    "Ander": {
+      "description": "A young clerk who works at Barthen's Provisions, helping load and unload wagons and waiting on customers.",
+      "location": "Barthen's Provisions, Phandalin",
+      "attitude": "neutral",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "unknown",
+        "role": "shop clerk"
+      }
+    },
+    "Thistle": {
+      "description": "A young clerk who works at Barthen's Provisions, helping load and unload wagons and waiting on customers.",
+      "location": "Barthen's Provisions, Phandalin",
+      "attitude": "neutral",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "unknown",
+        "role": "shop clerk"
+      }
+    },
+    "Daran Edermath": {
+      "description": "A fit, silver-haired half-elf well over a hundred years old. A retired adventurer and fighter who served as a marshal and herald for many years in the lands of the Dragon Coast. Lives in a tidy little cottage beside an apple orchard. A member of the Order of the Gauntlet. Concerned about the Redbrands and wants adventurers to deal with them. Happy to trade news with fellow adventurers.",
+      "location": "Edermath Orchard, Phandalin",
+      "attitude": "friendly",
+      "events": [],
+      "quests": ["Old Owl Trouble (investigate ruins at Old Owl Well)"],
+      "tags": {
+        "race": "half-elf",
+        "role": "retired adventurer, quest giver",
+        "faction": "Order of the Gauntlet"
+      }
+    },
+    "Linene Graywind": {
+      "description": "A sharp-tongued human woman of thirty-five. Master of the Phandalin Lionshield Coster trading post. Knows that bandits have raided Lionshield caravans but doesn't know who is responsible. Has scruples and won't sell weapons to anyone she thinks might be a threat to the town, including the Redbrands. Keeps a supply of armor and weapons in a back room.",
+      "location": "Lionshield Coster, Phandalin",
+      "attitude": "neutral",
+      "events": [],
+      "quests": ["Return stolen Lionshield goods (50 gp reward)"],
+      "tags": {
+        "race": "human",
+        "role": "merchant, trading post master",
+        "faction": "Lionshield Coster"
+      }
+    },
+    "Halia Thornton": {
+      "description": "An ambitious and calculating human woman. Guildmaster of the Phandalin Miner's Exchange. Acts as more than a simple merchant, working to bring Phandalin under her control. A secret agent of the Zhentarim, a powerful organization that seeks to exert secret control over the North through wealth and influence. Wants to take over the Redbrand operation herself. Offers 100 gp to eliminate Glasstaff.",
+      "location": "Phandalin Miner's Exchange, Phandalin",
+      "attitude": "neutral",
+      "events": [],
+      "quests": ["Halia's Job Offer (eliminate Glasstaff, 100 gp reward)"],
+      "tags": {
+        "race": "human",
+        "role": "guildmaster, spy",
+        "faction": "Zhentarim"
+      }
+    },
+    "Qelline Alderleaf": {
+      "description": "A wise female halfling of forty-five. A pragmatic farmer who seems to know everything that goes on in town. A kind host willing to let characters stay in her hayloft. A longtime friend of the druid Reidoth. Suggests the characters consult Reidoth about Cragmaw Castle or Wave Echo Cave.",
+      "location": "Alderleaf Farm, Phandalin",
+      "attitude": "friendly",
+      "events": [],
+      "quests": ["Reidoth the Druid (seek out Reidoth in Thundertree)"],
+      "tags": {
+        "race": "halfling",
+        "role": "farmer, quest giver"
+      }
+    },
+    "Carp Alderleaf": {
+      "description": "Qelline's son. A spirited and precocious halfling lad of ten years, enchanted by the idea of being an adventurer. Found a secret tunnel in the woods near Tresendar Manor that leads into the Redbrand hideout. Can lead characters to the tunnel or provide directions.",
+      "location": "Alderleaf Farm, Phandalin",
+      "attitude": "friendly",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "halfling",
+        "role": "child, information source"
+      }
+    },
+    "Sister Garaele": {
+      "description": "A scholarly acolyte and zealous young elf who despairs of ever ridding Phandalin of the Redbrands. Caretaker of the Shrine of Luck (dedicated to Tymora, goddess of luck). A member of the Harpers, a scattered network of adventurers and spies who advocate equality and covertly oppose the abuse of power. Recently attempted to visit the banshee Agatha but failed.",
+      "location": "Shrine of Luck, Phandalin",
+      "attitude": "friendly",
+      "events": [],
+      "quests": ["The Banshee's Bargain (persuade Agatha to answer a question about Bowgentle's spellbook, reward: 3 potions of healing)"],
+      "tags": {
+        "race": "elf",
+        "role": "acolyte, quest giver",
+        "faction": "Harpers"
+      }
+    },
+    "Harbin Wester": {
+      "description": "A fat, pompous old fool. A male human banker who serves as the current townmaster of Phandalin. Completely intimidated by the Redbrands, claiming they're 'just a mercenary guild, and not all that much trouble, really.' Keeps a small jail in the cellar of the townmaster's hall.",
+      "location": "Townmaster's Hall, Phandalin",
+      "attitude": "neutral",
+      "events": [],
+      "quests": ["Orc Trouble (deal with orcs near Wyvern Tor, 100 gp reward)"],
+      "tags": {
+        "race": "human",
+        "role": "townmaster, banker"
+      }
+    },
+    "Grista": {
+      "description": "A surly female dwarf who operates the Sleeping Giant tap house, a dirty and dangerous watering hole frequented by Redbrand thugs.",
+      "location": "Sleeping Giant tap house, Phandalin",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "dwarf",
+        "role": "tavern keeper"
+      }
+    },
+    "Narth": {
+      "description": "An old farmer found at the Stonehill Inn who shares rumors about Sister Garaele's recent trip and return in a wounded and exhausted state.",
+      "location": "Stonehill Inn, Phandalin",
+      "attitude": "neutral",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "farmer, rumor source"
+      }
+    },
+    "Elsa": {
+      "description": "A gossipy barmaid at the Stonehill Inn who shares rumors about Daran Edermath being a former adventurer.",
+      "location": "Stonehill Inn, Phandalin",
+      "attitude": "neutral",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "barmaid, rumor source"
+      }
+    },
+    "Lanar": {
+      "description": "A miner at the Stonehill Inn who shares rumors about orc raiders on the east end of Triboar Trail.",
+      "location": "Stonehill Inn, Phandalin",
+      "attitude": "neutral",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "miner, rumor source"
+      }
+    },
+    "Freda": {
+      "description": "A weaver at the Stonehill Inn who shares rumors that the Redbrands hassle every business in town except the Phandalin Miner's Exchange, because they don't want trouble with Halia Thornton.",
+      "location": "Stonehill Inn, Phandalin",
+      "attitude": "neutral",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "weaver, rumor source"
+      }
+    },
+    "Thel Dendrar": {
+      "description": "A local woodcarver in Phandalin who stood up to the Redbrands a tenday ago when they leered at his wife. The ruffians murdered him. His body was left in the crevasse of the Redbrand Hideout for the nothic to feed on.",
+      "location": "Redbrand Hideout (crevasse, area 8) - deceased",
+      "attitude": "friendly",
+      "events": ["Murdered by Redbrands"],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "woodcarver (deceased)"
+      }
+    },
+    "Mirna Dendrar": {
+      "description": "Wife of the murdered woodcarver Thel Dendrar. Captured by the Redbrands along with her two children and held in slave pens in the Redbrand Hideout. Knows the location of a valuable emerald necklace hidden in her family's old herb and alchemy shop in Thundertree.",
+      "location": "Redbrand Hideout (slave pens, area 5)",
+      "attitude": "friendly",
+      "events": ["Captured by Redbrands with children"],
+      "quests": ["Mirna's Heirloom (find emerald necklace in Thundertree herb shop, 200 gp value)"],
+      "tags": {
+        "race": "human",
+        "role": "prisoner, quest giver"
+      }
+    },
+    "Nars Dendrar": {
+      "description": "Thirteen-year-old son of Thel and Mirna Dendrar. Captured by Redbrands and held in slave pens in the Redbrand Hideout.",
+      "location": "Redbrand Hideout (slave pens, area 5)",
+      "attitude": "friendly",
+      "events": ["Captured by Redbrands"],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "prisoner, child"
+      }
+    },
+    "Nilsa Dendrar": {
+      "description": "Eighteen-year-old daughter of Thel and Mirna Dendrar. Captured by Redbrands and held in slave pens in the Redbrand Hideout.",
+      "location": "Redbrand Hideout (slave pens, area 5)",
+      "attitude": "friendly",
+      "events": ["Captured by Redbrands"],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "prisoner, teenager"
+      }
+    },
+    "Klarg": {
+      "description": "A bugbear who leads the Cragmaw bandits at the Cragmaw Hideout. Filled with delusions of grandeur and views himself as a mighty warlord just beginning his career of conquest. Not entirely sane, refers to himself in the third person ('Who dares defy Klarg?' or 'Klarg will build a throne from your bones, puny ones!'). Has a mangy pet wolf named Ripper. Has orders from the Cragmaw chief to plunder caravans and was specifically ordered to waylay Gundren Rockseeker.",
+      "location": "Cragmaw Hideout (Klarg's Cave, area 8)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "bugbear",
+        "role": "bandit leader",
+        "faction": "Cragmaw tribe"
+      }
+    },
+    "Yeemik": {
+      "description": "A goblin leader with 12 hit points who is second-in-command of the Cragmaw Hideout. Wants to oust Klarg and become the new boss. Will use Sildar Hallwinter as a hostage to negotiate. Untrustworthy - even if characters kill Klarg for him, he'll try to extort a ransom for Sildar. Carries a pouch with three gold teeth and 15 sp.",
+      "location": "Cragmaw Hideout (Goblin Den, area 6)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "goblin",
+        "role": "second-in-command",
+        "faction": "Cragmaw tribe"
+      }
+    },
+    "Ripper": {
+      "description": "Klarg's mangy pet wolf that shares his cave in the Cragmaw Hideout.",
+      "location": "Cragmaw Hideout (Klarg's Cave, area 8)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "wolf",
+        "role": "pet"
+      }
+    },
+    "Droop": {
+      "description": "A pathetic goblin bullied by the bugbears in the Redbrand Hideout. Falls unconscious at the sight of the party. A coward who fights with disadvantage if ordered to do so. Knows the general layout of the hideout including secret doors and traps. Doesn't remember the route to Cragmaw Castle but knows it's north in the forest. Can be kept as an NPC party member.",
+      "location": "Redbrand Hideout (Guard Barracks, area 9)",
+      "attitude": "neutral",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "goblin",
+        "role": "slave, potential ally"
+      }
+    },
+    "Mosk": {
+      "description": "A bugbear and leader of the three bugbears stationed in the Redbrand Hideout. Sent by the Black Spider to help Iarno keep the Redbrands and citizens in line. Wears a jeweled eye patch even though he has both his eyes because he thinks it's fancy. Carries an iron key that locks and unlocks all doors in the hideout.",
+      "location": "Redbrand Hideout (Guard Barracks, area 9)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "bugbear",
+        "role": "enforcer",
+        "faction": "Black Spider's agents"
+      }
+    },
+    "Agatha": {
+      "description": "A banshee who lairs in the forest near the ruined town of Conyberry. Once a powerful elf, now an undead spirit. Vain and dangerous, but can be persuaded to answer one question if treated with respect and flattery. Automatically cooperative if presented with Sister Garaele's jeweled silver comb. Traded Bowgentle's spellbook to a necromancer named Tsernoth from Iriaebor over a hundred years ago. Can answer almost any question about the adventure.",
+      "location": "Agatha's Lair, near Conyberry (Neverwinter Wood)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": ["The Banshee's Bargain (ask about Bowgentle's spellbook)"],
+      "tags": {
+        "race": "elf (banshee)",
+        "role": "oracle, undead"
+      }
+    },
+    "Hamun Kost": {
+      "description": "A Red Wizard of Thay. A stout, red-robed figure with sallow skin, a shaved scalp, and a black necromantic tattoo on his forehead. Not particularly aggressive, willing to strike deals. Has twelve zombies guarding his camp at Old Owl Well. Exploring the ruins hoping to glean arcane lore. Wants the orcs at Wyvern Tor removed and wants to know who built the tower at Old Owl Well (answer: Arthindol).",
+      "location": "Old Owl Well",
+      "attitude": "neutral",
+      "events": [],
+      "quests": ["Remove orcs at Wyvern Tor", "Ask Agatha about Old Owl Well's builder"],
+      "tags": {
+        "race": "human",
+        "role": "evil mage, necromancer",
+        "faction": "Red Wizards of Thay"
+      }
+    },
+    "Reidoth": {
+      "description": "A gaunt, white-bearded human druid who doesn't use two words when one will do. Visits Thundertree from time to time, keeping a wary eye on its dangers. A member of the Emerald Enclave. Reasonably hospitable despite few visitors. Placed a warning sign outside Thundertree. Knows the location of Cragmaw Castle and will provide directions. Knows the location of Wave Echo Cave but will only reveal it if the party drives off Venomfang the dragon. Can transform into a gray squirrel to escape if attacked.",
+      "location": "Druid's Watch (area 4), Ruins of Thundertree",
+      "attitude": "friendly",
+      "events": [],
+      "quests": ["Drive off Venomfang in exchange for Wave Echo Cave location"],
+      "tags": {
+        "race": "human",
+        "role": "druid, guide",
+        "faction": "Emerald Enclave"
+      }
+    },
+    "Venomfang": {
+      "description": "A young green dragon who has recently claimed the tower in Thundertree as his lair. Killed the giant spiders that formerly inhabited the tower. Greedily admires his hoard of treasure. Does not want to give up his lair but will flee if reduced to half hit points, climbing to the top of the tower and flying away.",
+      "location": "Dragon's Tower (area 7), Ruins of Thundertree",
+      "attitude": "hostile",
+      "events": [],
+      "quests": ["Drive off Venomfang (for Reidoth)"],
+      "tags": {
+        "race": "green dragon (young)",
+        "role": "dragon, territorial predator"
+      }
+    },
+    "Favric": {
+      "description": "An evil and ambitious young human man who leads a group of six Cult of the Dragon cultists in Thundertree. Wears a black cloak cut to resemble dragon wings and a black leather mask with stylized dragon horns. Hopes to rise quickly through cult ranks by earning the allegiance of Venomfang. His fellow cultists lack his ambition and will flee if he is captured or killed. Speaks Common and Draconic.",
+      "location": "Dragon Cultists' Farmhouse (area 13), Ruins of Thundertree",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "cult leader",
+        "faction": "Cult of the Dragon"
+      }
+    },
+    "King Grol": {
+      "description": "A fierce old bugbear with 45 hit points who rules the Cragmaw tribe through pure intimidation. Age has stooped his shoulders and hunched his back, but he remains surprisingly agile and strong. Demanding and vindictive, no Cragmaw dares cross him. Attended by a wolf named Snarl. Currently negotiating with Vyerith (a doppelganger disguised as a drow) over Gundren Rockseeker's map to Wave Echo Cave - wants to sell it rather than surrender it.",
+      "location": "Cragmaw Castle (King's Quarters, area 14)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": ["Defeat or drive off the Cragmaw chieftain (500 gp from Sildar)"],
+      "tags": {
+        "race": "bugbear",
+        "role": "chieftain",
+        "faction": "Cragmaw tribe"
+      }
+    },
+    "Snarl": {
+      "description": "King Grol's wolf companion with 18 hit points, attending him in his quarters at Cragmaw Castle.",
+      "location": "Cragmaw Castle (King's Quarters, area 14)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "wolf",
+        "role": "pet"
+      }
+    },
+    "Vyerith": {
+      "description": "A doppelganger disguised as a female drow. A messenger from the Black Spider sent to collect Gundren Rockseeker and the map of Wave Echo Cave from King Grol. Intends to question Gundren, then kill the dwarf and destroy the map. Fights to the death rather than be captured. If Grol is killed, tries to kill Gundren and flee with the map.",
+      "location": "Cragmaw Castle (King's Quarters, area 14)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "doppelganger",
+        "role": "spy, assassin",
+        "faction": "Black Spider's agents"
+      }
+    },
+    "Yegg": {
+      "description": "A fat, cantankerous goblin with 12 hit points who serves as the chief cook for the Cragmaws at Cragmaw Castle. Viciously bullies his unwilling goblin assistants.",
+      "location": "Cragmaw Castle (Banquet Hall, area 7)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "goblin",
+        "role": "cook",
+        "faction": "Cragmaw tribe"
+      }
+    },
+    "Lhupo": {
+      "description": "A goblin with 12 hit points who serves as a self-proclaimed priest in the goblin shrine at Cragmaw Castle. Wears filthy robes over armor but possesses no actual divine powers, though he claims to hear Maglubiyet speaking to him. Has a pet grick that terrifies the other Cragmaws. Served by two ordinary goblin 'acolytes.'",
+      "location": "Cragmaw Castle (Goblin Shrine, area 9)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "goblin",
+        "role": "false priest",
+        "faction": "Cragmaw tribe"
+      }
+    },
+    "Targor Bloodsword": {
+      "description": "A hobgoblin with 20 hit points who leads a returning war band of three hobgoblins and two wolves. Has long aspired to lead the Cragmaw tribe. Carries severed elf heads as trophies from a recent victory over an elf hunting party. Can potentially be persuaded to see himself as Grol's successor rather than avenger.",
+      "location": "Cragmaw Castle (returning war band, exterior)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "hobgoblin",
+        "role": "war band leader",
+        "faction": "Cragmaw tribe"
+      }
+    },
+    "Brughor Axe-Biter": {
+      "description": "A savage orc brute with 30 hit points who leads a band of orc raiders near Wyvern Tor. More interested in murdering and looting than scouting. His band was drawn to the area by stories of new settlers near Phandalin and renewed traffic along the Triboar Trail.",
+      "location": "Wyvern Tor (orc camp)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": ["Orc Trouble (given by Harbin Wester)"],
+      "tags": {
+        "race": "orc",
+        "role": "raider leader"
+      }
+    },
+    "Gog": {
+      "description": "A filthy ogre allied with Brughor Axe-Biter's orc band at Wyvern Tor. Fights until slain.",
+      "location": "Wyvern Tor (orc camp)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "ogre",
+        "role": "brute"
+      }
+    },
+    "Nundro Rockseeker": {
+      "description": "The youngest of the three Rockseeker brothers. A dwarf commoner held prisoner by Nezznar the Black Spider in Wave Echo Cave. Has been harshly interrogated once or twice a day since his capture. Grateful if rescued and offers to tag along, but doesn't know more about the mine layout than the characters.",
+      "location": "Wave Echo Cave (Priests' Quarters, area 20)",
+      "attitude": "friendly",
+      "events": ["Captured by Black Spider"],
+      "quests": ["Rescue Nundro Rockseeker"],
+      "tags": {
+        "race": "dwarf",
+        "role": "prisoner",
+        "faction": "Rockseeker brothers"
+      }
+    },
+    "Tharden Rockseeker": {
+      "description": "One of the three Rockseeker brothers. A dwarf miner killed by the Black Spider at the entrance to Wave Echo Cave. His body is found at the Rockseekers' campsite near the cave entrance, dead for at least a week. Wears boots of striding and springing.",
+      "location": "Wave Echo Cave (area 1, campsite) - deceased",
+      "attitude": "friendly",
+      "events": ["Killed by Black Spider"],
+      "quests": [],
+      "tags": {
+        "race": "dwarf",
+        "role": "miner (deceased)",
+        "faction": "Rockseeker brothers"
+      }
+    },
+    "Mormesk": {
+      "description": "A wraith and the restless spirit of the last wizard to die in Wave Echo Cave. Was a powerful mage until the climactic ore attack. Centuries of anger have poisoned his soul. Leads the undead that haunt the cave. Speaks in grave whispers. Guards his treasure possessively. Values magic items (particularly scrolls), spellbooks, and arcane knowledge. Can be negotiated with if offered something a wizard would value. Wants the spectator in the Forge of Spells killed.",
+      "location": "Wave Echo Cave (Wizards' Quarters, area 14)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": ["Kill the spectator in the Forge of Spells"],
+      "tags": {
+        "race": "human (wraith)",
+        "role": "undead guardian"
+      }
+    },
+    "Vhalak": {
+      "description": "A doppelganger who supervises bugbear operations in Wave Echo Cave's collapsed cavern in the guise of a male drow. Works for Nezznar the Black Spider. Tries to retreat to warn Nezznar if two or more bugbears are killed.",
+      "location": "Wave Echo Cave (Collapsed Cavern, area 18)",
+      "attitude": "hostile",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "doppelganger",
+        "role": "overseer",
+        "faction": "Black Spider's agents"
+      }
+    },
+    "Aldith Tresendar": {
+      "description": "A great knight known as the Black Hawk, long deceased. Once owned Tresendar Manor and the +1 longsword Talon. Died fighting off the orcs that attacked through the hidden caverns below his manor. His sword was lost until the nothic found it.",
+      "location": "Tresendar Manor (historical) - deceased",
+      "attitude": "neutral",
+      "events": ["Died fighting orcs centuries ago"],
+      "quests": [],
+      "tags": {
+        "race": "human",
+        "role": "knight (historical, deceased)",
+        "alias": "The Black Hawk"
+      }
+    },
+    "Tsernoth": {
+      "description": "A necromancer from the city of Iriaebor. Agatha traded Bowgentle's spellbook to him more than a hundred years ago. His current fate is unknown.",
+      "location": "Iriaebor (historical)",
+      "attitude": "neutral",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "unknown",
+        "role": "necromancer (historical)"
+      }
+    },
+    "Bowgentle": {
+      "description": "A legendary mage whose spellbook is the subject of the Harpers' quest given through Sister Garaele. The spellbook was traded by Agatha to the necromancer Tsernoth over a hundred years ago.",
+      "location": "Unknown (historical)",
+      "attitude": "neutral",
+      "events": [],
+      "quests": [],
+      "tags": {
+        "race": "unknown",
+        "role": "legendary mage (historical)"
+      }
+    }
+  }
+}

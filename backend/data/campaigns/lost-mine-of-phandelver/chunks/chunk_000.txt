@@ -1,0 +1,15 @@
+# Chunk 1 of 140
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- __ _ _ _ __| |_ (_)__ _____
+    / _` | '_/ _| ' \| |\ V / -_)
+    \__,_|_| \__|_||_|_| \_/\___| -->
+  <head data-release=9435dd8e data-node="www13.us.archive.org">
+    <title>Full text of &quot;dnd-5ed-adv-lost-mine-of-phandelver&quot;</title>
+
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+        <meta name="google-site-verification" content="Q2YSouphkkgHkFNP7FgAkc4TmBs1Gmag3uGNndb53B8" />
+    <meta name="google-site-verification" content="bpjKvUvsX0lxfmjg19TLblckWkDpnptZEYsBntApxUk" />

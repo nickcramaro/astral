@@ -1,0 +1,185 @@
+# Chunk 137 of 140
+---
+
+MONSTERS 
+
+
+Rules Index 
+
+Page references in this index point to the rulebook. 
+
+
+Ability checks, 5 
+Ability modifiers, 4 
+Ability scores, 4 
+Acrobatics (skill), 6 
+Actions in combat, 10 
+Advantage, 5 
+Animal Handling (skill), 7 
+Arcana (skill), 6 
+Areas of effect, 22 
+Armor Class (AC), 11 
+Armor proficiency, 16 
+Armor, 16 
+Athletics (skill), 6 
+Attack (action), 10 
+Attack rolls, 11 
+Blinded (condition), 32 
+Bonus actions, 9 
+Cantrips, 21 
+Carrying capacity, 16 
+Casting a spell in armor, 21 
+Casting a spell, 21 
+Charisma checks, 7 
+Charmed (condition), 32 
+Climbing, 15 
+Coins, 16 
+Concentration, 22 
+Conditions, 32 
+Constitution checks, 6 
+Contests, 5 
+Cover, 12 
+Critical hits, 12 
+Damage resistance, 13 
+Damage types, 13 
+Damage vulnerability, 13 
+Damage, 12 
+Dash (action), 10 
+Deafened (condition), 32 
+Death saving throws, 13 
+Deception (skill), 7 
+Dexterity checks, 6 
+Difficult terrain, 10 
+Difficulty Class (DC), 5 
+Disadvantage, 5 
+Disengage (action), 10 
+
+Adventure Playtesters 
+
+
+Dodge (action), 10 
+
+Dropping prone, 10 
+
+Dropping to 0 hit points, 13 
+
+Equipment, 16 
+
+Experience points (XP) , 15 
+
+Food, drink, and lodging prices, 19 
+
+Frightened (condition), 32 
+
+Grappled (condition), 32 
+
+Half cover, see cover 
+
+Halving a number, 4 
+
+Healing, 13 
+
+Heavily obscured, 6 
+
+Help (action), 10 
+
+Hidden objects, 7 
+
+Hide (action), 11 
+
+Hiding, 6 
+
+History (skill), 6 
+
+Hit Dice (HD), see resting 
+
+Hit points (hp), 12 
+
+Improvised weapons, 18 
+
+Incapacitated (condition), 32 
+
+Initiative, 9 
+
+Insight (skill), 7 
+
+Intelligence checks, 6 
+
+Intimidation (skill), 7 
+
+Investigation (skill), 6 
+
+Invisible (condition), 32 
+
+Jumping, 15 
+
+Knocking a creature out, 13 
+Lightly obscured, 6 
+Marching order, 15 
+Medicine (skill), 7 
+Melee attacks, 12 
+Mounts and other animals, 19 
+Movement, 10 
+Nature (skill), 7 
+Opportunity attacks, 12 
+Paralyzed (condition), 32 
+Passive Perception score, 6 
+Perception (skill), 7 
+Performance (skill), 7 
+Persuasion (skill), 7 
+Petrified (condition), 32 
+Poisoned (condition), 32 
+
+
+Proficiency bonus, 5 
+Prone (condition), 32 
+Ranged attacks, 11 
+Reactions, 9 
+Ready (action), 11 
+Religion (skill), 7 
+
+Resistance, see damage resistance 
+Resting, 15 
+
+Restrained (condition), 32 
+Rewards, 15 
+Rituals, 21 
+Rounds, 9 
+Saving throws, 7 
+Schools of magic, 23 
+Search (action), 11 
+Shields, 17 
+Skills, 5 
+
+Sleight of Hand (skill), 6 
+Spell attack, 23 
+Spell components, 22 
+Spell duration, 22 
+Spell save DC, 23 
+Spell slots, 21 
+
+Spellcasting, see casting a spell 
+Stabilizing a creature, 13 
+Standing up, 10 
+Stealth (skill), 6 
+Strength checks, 6 
+Stunned (condition), 32 
+Surprise, 9 
+Survival (skill), 7 
+Swimming, 15 
+
+Three-quarters cover, see cover 
+Total cover, see cover 
+Travel, 15 
+
+Two-weapon fighting, 12 
+Unconscious (condition), 32 
+Unseen attackers and targets, 11 
+Use an Object (action), 11 
+Vision, 6 
+
+Vulnerability, see damage vulnerability 
+Weapon proficiency, 17 
+Weapon properties, 17 
+Weapons, 17 
+Wisdom checks, 7

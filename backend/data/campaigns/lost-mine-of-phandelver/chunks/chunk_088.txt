@@ -1,0 +1,75 @@
+# Chunk 89 of 140
+---
+
+This was an herb and alchemy shop belonging to the 
+family of Mirna Dendrar, now a resident in Phandalin (see 
+encounter 5 in the “Redbrand Hideout” section). 
+
+This ruined shop is cluttered with sagging storage shelves and 
+broken furniture. Shards of glass and pieces of pottery glint in 
+the weeds and rubble next to rotted books and casks. 
+
+All the reagents and concoctions here have long since 
+been ruined, and the books are unreadable masses of rot. 
+However, a small wooden case is hidden in a compartment 
+beneath the storage shelves. A character searching 
+through the wreckage can find the case with a successful 
+DC 15 Wisdom (Perception) check. The check succeeds 
+automatically if Mirna sent the party to find the heirloom. 
+
+Treasure 
+
+The case is worthless but contains a gold necklace with a 
+fine emerald pendant (200 gp). 
+
+
+PART 3: THE SPIDER'S WEB 
+
+
+Awarding Experience Points 
+
+Divide 200 XP equally among the characters if the party 
+
+returns the necklace to Mirna instead of keeping it. 
+
+10. Town Square 
+
+Encroaching underbrush has yet to engulf the square. 
+
+On the east side of town, the lane opens up to form a small 
+square. Several ruined buildings surround the south side of 
+the square, but a larger, intact structure to the north looks 
+like a barracks. One lane leads southeast, another heads 
+southwest around the hill in the middle of the town, and 
+a third way meanders north. In the middle of the square, 
+leaning to one side ever so slightly, is a weathered wooden 
+statue of a warrior clutching a spear and shield. 
+
+
+The leaning statue is ten feet tall, including the base. It 
+depicts an old hero of Neverwinter named Palien, who 
+supposedly defeated several monsters in Neverwinter 
+Wood when Thundertree was first founded. A character who 
+studies the statue recognizes the depiction with a successful 
+DC 15 Intelligence (History) check. The statue can be 
+knocked over with a successful DC 20 Strength check. 
+
+11. Old Garrison 
+
+For the residents of Thundertree, living so close to 
+Neverwinter Wood demanded constant vigilance. 
+
+
+
+The barracks appears to have weathered the years better 
+than most buildings in town. Its rooftop features a simple 
+battlement, and arrow-slit windows confirm that it was built 
+to serve as a small keep in times of emergency. 
+
+
+Five ash zombies (see the “Ash Zombies” sidebar) lurk 
+within this building. Former members of the garrison, 
+they still wear the remnants of rusted mail and soldiers’ 
+surcoats. These scraps of armor do not improve their 
+Armor Class, however. The zombies animate and attack if 
+any living creature disturbs their rest.

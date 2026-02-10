@@ -1,0 +1,114 @@
+# Chunk 127 of 140
+---
+
+MONSTERS 
+
+
+Actions 
+
+Multiattack. The grick makes one attack with its tentacles. If that 
+attack hits, the grick can make one beak attack against the same 
+target. 
+
+Tentacles. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. 
+Hit: 9 (2d6 + 2) slashing damage. 
+
+Beak. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 
+5 (ld6 + 2) piercing damage. 
+
+The wormlike grick blends in with the stonework of its 
+lair. Only when prey comes near does it rear up, its four 
+tentacles unfurling to reveal a hungry, snapping beak. 
+
+Hobgoblin 
+
+Medium humanoid (goblinoid), lawful evil 
+
+
+Armor Class 18 (chain mail, shield) 
+Hit Points 11 (2d8 + 2) 
+
+Speed 30 ft. 
+
+
+STR DEX CON INT WIS CHA 
+
+13 (+1) 12 (+1) 12 (+1) 10 (+0) 10 (+0) 9 (-1) 
+
+
+Senses darkvision 60 ft., passive Perception 10 
+Languages Common, Goblin 
+Challenge 1/2 (100 XP) 
+
+
+Martial Advantage. Once per turn, the hobgoblin can deal an 
+extra 7 (2d6) damage to a creature it hits with a weapon attack if 
+that creature is within 5 feet of an ally of the hobgoblin that isn’t 
+incapacitated. 
+
+Actions 
+
+Longsword. Melee Weapon Attack : +3 to hit, reach 5 ft., one 
+target. Hit: 5 (1 d8 + 1) slashing damage. 
+
+Longbow. Melee or Ranged Weapon Attack: +3 to hit, range 150 
+ft./600 ft., one target. Hit: 5 (ld8 + 1) piercing damage. 
+
+Hobgoblins are cunning, disciplined warriors who crave 
+conquest. They impose a strict military hierarchy and are 
+often found in the company of goblins and bugbears. 
+
+Mormesk the Wraith 
+
+Medium undead, neutral evil 
+
+
+Armor Class 13 
+
+Hit Points 45 (6d8+18) 
+
+Speed 0 ft., fly 60 ft. 
+
+
+STR DEX CON INT WIS CHA 
+
+6 (-2) 16 (+3) 16 (+3) 12 (+1) 14 (+2) 15 (+2) 
+
+
+Damage Resistances acid, cold, fire, lightning, thunder; 
+bludgeoning, piercing, and slashing from nonmagical weapons 
+that aren’t silvered 
+Damage Immunities necrotic, poison 
+
+Condition Immunities charmed, grappled, paralyzed, petrified, 
+poisoned, prone, restrained 
+Senses darkvision 60 ft., passive Perception 12 
+Languages Common, Infernal 
+Challenge 3 (700 XP) 
+
+
+Incorporeal Movement. The wraith can move through an object or 
+another creature, but can’t stop there. 
+
+
+Sunlight Sensitivity. While in sunlight, the wraith has 
+disadvantage on attack rolls and on Wisdom (Perception) checks 
+that rely on sight. 
+
+Actions 
+
+Life Drain. Melee Weapon Attack: +5 to hit, reach 5 ft., one 
+creature. Hit: 16 (3d8 + 3) necrotic damage, and the target must 
+succeed on a DC 13 Constitution saving throw or its hit point 
+maximum is reduced by an amount equal to the damage taken. If 
+this attack reduces the target’s hit point maximum to 0, the target 
+dies. This reduction to the target’s hit point maximum lasts until 
+the target finishes a long rest. 
+
+A wraith is the incorporeal remnant of a particularly 
+hateful being. Most wraiths can transform those they have 
+slain into spectral undead servitors. Mormesk chooses not 
+to, preferring to let the dead stay dead. 
+
+
+Nezznar the Black Spider

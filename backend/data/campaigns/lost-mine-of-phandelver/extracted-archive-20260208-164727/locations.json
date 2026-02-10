@@ -1,0 +1,781 @@
+{
+  "locations": {
+    "Neverwinter": {
+      "description": "A great city on the Sword Coast, one of the most civilized places in the North. The adventurers begin their journey here.",
+      "position": "Along the High Road on the Sword Coast",
+      "connected_to": ["High Road", "Triboar Trail"],
+      "features": ["Large city", "Civilized center of trade and culture"],
+      "npcs": ["Gundren Rockseeker"],
+      "items": []
+    },
+    "High Road": {
+      "description": "A well-traveled road running along the Sword Coast, connecting Neverwinter to points south.",
+      "position": "Sword Coast, running north-south",
+      "connected_to": ["Neverwinter", "Triboar Trail"],
+      "features": ["Major trade road"],
+      "npcs": [],
+      "items": []
+    },
+    "Triboar Trail": {
+      "description": "An old trail running from the distant town of Triboar to the east, winding westward about one hundred miles through the abandoned village of Conyberry, then running north of Phandalin on its way to the High Road along the coast. The area is sparsely wooded foothills and rolling plains between the Sword Mountains to the south and Neverwinter Wood to the north.",
+      "position": "Between the Sword Mountains (south) and Neverwinter Wood (north)",
+      "connected_to": ["High Road", "Phandalin", "Conyberry", "Goblin Ambush Site"],
+      "features": ["Old trade trail", "Bandits and outlaws known to lurk along it", "Rolling plains and foothills"],
+      "npcs": [],
+      "items": []
+    },
+    "Goblin Ambush Site": {
+      "description": "A bend in the Triboar Trail where two dead horses lie sprawled across the path, each riddled with black-feathered arrows. Dense woods press close to the trail with steep embankments and dense thickets on either side. The goblins have been using this place to stage ambushes for some time.",
+      "position": "Along the Triboar Trail, about half a day from Phandalin",
+      "connected_to": ["Triboar Trail", "Goblin Trail"],
+      "features": ["Two dead horses blocking the path", "Steep embankment", "Dense thickets on either side", "Empty leather map case nearby"],
+      "npcs": ["4 Cragmaw goblins (ambushers)"],
+      "items": ["Looted saddlebags", "Empty leather map case"]
+    },
+    "Goblin Trail": {
+      "description": "A hidden trail behind thickets on the north side of the road that leads northwest for five miles to the Cragmaw Hideout. About a dozen goblins have come and gone along it, and signs of two human-sized bodies being hauled away are visible.",
+      "position": "Northwest from the Goblin Ambush Site, 5 miles long",
+      "connected_to": ["Goblin Ambush Site", "Cragmaw Hideout"],
+      "features": ["Hidden behind thickets", "Snare trap (10 minutes in, DC 12 Perception)", "Pit trap (20 minutes in, DC 15 Perception)"],
+      "npcs": [],
+      "items": []
+    },
+    "Cragmaw Hideout": {
+      "description": "A large cave in a hillside, five miles from the ambush site. A shallow stream flows out of the cave mouth, screened by dense briar thickets. The cave slopes steeply upward inside a good-sized hill with stalactite-covered vaults rising 20 to 30 feet above the floor. The Cragmaw tribe of goblins has established this hideout to harass and plunder traffic along the Triboar Trail.",
+      "position": "In a hillside, 5 miles northwest of the Goblin Ambush Site",
+      "connected_to": ["Goblin Trail"],
+      "features": [
+        "Stream flowing from cave mouth",
+        "Dense briar thickets screening entrance",
+        "Steeply sloping ceilings with stalactites (20-30 ft)",
+        "Sound of water muffles noises (DC 15 Perception to hear nearby activity)"
+      ],
+      "npcs": ["Klarg (bugbear leader)", "Ripper (Klarg's wolf)", "Yeemik (goblin second-in-command)", "Sildar Hallwinter (prisoner)", "~20 goblins"],
+      "items": ["600 cp", "110 sp", "Two potions of healing", "Jade frog statuette (40 gp)", "Lionshield Coster supplies"]
+    },
+    "Cragmaw Hideout - Cave Mouth": {
+      "description": "The entrance to the Cragmaw cave with a shallow stream flowing out. A narrow dry path leads into the cave on the right-hand side of the stream. Dense briar thickets screen the entrance.",
+      "position": "Entrance to Cragmaw Hideout",
+      "connected_to": ["Cragmaw Hideout - Goblin Blind", "Cragmaw Hideout - Kennel"],
+      "features": ["Stream exit", "Dry path on right side", "Briar thickets"],
+      "npcs": [],
+      "items": []
+    },
+    "Cragmaw Hideout - Goblin Blind": {
+      "description": "A small area in the briar thickets hollowed out to form a lookout post or blind. Wooden planks flatten out the briars and provide room for guards to lie hidden and watch the area.",
+      "position": "East side of stream at cave entrance",
+      "connected_to": ["Cragmaw Hideout - Cave Mouth"],
+      "features": ["Lookout post", "Wooden planks", "Thickets provide half cover"],
+      "npcs": ["2 goblins (sentries)"],
+      "items": []
+    },
+    "Cragmaw Hideout - Kennel": {
+      "description": "A small, dank chamber on the east side of the passage, just inside the cave mouth. The cave narrows to a steep fissure at the far end, filled with the stench of animals. Savage snarls and rattling chains greet your ears.",
+      "position": "Just inside the cave, east side",
+      "connected_to": ["Cragmaw Hideout - Cave Mouth", "Cragmaw Hideout - Klarg's Cave (via fissure/chimney)"],
+      "features": ["30-foot natural chimney to area 8", "Iron rods driven into stalagmites for chains", "DC 15 Animal Handling to calm wolves (DC 10 with food)"],
+      "npcs": ["3 wolves (chained)"],
+      "items": []
+    },
+    "Cragmaw Hideout - Steep Passage": {
+      "description": "The main passage through the cave, with a steep escarpment and rubble-choked western passage. The passage rises steeply with rough, uneven steps.",
+      "position": "Main passage of the Cragmaw cave",
+      "connected_to": ["Cragmaw Hideout - Cave Mouth", "Cragmaw Hideout - Overpass", "Cragmaw Hideout - Goblin Den"],
+      "features": ["Difficult terrain from crumbling rock", "Fragile ledge (100+ lbs causes collapse, 2d6 damage)"],
+      "npcs": [],
+      "items": []
+    },
+    "Cragmaw Hideout - Overpass": {
+      "description": "A rickety bridge spanning the main passage 20 feet above the stream, connecting two tunnels. A waterfall sounds from a larger cavern ahead.",
+      "position": "Above the stream passage in Cragmaw Hideout",
+      "connected_to": ["Cragmaw Hideout - Steep Passage", "Cragmaw Hideout - Twin Pools Cave"],
+      "features": ["Rickety bridge (AC 5, 10 HP)", "20 feet above stream", "DC 15 Athletics to climb walls"],
+      "npcs": ["1 goblin (lazy bridge guard)"],
+      "items": []
+    },
+    "Cragmaw Hideout - Goblin Den": {
+      "description": "A large cave divided in half by a ten-foot-high escarpment with a steep natural staircase. The air is hazy with smoke from a cooking fire and pungent from poorly cured hides and unwashed goblins.",
+      "position": "Within Cragmaw Hideout",
+      "connected_to": ["Cragmaw Hideout - Steep Passage"],
+      "features": ["10-foot escarpment dividing room", "Cooking fire in lower portion", "Prisoner held on upper ledge"],
+      "npcs": ["Yeemik (goblin leader, 12 HP)", "5 goblins", "Sildar Hallwinter (prisoner, 1 HP)"],
+      "items": ["3 gold teeth (1 gp each)", "15 sp"]
+    },
+    "Cragmaw Hideout - Twin Pools Cave": {
+      "description": "A cavern half filled with two large pools of water. A narrow waterfall in the eastern wall feeds the pools, which drain to form the stream flowing out of the cave. Low fieldstone walls serve as dams. The sound of the waterfall echoes through the cavern.",
+      "position": "Within Cragmaw Hideout",
+      "connected_to": ["Cragmaw Hideout - Overpass", "Cragmaw Hideout - Klarg's Cave"],
+      "features": ["Two large pools with collapsible dams", "Waterfall", "Can release flood surges down main passage"],
+      "npcs": ["3 goblins"],
+      "items": []
+    },
+    "Cragmaw Hideout - Klarg's Cave": {
+      "description": "A large cave with sacks and crates of looted provisions piled in the south end. The floor slopes toward a narrow opening descending into darkness to the west. A larger opening leads north down natural stone steps with the roar of falling water beyond. Coals of a large fire smolder in the middle.",
+      "position": "Uppermost chamber of Cragmaw Hideout",
+      "connected_to": ["Cragmaw Hideout - Twin Pools Cave", "Cragmaw Hideout - Kennel (via chimney)"],
+      "features": ["Fire pit (1 fire damage, 1d6 if prone)", "Natural chimney to Kennel (30 ft)", "Looted supplies marked with Lionshield Coster symbol"],
+      "npcs": ["Klarg (bugbear)", "Ripper (wolf)", "2 goblins"],
+      "items": ["600 cp", "110 sp", "Two potions of healing", "Jade frog statuette with golden orbs for eyes (40 gp)", "Stolen Lionshield Coster supplies"]
+    },
+    "Phandalin": {
+      "description": "A rough-and-tumble frontier town built on the ruins of a much older settlement. The town consists of forty or fifty simple log buildings, some built on old fieldstone foundations. Crumbling stone walls covered in ivy and briars surround the newer houses and shops. Most newer buildings line a cart track that widens into a muddy main street climbing toward a ruined manor house on a hillside at the east side of town. Hardy settlers from Neverwinter and Waterdeep have reclaimed the ruins in the last three or four years.",
+      "position": "A couple of days' travel southeast of Neverwinter, in the Triboar Trail region",
+      "connected_to": ["Triboar Trail", "Tresendar Manor", "Stonehill Inn", "Barthen's Provisions", "Lionshield Coster", "Phandalin Miner's Exchange", "Shrine of Luck", "Sleeping Giant", "Townmaster's Hall", "Alderleaf Farm", "Edermath Orchard"],
+      "features": ["Frontier settlement", "Muddy main street", "Town green where children play", "Ruins of older settlement visible", "Currently terrorized by Redbrands"],
+      "npcs": ["Toblen Stonehill", "Elmar Barthen", "Daran Edermath", "Linene Graywind", "Halia Thornton", "Qelline Alderleaf", "Sister Garaele", "Harbin Wester", "Sildar Hallwinter"],
+      "items": []
+    },
+    "Stonehill Inn": {
+      "description": "A large, newly built roadhouse of fieldstone and rough-hewn timbers standing in the center of town. The common room is filled with locals nursing mugs of ale or cider. It has six rooms for rent.",
+      "position": "Center of Phandalin",
+      "connected_to": ["Phandalin"],
+      "features": ["Six rooms for rent", "Common room", "Central gathering place for townsfolk and rumors"],
+      "npcs": ["Toblen Stonehill (innkeeper)", "Trilena (innkeeper's wife)", "Pip (Toblen's son)", "Narth (old farmer)", "Elsa (barmaid)", "Lanar (miner)", "Freda (weaver)"],
+      "items": []
+    },
+    "Barthen's Provisions": {
+      "description": "The biggest trading post in Phandalin, stocked with provisions and supplies for miners, settlers, and adventurers.",
+      "position": "In Phandalin",
+      "connected_to": ["Phandalin"],
+      "features": ["Trading post", "Mining supplies and provisions"],
+      "npcs": ["Elmar Barthen (owner)", "Ander", "Thistle"],
+      "items": ["Mining supplies", "General provisions"]
+    },
+    "Edermath Orchard": {
+      "description": "A tidy little cottage beside an apple orchard. The orchard keeper is a former adventurer and member of the Order of the Gauntlet.",
+      "position": "In Phandalin",
+      "connected_to": ["Phandalin"],
+      "features": ["Apple orchard", "Cottage"],
+      "npcs": ["Daran Edermath (retired adventurer, Order of the Gauntlet)"],
+      "items": []
+    },
+    "Lionshield Coster": {
+      "description": "A modest trading post with a sign shaped like a wooden shield with a blue lion painted on it hanging above the front door. Owned by the Lionshields merchant company based in Yartar. The outpost has been hard hit by banditry.",
+      "position": "In Phandalin",
+      "connected_to": ["Phandalin"],
+      "features": ["Trading post", "Back room with armor and weapons for sale", "Blue lion shield sign"],
+      "npcs": ["Linene Graywind (master of the post)"],
+      "items": ["Armor and weapons for sale"]
+    },
+    "Phandalin Miner's Exchange": {
+      "description": "A trading post where local miners have their valuable finds weighed, measured, and paid out. Also serves as an unofficial records office, registering claims to various streams and excavations.",
+      "position": "In Phandalin",
+      "connected_to": ["Phandalin"],
+      "features": ["Trading post for miners", "Unofficial records office", "Mining claim registration"],
+      "npcs": ["Halia Thornton (guildmaster, Zhentarim agent)"],
+      "items": []
+    },
+    "Alderleaf Farm": {
+      "description": "A modest farm owned by a wise halfling woman. She is a kind host and willing to let characters stay in her hayloft.",
+      "position": "In Phandalin",
+      "connected_to": ["Phandalin"],
+      "features": ["Farm", "Hayloft for lodging", "Near Tresendar Manor woods"],
+      "npcs": ["Qelline Alderleaf (farmer)", "Carp Alderleaf (her son, knows secret tunnel to Redbrand Hideout)"],
+      "items": []
+    },
+    "Shrine of Luck": {
+      "description": "Phandalin's only temple, a small shrine made of stones taken from the nearby ruins, dedicated to Tymora, goddess of luck and good fortune.",
+      "position": "In Phandalin",
+      "connected_to": ["Phandalin"],
+      "features": ["Small stone shrine", "Dedicated to Tymora"],
+      "npcs": ["Sister Garaele (elf acolyte, Harper agent)"],
+      "items": []
+    },
+    "Sleeping Giant": {
+      "description": "A ramshackle taproom at the east end of Phandalin's main street. A dirty, dangerous watering hole frequented by Redbrand thugs.",
+      "position": "East end of Phandalin's main street",
+      "connected_to": ["Phandalin", "Tresendar Manor"],
+      "features": ["Rundown tap house", "Covered porch with empty ale barrels", "Redbrand hangout"],
+      "npcs": ["Grista (surly dwarf operator)", "Redbrand ruffians"],
+      "items": []
+    },
+    "Townmaster's Hall": {
+      "description": "A building with sturdy stone walls, a pitched wooden roof, and a bell tower at the back. A notice board by the front door advertises a bounty on orcs near Wyvern Tor. Has a small but serviceable jail in the cellar with two cells.",
+      "position": "In Phandalin",
+      "connected_to": ["Phandalin"],
+      "features": ["Stone walls", "Bell tower", "Notice board", "Jail in cellar (two cells)"],
+      "npcs": ["Harbin Wester (townmaster)", "Sildar Hallwinter (establishes himself here)"],
+      "items": []
+    },
+    "Tresendar Manor": {
+      "description": "More a castle than a house, standing at the east edge of town on a low hillside amid woods and thickets. The ancient manor has long been abandoned, but its cellars have been converted into the Redbrand stronghold.",
+      "position": "East edge of Phandalin, on a low hillside",
+      "connected_to": ["Phandalin", "Redbrand Hideout"],
+      "features": ["Ruined manor house", "Cellars below converted to Redbrand base", "Stone staircase off empty kitchen ruins"],
+      "npcs": [],
+      "items": []
+    },
+    "Redbrand Hideout": {
+      "description": "A dungeon complex under Tresendar Manor. The cellars originally served as safe storage for the estate, with an adjoining crypt for the Tresendar family. The Redbrands have expanded the cellars, adding slave pens, workshops, and barracks. Well-built chambers with flagstone floors and dressed stone walls. The western end is lower than the eastern end.",
+      "position": "Beneath Tresendar Manor, east edge of Phandalin",
+      "connected_to": ["Tresendar Manor", "Phandalin (via secret tunnel through woods)"],
+      "features": [
+        "Flagstone floors and dressed stone walls",
+        "10-foot ceilings",
+        "Oil lamps in wall sconces",
+        "Multiple secret doors (DC 15 passive Perception, DC 10 active search)",
+        "Wooden doors with iron handles and built-in locks"
+      ],
+      "npcs": ["Iarno 'Glasstaff' Albrek (Redbrand leader, evil mage)", "Nothic (cave guardian)", "3 bugbears (including Mosk)", "Droop (goblin slave)", "Redbrand ruffians", "Mirna Dendrar and children (prisoners)"],
+      "items": ["Staff of defense", "Talon (+1 longsword)", "Potions of healing", "Potion of invisibility", "Scroll of charm person", "Scroll of fireball", "Scroll of augury"]
+    },
+    "Redbrand Hideout - Cellar": {
+      "description": "A large storage cellar with a five-foot-wide landing fifteen feet above the floor, stone steps descending in two short flights. A large stone cistern occupies the western part, walls lined with kegs and barrels of provisions.",
+      "position": "Entrance level of Redbrand Hideout",
+      "connected_to": ["Tresendar Manor", "Redbrand Hideout - Barracks", "Redbrand Hideout - Crevasse (via secret door)"],
+      "features": ["Stone cistern (10 ft deep, clean fresh water)", "Hidden waterproof satchel in cistern (DC 15 Perception)", "Barrels of provisions", "Secret door in southwest corner"],
+      "npcs": [],
+      "items": ["Potion of healing", "Potion of invisibility", "50 gp", "Travel clothing (Iarno's escape kit)"]
+    },
+    "Redbrand Hideout - Barracks": {
+      "description": "A storeroom pressed into service as living quarters. Two double bunks stand against the wall near the door, with barrels and crates filling the southern half.",
+      "position": "Near cellar entrance of Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Cellar"],
+      "features": ["Two double bunks", "Provisions in barrels"],
+      "npcs": ["3 Redbrand ruffians"],
+      "items": ["16 sp", "7 gp", "12 sp", "5 gp", "15 ep", "Two garnets (10 gp each)", "3 scarlet cloaks"]
+    },
+    "Redbrand Hideout - Trapped Hall": {
+      "description": "A somber hallway with thick dust on flagstones, faux columns every ten feet, and copper-plated double doors at the west end with a relief carving of a mournful angel. A hidden pit trap in the middle is covered by false floor tiles.",
+      "position": "Connecting areas of Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Tresendar Crypts"],
+      "features": ["Hidden pit trap (DC 15 Perception)", "10 feet deep pit", "Narrow ledges on north and south (DC 10 Acrobatics)", "Copper-plated double doors with angel relief"],
+      "npcs": [],
+      "items": []
+    },
+    "Redbrand Hideout - Tresendar Crypts": {
+      "description": "Three large stone sarcophagi occupy this cold, dark crypt. Propped up against each sarcophagus is a human skeleton clad in rusty mail and armed with a shortsword.",
+      "position": "Western section of Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Trapped Hall", "Redbrand Hideout - Slave Pens"],
+      "features": ["Three stone sarcophagi", "Cold and dark"],
+      "npcs": ["3 skeletons"],
+      "items": []
+    },
+    "Redbrand Hideout - Slave Pens": {
+      "description": "Holding cells where the Redbrands keep captives they plan to sell into slavery. Iron-barred doors with simple locks.",
+      "position": "Near the crypts in Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Tresendar Crypts"],
+      "features": ["Iron-barred cell doors (DC 10 thieves' tools, DC 22 Strength)", "Multiple cells"],
+      "npcs": ["Mirna Dendrar (prisoner)", "Nars Dendrar (13-year-old son, prisoner)", "Nilsa Dendrar (18-year-old daughter, prisoner)"],
+      "items": []
+    },
+    "Redbrand Hideout - Armory": {
+      "description": "Racks of weapons line the walls. The Redbrands have been stockpiling arms and armor for expansion. The door is locked from outside.",
+      "position": "Within Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Storeroom"],
+      "features": ["Weapon racks", "Locked door (from outside)", "Secret door to Storeroom"],
+      "npcs": [],
+      "items": ["12 spears", "6 shortswords", "4 longswords", "6 light crossbows", "8 quivers (20 bolts each)", "12 dirty red cloaks"]
+    },
+    "Redbrand Hideout - Storeroom": {
+      "description": "The north end of a large natural cavern, finished with dressed stone walls and flagstone floor. Barrels, empty crates, straw, hammers, pry bars, and nails are stored here. The Redbrands use this area to take stock of stolen wares.",
+      "position": "Northern end of central cavern in Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Armory", "Redbrand Hideout - Crevasse", "Redbrand Hideout - Glasstaff's Quarters (via secret door)"],
+      "features": ["Two secret doors (to Armory and Glasstaff's Quarters)", "Packing supplies"],
+      "npcs": [],
+      "items": ["30 beaver pelts (2 gp each)"]
+    },
+    "Redbrand Hideout - Crevasse": {
+      "description": "A large natural cavern with a cold breeze carrying the faint scent of decaying flesh. A steep-sided crevasse divides the cavern, flanked by two rough stone columns supporting a twenty-foot-high ceiling. Two arched wooden bridges span the chasm. A rough-hewn passage to the south leads about 100 feet to emerge from a tunnel in the woods.",
+      "position": "Central area of Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Cellar", "Redbrand Hideout - Storeroom", "Woods south of Tresendar Manor (secret tunnel)"],
+      "features": ["5-10 foot wide crevasse, 20 feet deep", "Two wooden bridges (south one rigged to collapse at 50+ lbs)", "Necromantic aura slows organic decay", "Body of Thel Dendrar at bottom", "Secret smuggling tunnel to woods (100 ft)"],
+      "npcs": ["Nothic (insane subterranean monster)"],
+      "items": ["160 sp", "120 gp", "5 malachite gems (15 gp each)", "2 potions of healing", "Scroll of augury", "Talon (+1 longsword in silver-chased scabbard)"]
+    },
+    "Redbrand Hideout - Guard Barracks": {
+      "description": "A barracks with four roughly built wooden bunks, heaped-up blankets and dirty dishes, and a strong smell of unwashed bodies and rotten meat. Three bugbears are bullying a goblin slave.",
+      "position": "Within Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Common Room"],
+      "features": ["Four wooden bunks", "Filthy conditions"],
+      "npcs": ["3 bugbears (including Mosk)", "Droop (goblin, faints at sight of party)"],
+      "items": ["33 sp", "Eye patch with semiprecious stones (50 gp)", "Iron key to all Redbrand doors"]
+    },
+    "Redbrand Hideout - Common Room": {
+      "description": "A large room serving as headquarters and meeting room for the Redbrands. Worn tables and chairs scattered about, wooden benches against walls with brown and red draperies, and several tapped ale kegs.",
+      "position": "Within Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Guard Barracks"],
+      "features": ["Tables and chairs", "Ale kegs", "Brown and red draperies"],
+      "npcs": ["4 Redbrand ruffians (drinking, playing knucklebones, poisoned)"],
+      "items": ["75 cp", "55 sp", "22 ep", "15 gp", "Gold earring with ruby (30 gp)"]
+    },
+    "Redbrand Hideout - Wizard's Workshop": {
+      "description": "A wizard's workshop with a large worktable set up with alembics, retorts, distillation coils, and other alchemical devices, all stewing and bubbling. Bookshelves crowded with sheaves of parchment and strange tomes. Iarno's rat familiar watches from under the worktable.",
+      "position": "Within Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Glasstaff's Quarters"],
+      "features": ["Alchemical apparatus (set up for potions of invisibility)", "Bookshelves with texts on alchemy", "Dwarvish journal of adventurer Urmon (history of Lost Mine and Forge of Spells)"],
+      "npcs": ["Rat familiar (Iarno's, telepathically bonded)"],
+      "items": ["Mercury (25 gp)", "Dragon bile (25 gp)", "Powdered nightshade (25 gp)"]
+    },
+    "Redbrand Hideout - Glasstaff's Quarters": {
+      "description": "A bedchamber with walls covered in scarlet cloth drapes. Contains a small writing desk with chair, comfortable bed, and wooden chest at foot of bed. Iarno 'Glasstaff' Albrek uses this as his personal quarters.",
+      "position": "Western end of Redbrand Hideout",
+      "connected_to": ["Redbrand Hideout - Wizard's Workshop", "Redbrand Hideout - Storeroom (via secret door)"],
+      "features": ["Scarlet cloth drapes", "Writing desk", "Secret door in northeast corner", "Letter from the Black Spider on desk"],
+      "npcs": ["Iarno 'Glasstaff' Albrek (evil mage, Redbrand leader)"],
+      "items": ["180 sp", "130 gp", "5 carnelians (10 gp each)", "2 peridots (15 gp each)", "1 pearl (100 gp)", "Scroll of charm person", "Scroll of fireball", "Staff of defense"]
+    },
+    "Conyberry": {
+      "description": "A town sacked by barbarians years ago, now lying in ruins. The Triboar Trail runs right through the abandoned town.",
+      "position": "Along the Triboar Trail, east of Phandalin",
+      "connected_to": ["Triboar Trail", "Agatha's Lair"],
+      "features": ["Abandoned ruins", "Easy landmark for locating Agatha's lair"],
+      "npcs": [],
+      "items": []
+    },
+    "Agatha's Lair": {
+      "description": "A dome-like shelter woven from the warped branches of trees standing close together, deep in Neverwinter Wood a few miles northwest of Conyberry. The forest grows dark and still here, with heavy vines and thick moss draping branches, and the air is noticeably colder. Inside is sparsely furnished with old elven chests, shelves, a table, and a reclined couch.",
+      "position": "A few miles northwest of Conyberry, in Neverwinter Wood",
+      "connected_to": ["Conyberry"],
+      "features": ["Dome of woven branches", "Cold air", "Dark and still forest", "Old elven furniture"],
+      "npcs": ["Agatha (banshee)"],
+      "items": []
+    },
+    "Old Owl Well": {
+      "description": "A ruined watchtower built thousands of years ago by the ancient empire of Netheril, now consisting of little more than a few crumbling walls and the broken stump of a tower. An old well in the courtyard still delivers clean, fresh water. A colorful tent has been set up in the courtyard by a Red Wizard of Thay who is exploring the site for arcane lore.",
+      "position": "Wild and rugged hills south of the Triboar Trail, a couple days' march northeast of Phandalin",
+      "connected_to": ["Triboar Trail"],
+      "features": ["Crumbling walls forming courtyard", "Broken tower stump", "Working well with clean water", "Colorful tent in courtyard", "Deathly odor from tower (DC 10 passive Perception)"],
+      "npcs": ["Hamun Kost (Red Wizard of Thay, necromancer)", "12 zombies"],
+      "items": ["35 sp", "20 ep", "20 gp", "5 pp", "Pearl (100 gp)", "Potion of healing", "Scroll of darkness", "Jeweled box (25 gp)", "Ring of protection"]
+    },
+    "Ruins of Thundertree": {
+      "description": "An abandoned village near where the Neverwinter River emerges from Neverwinter Wood. Once a prosperous community of woodcutters and trappers. Thirty years ago, the eruption of Mount Hotenow devastated the town, and a plague of strange zombies swept over the area. Strange magic has mutated local vegetation into dangerous forms. A steep hill in the middle of the settlement is topped by a stone tower with a partially collapsed roof and an adjoining cottage.",
+      "position": "Near the Neverwinter River at the edge of Neverwinter Wood, about 50 miles northwest of Phandalin",
+      "connected_to": ["Neverwinter Wood", "Triboar Trail"],
+      "features": [
+        "Dilapidated buildings choked in vines and brush",
+        "Steep hill with stone tower in center",
+        "Warning sign from Reidoth about plant monsters and zombies",
+        "Eerily silent",
+        "Mutated vegetation"
+      ],
+      "npcs": ["Reidoth (druid, Emerald Enclave)", "Venomfang (young green dragon)", "Favric (cultist leader)", "Dragon cultists"],
+      "items": []
+    },
+    "Thundertree - Westernmost Cottage": {
+      "description": "A crumbled stone cottage with no roof, cowering in the shadow of an old tree. Weeds are rampant.",
+      "position": "Western edge of Thundertree",
+      "connected_to": ["Thundertree - Blighted Cottages"],
+      "features": ["Roofless ruin", "Weeds flanking doorway"],
+      "npcs": ["2 twig blights (hidden in weeds)"],
+      "items": []
+    },
+    "Thundertree - Blighted Cottages": {
+      "description": "Two ruined, side-by-side cottages that were once homes of prosperous shopkeepers or well-off farmers. All that remains are collapsed walls and piles of debris with several young trees growing amid the ruins.",
+      "position": "Near western edge of Thundertree",
+      "connected_to": ["Thundertree - Westernmost Cottage"],
+      "features": ["Collapsed walls", "Young trees growing through ruins"],
+      "npcs": ["6 twig blights (hidden among foliage)"],
+      "items": ["700 cp", "160 sp", "90 gp (hidden chest under flagstone in eastern cottage)"]
+    },
+    "Thundertree - The Brown Horse": {
+      "description": "A large, sagging building that was formerly a tavern renowned for its excellent ale. A weathered signboard shows a faded image of a workhorse holding a flagon of ale. The eastern half was the common room, the western portion held kitchens and brewer's vats.",
+      "position": "In Thundertree",
+      "connected_to": ["Thundertree - Town Square"],
+      "features": ["Weathered tavern sign", "Old common room", "Kitchens and brewer's vats", "Faint smell of yeast"],
+      "npcs": ["4 ash zombies"],
+      "items": []
+    },
+    "Thundertree - Druid's Watch": {
+      "description": "A small house in better condition than the surrounding ruins. Doors reinforced with heavy iron bands, thick shutters protect the windows. Reidoth the druid makes camp here when visiting Thundertree.",
+      "position": "In Thundertree",
+      "connected_to": ["Thundertree - Town Square"],
+      "features": ["Reinforced doors", "Iron-banded shutters", "Well-maintained compared to surroundings"],
+      "npcs": ["Reidoth (gaunt, white-bearded human druid, Emerald Enclave)"],
+      "items": []
+    },
+    "Thundertree - Blighted Farmhouse": {
+      "description": "A ruin that was once a farmhouse, now half swallowed by a dense thicket with trees growing through its foundations. To the south it abuts a field with thick patches of gorse and briars.",
+      "position": "Southern area of Thundertree",
+      "connected_to": ["Thundertree - Ruined Store"],
+      "features": ["Dense thicket to east", "Overgrown field to south"],
+      "npcs": ["8 twig blights (in thicket)"],
+      "items": []
+    },
+    "Thundertree - Ruined Store": {
+      "description": "A former general store with portions of its tile roof still intact. At an intersection near the middle of the village, webs stretch across the lane from the building to trees. Two giant spiders hide inside.",
+      "position": "Near the middle of Thundertree",
+      "connected_to": ["Thundertree - Dragon's Tower", "Thundertree - Blighted Farmhouse"],
+      "features": ["Partially intact tile roof", "Spider webs across lane", "Difficult terrain webs (DC 10 Athletics to cross)"],
+      "npcs": ["2 giant spiders"],
+      "items": ["Studded leather armor", "Shortsword", "Potion of healing", "23 gp", "35 sp (on dead elf adventurer's body)"]
+    },
+    "Thundertree - Dragon's Tower": {
+      "description": "A round tower at the top of the hill with an attached cottage, both in good condition though half the tower's roof is gone. The tower has a 40-foot-high ceiling with a 5-foot-wide staircase circling the interior. A young green dragon named Venomfang has claimed this as its lair. Corpses of two giant spiders sprawl near the pathway.",
+      "position": "Top of the hill in the center of Thundertree",
+      "connected_to": ["Thundertree - Ruined Store", "Thundertree - Town Square"],
+      "features": ["Round tower (40 ft ceiling)", "Half-collapsed roof", "Attached cottage with dusty furniture", "Acrid smell in the air", "Eerie quiet", "Dead giant spider corpses near entrance"],
+      "npcs": ["Venomfang (young green dragon)"],
+      "items": ["800 sp", "150 gp", "4 silver goblets with moonstones (60 gp each)", "Scroll of misty step", "Scroll of lightning bolt", "Hew (+1 battleaxe, max damage vs plants/wood)"]
+    },
+    "Thundertree - Old Smithy": {
+      "description": "A sagging building with a wide chimney and rotted piles of firewood outside. Tongs, bellows, hammers, and iron anvils are scattered about inside.",
+      "position": "In Thundertree",
+      "connected_to": ["Thundertree - Town Square"],
+      "features": ["Wide chimney", "Old blacksmithing tools and anvils"],
+      "npcs": ["2 ash zombies"],
+      "items": []
+    },
+    "Thundertree - Herbalist's Shop": {
+      "description": "A ruined shop cluttered with sagging storage shelves and broken furniture. Shards of glass and pieces of pottery glint in the weeds next to rotted books and casks. Once belonged to the Dendrar family. A small wooden case is hidden in a compartment beneath storage shelves.",
+      "position": "Southeast part of Thundertree",
+      "connected_to": ["Thundertree - Town Square"],
+      "features": ["Ruined storage shelves", "Hidden compartment beneath shelves (DC 15 Perception, auto-success if sent by Mirna)"],
+      "npcs": [],
+      "items": ["Gold necklace with emerald pendant (200 gp, Mirna's heirloom)"]
+    },
+    "Thundertree - Town Square": {
+      "description": "A small square on the east side of town where the lane opens up. Several ruined buildings surround the south side, with a larger intact barracks to the north. A weathered wooden statue of a warrior clutching a spear and shield leans slightly in the middle.",
+      "position": "East side of Thundertree",
+      "connected_to": ["Thundertree - The Brown Horse", "Thundertree - Old Garrison", "Thundertree - Dragon's Tower", "Thundertree - Herbalist's Shop", "Thundertree - Old Smithy"],
+      "features": ["10-foot statue of hero Palien (DC 15 History to identify)", "Lanes leading southeast, southwest, and north"],
+      "npcs": [],
+      "items": []
+    },
+    "Thundertree - Old Garrison": {
+      "description": "A barracks built to serve as a small keep in times of emergency, with a rooftop battlement and arrow-slit windows. Has weathered the years better than most buildings in town.",
+      "position": "North side of Thundertree's town square",
+      "connected_to": ["Thundertree - Town Square"],
+      "features": ["Rooftop battlement", "Arrow-slit windows", "Stone construction"],
+      "npcs": ["5 ash zombies (former garrison members in rusted mail)"],
+      "items": []
+    },
+    "Thundertree - Cultist Cottage": {
+      "description": "An intact cottage used by dragon cultists. Contains a small stove, a table, two chairs, and a bunk shared by the cultists. Draped in cobwebs.",
+      "position": "Eastern side of Thundertree",
+      "connected_to": ["Thundertree - Dragon's Tower"],
+      "features": ["Intact structure", "Simple furnishings"],
+      "npcs": ["Favric (cultist leader)", "4 cultists"],
+      "items": ["3 diamonds (100 gp each, tribute for dragon)", "Potion of flying"]
+    },
+    "Wyvern Tor": {
+      "description": "A prominent crag in the rugged hills northeast of the Sword Mountains, easily visible from twenty miles away. Formerly home to a nest of wyverns dealt with by adventurers years ago. Currently squatted by a band of orcs from the Many Arrows tribe and their ogre ally. A cave mouth opens at the bottom of a ravine on the lower slopes.",
+      "position": "Rugged hills northeast of the Sword Mountains, visible from Triboar Trail near Conyberry",
+      "connected_to": ["Triboar Trail"],
+      "features": ["Sizable hill with rugged terrain", "Cave mouth at bottom of ravine", "Orc sentry outside cave", "Faint smell of smoke"],
+      "npcs": ["Brughor Axe-Biter (orc leader, 30 HP)", "6 orcs", "Gog (ogre)"],
+      "items": ["750 cp", "180 sp", "62 ep", "30 gp", "3 vials of perfume (10 gp each)"]
+    },
+    "Cragmaw Castle": {
+      "description": "A stronghold consisting of seven overlapping towers raised by a wizard-noble of old Phalorm. The upper levels have collapsed to heaps of crumbling masonry, with only the ground floor still sound enough to be habitable. The goblins have shored up the weakest areas with crude timbers. King Grol of the Cragmaw tribe rules here. Located about twenty miles northeast of the Cragmaw Hideout, in Neverwinter Wood.",
+      "position": "About 20 miles northeast of Cragmaw Hideout, in Neverwinter Wood",
+      "connected_to": ["Neverwinter Wood"],
+      "features": [
+        "Seven crumbling towers of different sizes",
+        "Only ground floor habitable",
+        "Bronze-covered wooden gates (corroded and collapsed)",
+        "15-foot ceilings",
+        "Arrow slits 10 feet above ground",
+        "Cracked and uneven flagstone floors over dirt",
+        "5-foot thick exterior walls"
+      ],
+      "npcs": ["King Grol (bugbear chieftain, 45 HP)", "Snarl (wolf, 18 HP)", "Vyerith (doppelganger disguised as female drow)", "Gundren Rockseeker (prisoner, unconscious)", "Lhupo (goblin priest)", "Yegg (goblin cook)", "Hobgoblins", "Goblins", "Owlbear (captive)", "Grick"],
+      "items": ["Gundren's map to Wave Echo Cave", "220 sp", "160 ep", "3 potions of healing", "Gold sun elf statuette (100 gp, divination magic)", "150 gp chalice", "60 gp knife", "120 gp censer", "Scroll of silence", "Scroll of revivify", "90 ep", "120 gp", "Dwarven brandy"]
+    },
+    "Cragmaw Castle - Entrance": {
+      "description": "A terrace in front of the main entryway reached by a short flight of steps. Past the wreckage of sundered bronze-covered doors lies a shadowed hall. Round towers loom with dark arrow slits.",
+      "position": "Front of Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Trapped Hall"],
+      "features": ["Steps leading to terrace", "Sundered bronze doors", "Arrow slits overhead"],
+      "npcs": [],
+      "items": []
+    },
+    "Cragmaw Castle - Trapped Hall": {
+      "description": "The castle's former foyer, a wide hall. Doors stand closed to north and south, a crumbling mound of rubble partially obscures the southern hall. A broad corridor ends in two more doors. Dusty rubble and fallen plaster from partial ceiling collapse.",
+      "position": "Main hall of Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Entrance", "Cragmaw Castle - Archer Post", "Cragmaw Castle - Ruined Barracks", "Cragmaw Castle - Hobgoblin Barracks", "Cragmaw Castle - Dark Hall"],
+      "features": ["Copper tripwire trap (DC 20 passive, DC 10 active Perception)", "Cave-in trap (3d6 bludgeoning, DC 10 Dex save)"],
+      "npcs": [],
+      "items": []
+    },
+    "Cragmaw Castle - Archer Post": {
+      "description": "Two small rooms littered with debris, each with arrow slits offering a fine field of fire over the entrance terrace.",
+      "position": "Flanking the castle entrance",
+      "connected_to": ["Cragmaw Castle - Trapped Hall"],
+      "features": ["Arrow slits overlooking terrace"],
+      "npcs": ["4 goblins (2 per room, sentries)"],
+      "items": []
+    },
+    "Cragmaw Castle - Ruined Barracks": {
+      "description": "The southwest tower, little more than a heap of rubble. Several ragged bedrolls scattered across remaining floor space. A small, twisting passage leads east through the ruins.",
+      "position": "Southwest tower of Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Trapped Hall", "Cragmaw Castle - Banquet Hall"],
+      "features": ["Mostly rubble", "Stable despite appearance"],
+      "npcs": ["3 goblins"],
+      "items": []
+    },
+    "Cragmaw Castle - Storeroom": {
+      "description": "Storage area with old casks of salted meat and sacks of rotting grain. Among the supplies: a bloody suit of chain mail, a heavy crossbow, and an unsheathed longsword with the Neverwinter emblem.",
+      "position": "Within Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Trapped Hall"],
+      "features": ["Goblin-tolerable provisions", "Small cask of exceptional dwarven brandy (20 glasses, heals 1 HP per glass, poisoned if 2 within an hour)"],
+      "npcs": [],
+      "items": ["Chain mail (Sildar's)", "Heavy crossbow", "Longsword with Neverwinter emblem (Sildar's)", "Dwarven brandy"]
+    },
+    "Cragmaw Castle - Hobgoblin Barracks": {
+      "description": "A barracks with four straw pallets and bedrolls lined up on the floor. Brackets on the walls hold weapons. The north wall shows signs of damage but the floor is swept clean.",
+      "position": "One of the towers of Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Trapped Hall"],
+      "features": ["Weapon racks on walls", "Swept floor"],
+      "npcs": ["4 hobgoblins"],
+      "items": ["5 spears", "4 longswords", "3 morningstars", "2 greatswords", "Engraved quarterstaff (10 gp)"]
+    },
+    "Cragmaw Castle - Banquet Hall": {
+      "description": "A former banquet hall with a soaring twenty-five-foot ceiling. The western portion ends in a wall of rubble. Two large wooden tables with benches stand in the middle. A brass brazier of glowing coals in one corner. Dirty dishes, stewpots, moldy bread, and gnawed bones cover the tables.",
+      "position": "Central area of Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Ruined Barracks", "Cragmaw Castle - Dark Hall", "Cragmaw Castle - Postern Gate"],
+      "features": ["25-foot ceiling", "Two large tables", "Brass brazier", "Foul goblin mess hall"],
+      "npcs": ["Yegg (fat goblin cook, 12 HP)", "7 goblins"],
+      "items": []
+    },
+    "Cragmaw Castle - Dark Hall": {
+      "description": "A high, narrow hall that was once part of a chapel or shrine. Angelic figures sculpted along the upper reaches look down on the floor. Heavy curtains block matching archways to the north. A cracked but ornately carved stone brazier stands between the archways.",
+      "position": "Between the main castle and northern tower",
+      "connected_to": ["Cragmaw Castle - Trapped Hall", "Cragmaw Castle - Goblin Shrine"],
+      "features": ["No exterior light", "Angelic sculptures", "Stone brazier", "Former chapel to Oghma, Mystra, Lathander, and Tymora"],
+      "npcs": ["Grick (Lhupo's pet, hides in shadows of statuary)"],
+      "items": ["Gold sun elf statuette wrapped in crimson cloth (100 gp, divination magic - one-time augury)"]
+    },
+    "Cragmaw Castle - Goblin Shrine": {
+      "description": "The northern tower chamber, rededicated by the goblins to Maglubiyet, god of goblins and hobgoblins. A stone altar covered with bloodstained black cloth stands in the middle, with golden ritual implements carefully arranged on top.",
+      "position": "Northern tower of Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Dark Hall"],
+      "features": ["Stone altar with bloodstained black cloth", "Golden ritual implements", "Human deity carvings on altar sides"],
+      "npcs": ["Lhupo (goblin 'priest', 12 HP)", "2 goblin acolytes"],
+      "items": ["Gold chalice (150 gp)", "Gold knife (60 gp)", "Gold censer (120 gp)"]
+    },
+    "Cragmaw Castle - Postern Gate": {
+      "description": "A side entrance on the south side of the castle, an overgrown path leading to a passage climbing into the wall. A large iron door stands here, sheltered from direct outside attack. Arrow slits ten feet above overlook the path.",
+      "position": "South side of Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Banquet Hall"],
+      "features": ["Locked iron door (DC 15 thieves' tools, DC 25 Strength)", "Arrow slits above", "Overgrown path"],
+      "npcs": [],
+      "items": []
+    },
+    "Cragmaw Castle - Ruined Tower": {
+      "description": "An almost completely collapsed tower with a little open space on the ground floor. Rotting crates and ancient barrels show provisions were once stored here. A concealed canvas door to the north blends with stonework and rubble.",
+      "position": "Part of Cragmaw Castle's outer towers",
+      "connected_to": ["Cragmaw Castle - Guard Barracks", "Cragmaw Castle - King's Quarters"],
+      "features": ["Concealed canvas entrance (DC 15 Perception from outside, DC 10 if actively searching)", "Rotting provisions"],
+      "npcs": [],
+      "items": []
+    },
+    "Cragmaw Castle - Guard Barracks": {
+      "description": "A small barracks with a stone brazier full of coals glowing in the middle. Four straw pallets along the east wall. The south wall has collapsed but a barred wooden door remains. A curtain hangs in an archway to the north.",
+      "position": "Eastern section of Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Ruined Tower", "Cragmaw Castle - Owlbear Tower", "Cragmaw Castle - King's Quarters"],
+      "features": ["Stone brazier", "Arrow slits", "Once a parlor for human occupants"],
+      "npcs": ["2 hobgoblins (loyal to King Grol)"],
+      "items": []
+    },
+    "Cragmaw Castle - Owlbear Tower": {
+      "description": "A tower whose upper floors have collapsed to create a hollow silo at least thirty feet high. Dust, rubble, and broken glass cover the floor. Old worktables and bookshelves lie strewn about. The door is held shut with a heavy wooden bar. Arrow slits are shuttered, leaving the room dark.",
+      "position": "One of the castle's towers",
+      "connected_to": ["Cragmaw Castle - Guard Barracks"],
+      "features": ["30-foot hollow silo", "Barred door (warning of danger)", "Dark room", "Former library and workshop"],
+      "npcs": ["Owlbear (captive)"],
+      "items": ["90 ep", "120 gp", "Potion of healing", "Scroll of silence", "Scroll of revivify (on jagged ledge, DC 15 Perception)"]
+    },
+    "Cragmaw Castle - King's Quarters": {
+      "description": "A crude living space with thick furs on the floor, old trophies on walls, a large bed to the north, and a brazier of coals. A round table with chairs stands to the south. King Grol rules here, attended by his wolf Snarl and a doppelganger disguised as a female drow. Gundren Rockseeker lies unconscious on the floor.",
+      "position": "Within Cragmaw Castle",
+      "connected_to": ["Cragmaw Castle - Guard Barracks", "Cragmaw Castle - Ruined Tower"],
+      "features": ["Thick fur carpets", "Trophies on walls", "Large bed", "Brazier", "Northwest room with old tile tub (former bathroom)"],
+      "npcs": ["King Grol (bugbear chieftain, 45 HP)", "Snarl (wolf, 18 HP)", "Vyerith (doppelganger disguised as female drow)", "Gundren Rockseeker (unconscious, stable at 0 HP)"],
+      "items": ["220 sp", "160 ep", "3 potions of healing", "Gundren's map to Wave Echo Cave (hidden under bed mattress)"]
+    },
+    "Wave Echo Cave": {
+      "description": "A lost underground complex that was once the site of the Phandelver's Pact mines. The mine is cold, damp, and surprisingly drafty with a noticeable breeze flowing through many passages. The rhythmic thunder of pounding waves echoes throughout, loud enough to make the stone underfoot shiver. The booming comes from a water-filled cavern connected to an underground hot spring that boils over continuously.",
+      "position": "In the Sword Mountain foothills, exact location known only via Gundren's map",
+      "connected_to": ["Sword Mountains foothills"],
+      "features": [
+        "Cold, damp, and drafty",
+        "Rhythmic booming waves every 2 minutes",
+        "10-foot tunnels, 20-foot room ceilings, 30-foot cavern ceilings",
+        "Stone slab doors (6 ft tall, 4 ft wide) with iron handles",
+        "Hewn stone walls",
+        "Smooth natural stone floors",
+        "No light unless indicated"
+      ],
+      "npcs": ["Nezznar the Black Spider (drow)", "Nundro Rockseeker (prisoner)", "Mormesk (wraith)", "Spectator (in Forge of Spells)"],
+      "items": ["Lightbringer (+1 mace)", "Dragonguard (+1 breastplate)", "Wand of magic missiles", "Spider staff", "Boots of striding and springing", "Gauntlets of ogre power"]
+    },
+    "Wave Echo Cave - Cave Entrance": {
+      "description": "A narrow tunnel hidden in the Sword Mountain foothills leading to a large cavern supported by a natural rock pillar with three stalagmites. In the western part, behind the pillar, are three bedrolls and a heap of supplies alongside the body of a dead dwarf miner (Tharden Rockseeker). A pit in the northeast section leads to tunnels below.",
+      "position": "Entrance to Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Mine Tunnels", "Wave Echo Cave - Old Entrance"],
+      "features": ["Natural rock pillar", "Three stalagmites", "Rockseeker campsite", "10-foot wide, 20-foot deep pit with hemp rope", "Body of Tharden Rockseeker"],
+      "npcs": [],
+      "items": ["Boots of striding and springing (on Tharden)", "Mining supplies (sacks of flour, salt, casks of salted meat, lanterns, oil, pickaxes, shovels)"]
+    },
+    "Wave Echo Cave - Mine Tunnels": {
+      "description": "A maze of numerous intersecting passages, an old section of the original mine site. Ceilings are only six feet high, and several passages end in partially excavated rock faces where miners gave up.",
+      "position": "Below the cave entrance",
+      "connected_to": ["Wave Echo Cave - Cave Entrance", "Wave Echo Cave - Old Entrance"],
+      "features": ["6-foot ceilings", "Dead-end passages", "Maze-like layout"],
+      "npcs": ["Ochre jelly (lurking, stalking)"],
+      "items": []
+    },
+    "Wave Echo Cave - Old Entrance": {
+      "description": "A natural thirty-foot-high cavern where many tunnels intersect. The walls are carved with simple reliefs showing dwarf and gnome miners at work. Nearly two dozen skeletons in rusted armor (dwarves and orcs) are scattered across the floor. Large brass lanterns stand in niches, all unlit. This was the original mine entrance, buried by ancient destruction.",
+      "position": "Original entrance to the mine (now buried from the south)",
+      "connected_to": ["Wave Echo Cave - Cave Entrance", "Wave Echo Cave - Mine Tunnels", "Wave Echo Cave - Old Guardroom"],
+      "features": ["30-foot ceiling", "Carved reliefs of miners", "Skeletal remains of ancient battle", "Brass lanterns in niches (unlit)"],
+      "npcs": ["10 stirges (clinging to ceiling)"],
+      "items": []
+    },
+    "Wave Echo Cave - Old Guardroom": {
+      "description": "A guardroom that once protected the mine entrance, overrun in the ancient orc attack. Splintered stone benches and heaps of rubble from a partially collapsed ceiling. Bones of dwarves and orcs amid ruined stone bunks and weapon racks.",
+      "position": "Near the old entrance of Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Old Entrance", "Wave Echo Cave - Assayers' Office"],
+      "features": ["Partially collapsed ceiling", "Ancient battle remains"],
+      "npcs": ["9 skeletons (animate when living creatures enter)"],
+      "items": []
+    },
+    "Wave Echo Cave - Assayers' Office": {
+      "description": "A former office or storeroom. A large stone counter bisects the room, set with three dusty balance scales made of iron. Cubbyholes in the north wall are stuffed with dusty paper scraps. Long-dead corpses of gnomes and orcs sprawl across the floor.",
+      "position": "Near the old entrance area of Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Old Guardroom"],
+      "features": ["Stone counter with iron balance scales", "Paper cubbyholes (disintegrates if touched, Dwarvish markings)", "Locked iron strongbox behind counter (DC 20 thieves' tools)"],
+      "npcs": [],
+      "items": ["600 cp", "180 sp", "90 ep", "60 gp"]
+    },
+    "Wave Echo Cave - South Barracks": {
+      "description": "A miners' barracks where skilled delvers rested between shifts. Old stone bunks in orderly rows line the walls, with a corroded iron brazier full of old coals near the middle. Bones of half a dozen dwarves and orcs clad in scraps of armor.",
+      "position": "Southern area of Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Old Guardroom", "Wave Echo Cave - Ruined Storeroom"],
+      "features": ["Stone bunks in rows", "Corroded iron brazier", "Faint crunching sounds (DC 10 Perception at door)"],
+      "npcs": ["3 ghouls"],
+      "items": []
+    },
+    "Wave Echo Cave - Ruined Storeroom": {
+      "description": "A storage area with the eastern wall collapsed into rubble. A door to the north leads to an intact storeroom with dusty, cracked kegs against the walls. A secure resting place with no monsters.",
+      "position": "Near the south barracks",
+      "connected_to": ["Wave Echo Cave - South Barracks"],
+      "features": ["Collapsed eastern wall", "Intact northern storeroom", "Safe resting place", "Door can be barred from inside"],
+      "npcs": [],
+      "items": []
+    },
+    "Wave Echo Cave - Fungi Cavern": {
+      "description": "A cavern with dense carpets of weird fungi covering large sections of the floor, including foot-wide puffballs, shelf fungus on stalagmites, and large stalks and caps five feet tall. Some puffballs glow with eerie green phosphorescence providing natural light.",
+      "position": "Between the explored and unexplored sections of the mine",
+      "connected_to": ["Wave Echo Cave - Great Cavern", "Wave Echo Cave - Smelter Cavern"],
+      "features": ["Dense fungal growth", "Green-glowing puffballs (natural light)", "Poison gas trap (DC 11 Con save, 3d6 poison damage, poisoned 10 min)"],
+      "npcs": [],
+      "items": []
+    },
+    "Wave Echo Cave - Great Cavern": {
+      "description": "A large cavern divided by steep escarpments into three sections -- high ledges at either end and a lower middle section. Carved stone stairs climb to the ledges. Two large tables and braziers in the middle. A smaller table on the eastern ledge. Skeletal remains of dozens of dwarves, gnomes, orcs, and ogres attest to fierce ancient fighting.",
+      "position": "Central area of Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Fungi Cavern", "Wave Echo Cave - Dark Pool"],
+      "features": ["10-foot escarpments (DC 12 Athletics to climb)", "Stone stairs between levels", "Ancient battlefield remains", "Shadows on western ledge"],
+      "npcs": ["7 ghouls (lurking on western ledge)"],
+      "items": []
+    },
+    "Wave Echo Cave - Dark Pool": {
+      "description": "A cavern with a still pool of dark water filling most of the space. The shore consists of broken shells from strange pale mussels, and a fishy odor hangs in the air. A passage leads south, steps climb east, and a sluggish stream flows northeast. The pool is 20 feet deep in the middle.",
+      "position": "Eastern area of Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Great Cavern", "Wave Echo Cave - North Barracks", "Wave Echo Cave - Collapsed Cavern"],
+      "features": ["20-foot deep pool", "Pale mussel shells", "Stream to northeast (3 ft deep, low ceiling)", "Old skeleton on pool bottom (10 ft from shore)"],
+      "npcs": [],
+      "items": ["2 platinum rings (75 gp each)", "Wand of magic missiles (on skeleton in pool)"]
+    },
+    "Wave Echo Cave - North Barracks": {
+      "description": "A former miners' barracks with old stone bunks lining the walls, lit and heated by a glowing iron brazier. Currently occupied by Nezznar's bugbear minions who have barricaded the eastern door with remains of a wooden table. This marks the front line of the Black Spider's assault on Wave Echo Cave.",
+      "position": "Northern section of Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Dark Pool", "Wave Echo Cave - Smelter Cavern"],
+      "features": ["Stone bunks", "Glowing iron brazier", "Barricaded eastern door (DC 20 Strength)"],
+      "npcs": ["5 bugbears (Nezznar's minions)"],
+      "items": ["15 cp", "13 ep", "Potion of vitality"]
+    },
+    "Wave Echo Cave - Smelter Cavern": {
+      "description": "A large chamber dominated by a blast furnace and mechanical bellows powered by a waterwheel. The furnace is cold and dark, with heaps of coal, carts of unrefined ore. The waterwheel sits in a ten-foot-wide dry channel. More than a dozen withered corpses of dwarves and orcs lie about, and a skull engulfed in green flame floats above them.",
+      "position": "Central processing area of Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - North Barracks", "Wave Echo Cave - Fungi Cavern", "Wave Echo Cave - Starry Cavern"],
+      "features": ["Blast furnace", "Mechanical bellows", "Waterwheel in dry channel (5 ft below floor)", "The heart of the mining operation"],
+      "npcs": ["Flameskull (undead guardian)", "8 zombies (fallen dwarf warriors)"],
+      "items": []
+    },
+    "Wave Echo Cave - Starry Cavern": {
+      "description": "A large cavern where glittering minerals in the ceiling catch the light and create the impression of a starry night sky. Dozens of skeletons, many crushed under fallen debris, are scattered across the floor. Two freestanding stone buildings with battered, blackened masonry walls and cracked, scorched double doors stand within. An escarpment with carved stairs divides the cavern.",
+      "position": "Deep within Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Smelter Cavern", "Wave Echo Cave - Wizards' Quarters", "Wave Echo Cave - Forge of Spells", "Wave Echo Cave - Booming Cavern"],
+      "features": ["Glittering mineral ceiling (not valuable)", "Two freestanding buildings", "Escarpment with stairs", "Subtle aura of magic (stronger near northern building)"],
+      "npcs": [],
+      "items": []
+    },
+    "Wave Echo Cave - Wizards' Quarters": {
+      "description": "A room in the southern freestanding building, damaged by a destructive blast. Dust, ash, blackened walls, and debris beneath a sagging ceiling. Charred furniture -- tables, chairs, bookshelves, beds -- are splintered but preserved. A scorched iron chest stands near a bed. This served as a guesthouse for visiting human wizards.",
+      "position": "Southern building in Starry Cavern",
+      "connected_to": ["Wave Echo Cave - Starry Cavern"],
+      "features": ["Fire-damaged interior", "Scorched iron chest", "Magically preserved tomes on shelves", "Human-proportioned furnishings"],
+      "npcs": ["Mormesk (wraith, former powerful mage)"],
+      "items": ["1100 cp", "160 sp", "50 ep", "3 diamonds (100 gp each)", "Wooden pipe with platinum filigree (150 gp)", "Secret map sewn into book cover (DC 12 Investigation)"]
+    },
+    "Wave Echo Cave - Forge of Spells": {
+      "description": "A large workshop in the northern freestanding building, badly damaged by the ancient spell battle. Scorched worktables in two corners, burned plaster on walls. In the middle, a stone pedestal holds a small brazier with an eerie green flame dancing and crackling -- the source of the mine's magical power. Behind the brazier floats a spectator (four-eyed spherical creature). A smaller northern room was a finishing workspace.",
+      "position": "Northern building in Starry Cavern",
+      "connected_to": ["Wave Echo Cave - Starry Cavern"],
+      "features": ["Brazier of Green Flame on stone pedestal (source of cavern magic)", "Green flame can create temporary +1 weapons/armor (1d12 hours)", "Brazier cannot be removed", "Northern finishing room"],
+      "npcs": ["Spectator (deranged guardian)"],
+      "items": ["Lightbringer (+1 mace, glows as torch, extra 1d6 radiant vs undead)", "Dragonguard (+1 breastplate, advantage on saves vs dragon breath)"]
+    },
+    "Wave Echo Cave - Booming Cavern": {
+      "description": "A water-filled cavern that produces the rhythmic booming sound giving Wave Echo Cave its name. A narrow ledge overlooks the surging, seething body of water. At regular intervals, a fresh surge of water funnels in and slams against the wall below the ledge.",
+      "position": "Northeast corner of Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Starry Cavern"],
+      "features": ["Surging water body", "Ledge 15 feet above normal water level", "Water surges every 2 minutes raising level by 10 feet", "Connected to underground hot spring"],
+      "npcs": [],
+      "items": []
+    },
+    "Wave Echo Cave - Old Streambed": {
+      "description": "A low passage barely four feet high, obstructed by rounded boulders and pebbles. Once a streambed when the stream flowed from the dark pool area to the booming cavern, before the dwarves diverted the water to the smelter.",
+      "position": "Connecting passage in Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Dark Pool", "Wave Echo Cave - Collapsed Cavern"],
+      "features": ["4-foot ceiling", "Rounded boulders and pebbles", "Circumvents undead in Smelter Cavern"],
+      "npcs": [],
+      "items": []
+    },
+    "Wave Echo Cave - Collapsed Cavern": {
+      "description": "A cavern with a wide rift filling the eastern half. A stream pours out of the west wall and tumbles down into the rift, flowing out to the north. Several ropes secured to iron stakes lead down to the chasm floor. Nezznar's servants are sifting through rubble at the bottom of the rift.",
+      "position": "Eastern section of Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Dark Pool", "Wave Echo Cave - Old Streambed", "Wave Echo Cave - Temple of Dumathoin"],
+      "features": ["20-foot deep rift", "Stream pouring into rift", "Ropes leading down to rift floor", "DC 10 Athletics to climb without rope"],
+      "npcs": ["3 bugbears", "Vhalak (doppelganger, disguised as male drow)"],
+      "items": ["Gauntlets of ogre power (buried under rubble on rift floor, DC 20 Perception)"]
+    },
+    "Wave Echo Cave - Temple of Dumathoin": {
+      "description": "A hall with six cracked marble pillars and a nine-foot-tall statue of a dwarf seated on a throne with a stone warhammer. Large emeralds (actually fake glass) gleam in the statue's eyes. Nezznar uses this as his headquarters, with bedrolls, packs, and a fire pit arranged before the statue, and a wooden table between two pillars.",
+      "position": "Deep within Wave Echo Cave",
+      "connected_to": ["Wave Echo Cave - Collapsed Cavern", "Wave Echo Cave - Priests' Quarters"],
+      "features": ["Six cracked marble pillars", "9-foot statue of Dumathoin (dwarven god of mining)", "Fake emerald eyes (DC 15 Investigation)", "Trapped -- removing eyes triggers ceiling collapse (DC 15 Dex save, 4d10 bludgeoning)", "Nezznar's campsite and headquarters"],
+      "npcs": ["Nezznar the Black Spider (drow adventurer)", "4 giant spiders", "2 bugbears"],
+      "items": ["Potion of healing", "Spider staff", "Iron key (to Priests' Quarters)", "190 ep", "130 gp", "15 pp", "9 gemstones (10 gp each)", "Dwarven ale mug of hammered electrum (100 gp)"]
+    },
+    "Wave Echo Cave - Priests' Quarters": {
+      "description": "A room with dusty draperies on the walls, a bed and brazier. Nundro Rockseeker lies bound and unconscious on the cold stone floor. Formerly the quarters of the priest in charge of Dumathoin's temple, now used by Nezznar as a cell for his prisoner.",
+      "position": "Adjacent to the Temple of Dumathoin",
+      "connected_to": ["Wave Echo Cave - Temple of Dumathoin"],
+      "features": ["Locked door (DC 15 thieves' tools)", "Dusty draperies", "Bed and brazier", "Safe resting place after clearing enemies"],
+      "npcs": ["Nundro Rockseeker (prisoner, youngest Rockseeker brother)"],
+      "items": []
+    },
+    "Neverwinter Wood": {
+      "description": "A vast forest north of the Triboar Trail region. Home to various creatures and the location of Cragmaw Castle deep within.",
+      "position": "North of Phandalin and the Triboar Trail",
+      "connected_to": ["Cragmaw Castle", "Ruins of Thundertree", "Agatha's Lair"],
+      "features": ["Dense forest", "Dangerous creatures"],
+      "npcs": [],
+      "items": []
+    },
+    "Sword Mountains": {
+      "description": "A mountain range south of the Triboar Trail region. The foothills contain Wave Echo Cave and attract prospectors seeking gold and platinum.",
+      "position": "South of Phandalin and the Triboar Trail",
+      "connected_to": ["Wave Echo Cave", "Phandalin"],
+      "features": ["Mountain range", "Foothills with gold and platinum deposits"],
+      "npcs": [],
+      "items": []
+    }
+  }
+}

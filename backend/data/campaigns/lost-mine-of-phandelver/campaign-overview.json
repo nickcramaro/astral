@@ -1,0 +1,18 @@
+{
+  "campaign_name": "Lost Mine Of Phandelver Campaign",
+  "genre": "Fantasy",
+  "tone": {
+    "horror": 30,
+    "comedy": 30,
+    "drama": 40
+  },
+  "current_date": "15th of Mirtul, 1481 DR",
+  "time_of_day": "Afternoon",
+  "player_position": {
+    "current_location": "Phandalin",
+    "previous_location": "Triboar Trail",
+    "arrival_time": "2026-02-10 16:55:21 UTC"
+  },
+  "current_character": null,
+  "session_count": 0
+}

@@ -1,0 +1,23 @@
+# Chunk 124 of 140
+---
+
+Illumination. The flameskull sheds either dim light in a 15-foot 
+radius, or bright light in a 15-foot radius and dim light for an 
+additional 15 feet. It can switch between the options as an action. 
+
+Magic Resistance. The flameskull has advantage on saving throws 
+against spells and other magical effects. 
+
+Rejuvenation. If the flameskull is destroyed, it regains all its hit 
+points in 1 hour unless holy water is sprinkled on its remains or a 
+dispel magic or remove curse spell is cast on them. 
+
+Spellcasting. The flameskull is a 5th-level spellcaster that uses 
+Intelligence as its spellcasting ability (spell save DC 13, +5 to 
+hit with spell attacks). It needs only verbal components to cast 
+its spells. The flameskull knows the following spells from the 
+wizard’s spell list: 
+
+
+
+DoppelgangerAPPENDIX B:

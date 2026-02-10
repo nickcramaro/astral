@@ -1,0 +1,124 @@
+# Chunk 80 of 140
+---
+
+Ask the players to tell you the party’s marching order, so 
+that you know which characters are in the lead and who’s 
+bringing up the rear. When the party camps, ask which 
+characters are on watch. This information is important if 
+the party encounters something dangerous. 
+
+The Triboar Trail is not safe. As the adventurers travel 
+throughout this area, they might stumble across hungry 
+beasts, greedy bandits, or vicious monsters. Check for 
+encounters once during the day and once at night by 
+rolling a d20. On a roll of 17-20, an encounter takes place. 
+Roll a dl2 and consult the Wilderness Encounters table to 
+determine what the party meets. 
+
+When an encounter occurs, and the adventurers gain 
+XP if they defeat the monsters. Each creature’s stat block 
+has the XP value for one monster of that sort. Multiply that 
+value by the number of creatures encountered, then divide 
+the total equally among the characters. 
+
+
+Wilderness Encounters 
+
+
+Day Roll 
+
+Night Roll 
+
+Result 
+
+1-2 
+
+1-3 
+
+Stirges (1 d8 + 2) 
+
+— 
+
+4 
+
+Ghouls (1 d4 + 1) 
+
+3-4 
+
+— 
+
+Ogre (1) 
+
+5-6 
+
+5 
+
+Goblins (ld6 + 3) 
+
+7-8 
+
+6 
+
+Hobgoblins (1 d4 + 
+
+9-10 
+
+7-8 
+
+Ores (ld4 + 2) 
+
+11 
+
+9-10 
+
+Wolves (ld4 + 2) 
+
+12 
+
+11-12 
+
+Owlbear (1) 
+
+
+Stirges. These flying predators drain the blood of their 
+victims and are drawn to the light of campfires at night. 
+Ghouls . These undead humans hunger for living flesh. 
+Ogre. The ogre is looking for an easy kill. It is too stupid 
+to flee once combat is joined. 
+
+
+27 
+
+PART 3: THE SPIDER’S WEB 
+
+
+
+
+If the characters exercise caution and remember what 
+they’ve come for, they will be able to speak with the 
+banshee. When the characters enter the shelter, read 
+the following: 
+
+A home of sorts is sheltered within the dome ofwoven 
+branches. It is sparsely furnished with chests, shelves, a 
+table, and a reclined couch, all of it old and of elven craft. 
+
+Agatha senses the characters’ intrusion and manifests 
+shortly after they enter her home. 
+
+The air grows cold, and a powerful feeling of dread grips you. 
+
+A cold, pale light flickers in the air, rapidly taking on the form 
+of a female elf, her hair and robes waving in a spectral wind. 
+She might have been beautiful once, but a hateful expression 
+twists her features now. “Foolish mortals,” she snarls. “What 
+do you want here? Do you not know it is death to seek me out?” 
+
+If the characters are rude, disrespectful, or threatening, 
+Agatha scowls and disappears. She does not attack them, 
+nor does she return if the characters call out to her. 
+
+
+Goblins . The goblins know the location of Cragmaw 
+Castle and can provide directions if they are captured and 
+threatened. Each one carries a pouch containing ldlO cp.

@@ -1,0 +1,78 @@
+# Chunk 49 of 140
+---
+
+the opening above. A character attempting to ascend or 
+descend the chimney shaft must make a DC 10 Strength 
+(Athletics) check. If the check succeeds, the character 
+moves at half speed up or down the shaft, as desired. On a 
+check result of 6-9, the character neither gains nor loses 
+ground; on a result of 5 or less, the character falls and 
+takes ld6 bludgeoning damage per 10 feet fallen, landing 
+prone at the base of the shaft. 
+
+Developments 
+
+If the wolves are goaded by enemies beyond their reach, 
+they are driven into a frenzy that allows them to yank the 
+iron rod securing their chains out of the floor. Each round 
+that any character remains in sight, the wolves attempt 
+a single DC 15 Strength check. On the first success, 
+they loosen the rod and the DC drops to 10. On a second 
+success, they yank the rod loose, bending it so that their 
+chains are freed. 
+
+A goblin or bugbear can use its action to release one 
+wolf from its chain. 
+
+4 . Steep Passage 
+
+From this point on, characters without darkvision will 
+need light to see their surroundings. 
+
+The main passage from the cave mouth climbs steeply 
+upward, the stream plunging and splashing down its west 
+side. In the shadows, a side passage leads west across the 
+other side of the stream. 
+
+
+* ft*. 
+
+Adventure Maps 
+
+Maps that appear in this adventure are for the DM’s eyes only. 
+
+A map not only shows an adventure location in its entirety but 
+also shows secret doors, hidden traps, and other elements the 
+players aren’t meant to see — hence the need for secrecy. 
+
+Maps are best used to show multiroom lairs and other 
+locations that have many places to explore. Therefore, not every 
+location needs a map. 
+
+When the players arrive at a location marked on a map, you 
+can either rely on a verbal description to give them a clear 
+mental picture of the location, or you can draw what they see 
+on a separate piece of graph paper, copying what’s on your map 
+while omitting details as appropriate. 
+
+Scale and Grid. A scale allows you to measure distances 
+and dimensions accurately, which is important for combat 
+encounters, magical effects, and light sources, among other 
+things. Indoor maps use grid squares that are either 5 feet on a 
+side or 10 feet on a side. 
+
+Compass Rose. A compass rose comes in handy when you’re 
+describing locations. For instance, you might need to tell 
+players about “barrels along the north wall” or “the staircase 
+descending to the west.” 
+
+
+
+Characters using light or darkvision to look farther up the 
+passage spot the bridge at area 5. Add: 
+
+
+In the shadows of the ceiling to the north, you can just make 
+out the dim shape of a rickety bridge of wood and rope 
+crossing over the passage ahead of you. Another passage 
+intersects this one, twenty feet above the floor.

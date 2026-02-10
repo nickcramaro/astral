@@ -1,0 +1,85 @@
+# Chunk 106 of 140
+---
+
+Old stone bunks line the walls of this barracks, which is lit and 
+heated by a glowing iron brazier in the middle of the room. 
+
+If the party enters from the west, add: 
+
+( » i 
+
+Across the room is another door, this one blocked by a 
+barricade made from the remains of a wooden table. 
+
+Five bugbears reside in this chamber. They are loyal 
+minions of Nezznar. This room marks the front line in 
+the Black Spider’s assault on Wave Echo Cave, and the 
+bugbears are here to prevent ghouls, zombies, or other 
+undead from troubling their master in his lair (area 19). 
+
+Like area 6, this was formerly a barracks for miners. 
+Nezznar’s bugbears removed the corpses they found here 
+and built the barricade. 
+
+Treasure 
+
+The largest bugbear carries a pouch containing 15 cp, 13 
+ep, and a potion of vitality. 
+
+12. Smelter Cavern 
+
+Like the fungi cavern at area 8, this chamber poses a 
+serious obstacle that prevents Nezznar from reaching 
+his objective— the Forge of Spells (area 15). The drow is 
+still formulating a plan to get past the undead guardians 
+in this area. 
+
+A blast furnace and a mechanical bellows powered by a 
+waterwheel dominate this large chamber. The furnace is cold 
+and dark, but heaps of coal are piled nearby, along with carts 
+full of unrefined ore. The waterwheel sits in a ten-foot-wide 
+channel cut into the floor of the room, but the channel is dry. 
+Passages exit to the west, south, and east. The empty channel 
+exits to the north and east. 
+
+More than a dozen withered corpses are scattered around 
+the room. These slain dwarves and ores are still wearing 
+the remnants of their armor. Floating above them is a skull 
+engulfed in green flame. 
+
+Eight of the fallen dwarf warriors are zombies. They rise 
+and pursue any living creatures that enter the room, but 
+they do not pursue creatures outside this area for more 
+than 1 round. In addition, a far more intelligent undead 
+guards this area: a flameskull. This creature was a 
+servant of the human wizards allied with the Phandelver 
+dwarves and gnomes, and it continues to act on ancient 
+instructions to prevent intruders from passing through. 
+
+This impressive chamber was the heart of the Wave 
+Echo Cave mining operation. Here, the dwarves melted 
+down their ore to refine ingots of silver, gold, and platinum. 
+The dry channel is where the dwarves diverted the stream 
+from area 18 to power the waterwheel here. That in turn 
+operated the bellows that fed the furnace. 
+
+The channel’s bottom is 5 feet below floor level, and no 
+ability check is required to scramble in or out. Characters 
+in the channel can follow it out of this room to the north or 
+to the east, though the ceiling is only 5 feet high after the 
+channel exits this room. 
+
+
+46 
+
+
+PART 4: WAVE ECHO CAVE 
+
+
+
+13. Starry Cavern 
+
+The structural damage and the skeletal remains in this 
+area are evidence of the destructive spell battle fought 
+here centuries ago when the ores and their mercenary 
+wizards stormed the mines.

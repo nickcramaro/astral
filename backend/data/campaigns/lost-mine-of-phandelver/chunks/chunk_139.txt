@@ -1,0 +1,21 @@
+# Chunk 140 of 140
+---
+
+if (document.querySelectorAll('.more_search').length) {
+    archive_analytics.send_scroll_fetch_base_event();
+  }
+}
+</script>
+          <img src="//athena.archive.org/0.gif?kind=track_js&track_js_case=control&cache_bust=217010964" alt="" />
+          <noscript>
+        <img src="//athena.archive.org/0.gif?kind=track_js&track_js_case=disabled&cache_bust=655427951" />
+      </noscript>
+          <script  nonce="8df93bfe3595ef5981c5a8c5e505480f" >
+        document.addEventListener('DOMContentLoaded', function() {
+          if (typeof archive_analytics !== 'undefined')
+            archive_analytics.create_tracking_image('in_page_executes');
+        });
+      </script>
+      </div>
+  </body>
+</html>

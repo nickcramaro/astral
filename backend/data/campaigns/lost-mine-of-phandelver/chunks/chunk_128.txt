@@ -1,0 +1,156 @@
+# Chunk 129 of 140
+---
+
+MONSTERS 
+
+
+Nothic 
+
+Medium aberration, neutral evil 
+
+
+Armor Class 15 (natural armor) 
+Hit Points 45 (6d8+ 18) 
+
+Speed 30 ft. 
+
+
+STR DEX CON INT WIS CHA 
+
+14 (+2) 16 (+3) 16 (+3) 13 (+1) 10 (+0) 8 (-1) 
+
+
+Skills Arcana +3, Insight +4, Perception +2, Stealth +5 
+Senses truesight 120 ft., passive Perception 12 
+Languages Undercommon 
+Challenge 2 (450 XP) 
+
+
+Keen Sight. The nothic has advantage on Wisdom (Perception) 
+checks that rely on sight. 
+
+Actions 
+
+Multiattack. The nothic makes two attacks with its claws. 
+
+Claws. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 
+6 (1 d6 + 3) slashing damage. 
+
+Rotting Gaze. The nothic chooses one creature within 30 feet of it 
+that it can see. The target must succeed on a DC 12 Constitution 
+saving throw against this magic or take 10 (3d6) necrotic damage. 
+
+Weird Insight. The nothic chooses one creature within 30 feet of it 
+that it can see. The target must contest its Charisma (Deception) 
+check against the nothic’s Wisdom (Insight) check. Ifthe nothic 
+wins, it magically learns one fact or secret about the creature. 
+
+Nothics were once wizards who dared to unlock magical 
+secrets they couldn’t fathom. Though gifted with strange 
+cosmic insight that allows them to extract knowledge from 
+
+
+
+other creatures, nothics are no longer the wizards they 
+once were and have no memories of their previous lives. 
+
+
+Ochre Jelly 
+
+Large ooze, unaligned 
+
+
+Armor Class 8 
+
+
+
+Hit Points 45 (6dl0 + 12) 
+
+
+
+Speed 10 ft., climb 10 ft. 
+
+
+
+STR DEX CON 
+
+INT WIS 
+
+CHA 
+
+15 (+2) 6 (-2) 14 (+2) 
+
+2 (-4) 6 (-2) 
+
+1 (-5) 
+
+
+Damage Resistances acid 
+
+Damage Immunities lightning, slashing 
+
+Condition Immunities blinded, charmed, deafened, frightened, 
+
+
+prone 
+
+Senses blindsight 60 ft. (blind beyond this radius), passive 
+Perception 8 
+
+Languages — 
+
+Challenge 2 (450 XP) 
+
+
+Amorphous. The jelly can move through a space as narrow as 1 
+inch wide without squeezing. 
+
+Spider Climb. The jelly can climb difficult surfaces, including 
+upside down on ceilings, without needing to make an ability 
+check. 
+
+Actions 
+
+Pseudopod. Melee Weapon Attack: +4 to hit, reach 5 ft., one 
+target. Hit: 9 (2d6 + 2) bludgeoning damage plus 3 (ld6) acid 
+damage. 
+
+Reactions 
+
+Split. When a jelly that is Medium or larger is subjected to 
+lightning or slashing damage, it splits into two new jellies if it has 
+at least 10 hit points. Each new jelly has hit points equal to half 
+the original jelly’s, rounded down. New jellies are one size smaller 
+than the original jelly. 
+
+Ochre jellies stalk and consume organic creatures, and 
+they have enough bestial cunning to avoid large groups. 
+
+Ogre 
+
+Large giant, chaotic evil 
+
+
+Armor Class 11 (hide armor) 
+
+Hit Points 59 (7dl0 + 21) 
+
+Speed 40 ft. 
+
+
+STR DEX CON INT 
+
+WIS CHA 
+
+19 (+4) 8 (-1) 16 (+3) 5 (-3) 
+
+7 (-2) 7 (-2) 
+
+Senses darkvision 60 ft., passive Perception 8 
+
+Languages Common, Giant 
+
+Challenge 2 (450 XP) 
+
+
+Actions

@@ -1,0 +1,74 @@
+# Chunk 50 of 140
+---
+
+Any character who can see the bridge in area 5 might also 
+notice the goblin guarding the bridge. Doing so requires 
+a Wisdom (Perception) check contested by the goblins 
+Dexterity (Stealth) check result. 
+
+The goblin notices the characters if they carry any light 
+or don’t use stealth as they approach the bridge. The 
+goblin does not attack. Instead, it attempts to sneak away 
+to the east to inform its companions in area 7 to release 
+a flood (see the “Flood!” section of area 5). The goblin 
+moves undetected if its Dexterity (Stealth) check exceeds 
+the passive Wisdom (Perception) score of any character 
+who might notice its movements. 
+
+Western Passage. This passage is choked with rubble 
+and has steep escarpments. Treat the area as difficult 
+terrain (see “Difficult Terrain” in the rulebook). 
+
+The ledge between the two escarpments is fragile. Any 
+weight in excess of 100 pounds loosens the whole mass 
+and sends it tumbling down to the east. Any creature 
+on the ledge when it falls must make a DC 10 Dexterity 
+saving throw, taking 2d6 bludgeoning damage on a failure, 
+or half as much damage on a success. The creature 
+also falls prone on a failed save (see “Being Prone” in 
+the rulebook). 
+
+5. Overpass 
+
+Where a high tunnel passes through the larger tunnel 
+cavern below, the goblins have set up a bridge guard post. 
+
+The stream passage continues up beyond another set of 
+uneven steps ahead, bending eastward as it goes. A waterfall 
+sounds out from a larger cavern somewhere ahead of you. 
+
+If the characters didn’t spot the bridge while navigating 
+area 4, they spot it now. Add: 
+
+A rickety bridge spans the passage, connecting two tunnels 
+that are 20 feet above the stream. 
+
+One goblin stands watch on the bridge. It is hiding, 
+and characters can spot it by succeeding on a Wisdom 
+(Perception) check contested by the goblin’s Dexterity 
+(Stealth) check. This guard is lazy and inattentive. If no 
+characters are using light sources, each character can 
+attempt a Dexterity (Stealth) check against the goblin’s 
+passive Wisdom (Perception) score to creep by without 
+being noticed. 
+
+If the goblin spots the adventurers, it signals the goblins 
+in area 7 to release a flood (see the “Flood!” section), then 
+throws javelins down at the characters. 
+
+Bridge. This bridge spans the passage 20 feet above the 
+stream. It’s possible to climb up the cavern walls from the 
+lower passage to the bridge. The 20-foot-high walls are 
+rough but slick with spray, requiring a successful DC 15 
+Strength (Athletics) check to climb. 
+
+The bridge has an Armor Class (AC) of 5 and 10 hit 
+points. If the bridge is reduced to 0 hit points, it collapses. 
+Creatures on the collapsing bridge must succeed on a DC 
+10 Dexterity saving throw or fall, taking 2d6 bludgeoning 
+damage and landing prone (see “Being Prone” in the 
+rulebook). Those who succeed hold onto the bridge and 
+must climb it to safety. 
+
+
+Flood!

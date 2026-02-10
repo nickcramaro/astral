@@ -1,0 +1,61 @@
+{
+  "id": "saul",
+  "name": "Saul",
+  "race": "Human",
+  "class": "Warlock",
+  "level": 1,
+  "hp": {
+    "current": 10,
+    "max": 10
+  },
+  "ac": 13,
+  "stats": {
+    "str": 8,
+    "dex": 14,
+    "con": 15,
+    "int": 10,
+    "wis": 13,
+    "cha": 17
+  },
+  "saves": {
+    "str": -1,
+    "dex": 2,
+    "con": 2,
+    "int": 0,
+    "wis": 3,
+    "cha": 5
+  },
+  "skills": {
+    "animal_handling": 3,
+    "deception": 5,
+    "intimidation": 5,
+    "survival": 3
+  },
+  "equipment": [
+    "Leather Armor",
+    "Dagger",
+    "Dagger",
+    "Light Crossbow",
+    "Crossbow Bolts (20)",
+    "Arcane Focus",
+    "Dungeoneer's Pack",
+    "Shovel",
+    "Iron Pot",
+    "Common Clothes",
+    "Belt Pouch"
+  ],
+  "features": [
+    "Dark One's Blessing",
+    "Pact Magic"
+  ],
+  "background": "Folk Hero",
+  "alignment": "Chaotic Good",
+  "bonds": "I made a dark pact to save my village. I will protect common folk no matter the cost.",
+  "flaws": "The power I wield frightens me — and sometimes I like it too much.",
+  "ideals": "Freedom — no tyrant, no devil, no king tells me what is right.",
+  "traits": "I judge people by their actions, not their words. I have a strong sense of fair play.",
+  "notes": [],
+  "gold": 10,
+  "xp": 0,
+  "current_location": "Phandalin"
+}

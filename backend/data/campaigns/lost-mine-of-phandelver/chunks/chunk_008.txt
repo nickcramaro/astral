@@ -1,0 +1,124 @@
+# Chunk 9 of 140
+---
+
+.primary-nav-1 .upload.primary-nav {
+      display: block;
+      padding: 1rem 0.5rem;
+      float: right;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #999;
+    }
+
+    .primary-nav-1 .upload.primary-nav:active,
+    .primary-nav-1 .upload.primary-nav:focus,
+    .primary-nav-1 .upload.primary-nav:hover {
+      color: #fff;
+    }
+
+    .primary-nav-1 .upload.primary-nav:focus-visible {
+      outline: none;
+    }
+
+    .primary-nav-1 .upload.primary-nav svg.primary-nav {
+      vertical-align: middle;
+      fill: #999;
+    }
+
+    .primary-nav-1 .upload.primary-nav:hover svg.primary-nav,
+    .primary-nav-1 .upload.primary-nav:focus svg.primary-nav,
+    .primary-nav-1 .upload.primary-nav:active svg.primary-nav {
+      fill: #fff;
+    }
+
+    .primary-nav-1 nav-search.primary-nav {
+      float: right;
+      margin-left: 1rem;
+    }
+
+  }
+
+  @media (min-width: 990px) {
+    .primary-nav-1 .screen-name.primary-nav {
+      display: inline-block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 165px;
+    }
+
+    .primary-nav-1 .upload.primary-nav span.primary-nav {
+      display: inline;
+      vertical-align: middle;
+    }
+
+  }
+</style><!-- Shady DOM styles for user-menu --><!-- Shady DOM styles for search-menu -->
+<style scope="search-menu-1">
+  .search-menu-1 .menu-wrapper.search-menu {
+    position: relative;
+  }
+
+  .search-menu-1 button.search-menu:focus,
+  .search-menu-1 input.search-menu:focus {
+    outline-color: #4b64ff;
+    outline-width: 0.16rem;
+    outline-style: auto;
+    outline-offset: 2px !important;
+  }
+
+  .search-menu-1 .search-menu-inner.search-menu {
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 4;
+    padding: 0 4.5rem;
+    font-size: 1.6rem;
+    background-color: #333;
+  }
+
+  .search-menu-1 .tx-slide.search-menu {
+    overflow: hidden;
+    transition-property: top;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+  }
+
+  .search-menu-1 .initial.search-menu,
+  .search-menu-1 .closed.search-menu {
+    top: -1500px;
+  }
+
+  .search-menu-1 .closed.search-menu {
+    transition-duration: 0.2s;
+  }
+
+  .search-menu-1 label.search-menu,
+  .search-menu-1 a.search-menu {
+    padding: 1rem;
+    display: block;
+  }
+
+  .search-menu-1 .advanced-search.search-menu {
+    text-decoration: none;
+    color: #4b64ff;
+    line-height: normal;
+    padding: 0.5rem;
+    margin-top: 5px;
+  }
+
+  @media (min-width: 890px) {
+    .search-menu-1 .search-menu-inner.search-menu {
+      overflow: visible;
+      right: 2rem;
+      left: auto;
+      z-index: 5;
+      padding: 1rem 2rem;
+      transition: opacity 0.2s ease-in-out;
+      font-size: 1.4rem;
+      color: #333;
+      border-radius: 2px;
+      background: #fff;
+      box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.15);
+    }

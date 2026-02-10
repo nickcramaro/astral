@@ -1,0 +1,92 @@
+# Chunk 120 of 140
+---
+
+MONSTERS 
+
+
+Ability Scores 
+
+ry creature has six ability scores (Strength, Dexterity, 
+Cor. a : r. IrveLigence, Wisdom, and Charisma) and 
+cc rrfs&gt; : r. ling m jdifiers. For more information on ability 
+sc : res =r. 2 how they re used in play, see the rulebook. 
+
+Saving Throws 
+
+The Saving Throws entry is reserved for creatures that 
+are particularly adept at resisting certain kinds of effects. 
+
+Skills 
+
+The Skills entry is reserved for creatures that are 
+proficient in one or more skills. For example, a creature 
+that is very perceptive and stealthy might have higher- 
+than-normal bonuses to Wisdom (Perception) and 
+Dexterity (Stealth) checks. 
+
+Skills in a monster’s stat block are shown with the total 
+modifier— the monster’s ability modifier plus its proficiency 
+bonus. If a monster’s stat block says “Stealth +6,” roll a 
+d20 and add 6 when the monster makes an ability check 
+using Stealth. 
+
+JL 
+
+Armor, Weapon, and Tool Proficiencies 
+
+Assume that a creature is proficient with its armor, weapons, 
+and tools. If you swap out a creature’s armor and weapons, 
+you must decide whether the creature is proficient with its new 
+equipment. See the rulebook for what happens when you use 
+these items without proficiency. 
+
+
+Vulnerabilities, Resistances, 
+and Immunities 
+
+Some creatures have vulnerability, resistance, or 
+immunity to certain types of damage. Additionally, some 
+creatures are immune to certain conditions and other 
+game effects. These immunities are also noted here. 
+
+Senses 
+
+The Senses entry notes a creature’s passive Wisdom 
+(Perception) score, as well as any special senses the 
+creature might have, such as the following senses. 
+
+Blindsight. A creature with blindsight can perceive its 
+surroundings without having to rely on sight, within a 
+specific radius. 
+
+Darkvision . A creature with darkvision can see in the 
+dark within a specific radius. The creature can see in dim 
+light within the radius as if it were bright light, and in 
+darkness as if it were dim light. The creature can’t discern 
+color in darkness, only shades of gray. 
+
+Truesight. A creature with truesight can see in normal 
+and magical darkness, see invisible creatures and objects, 
+automatically detect visual illusions and succeed on saving 
+throws against them, and perceive the original form of a 
+shapechanger or a creature that is transformed by magic. 
+Furthermore, the creature can see into the Ethereal Plane. 
+
+Languages 
+
+The languages that a creature can speak are listed in 
+alphabetical order. Sometimes a creature can understand 
+a language but not speak it, and this is noted in its entry. 
+
+
+Challenge 
+
+An appropriately equipped and well-rested party of four 
+adventurers should be able to defeat a creature that has 
+a challenge rating equal to their level without suffering 
+any casualties. 
+
+Monsters that are significantly weaker than lst-level 
+characters have challenge ratings lower than 1. 
+
+Experience Points (XP)

@@ -1,0 +1,18 @@
+{
+  "session_events": [
+    {
+      "fact": "Session 1 begins. Saul is escorting Gundren Rockseeker's supply wagon from Neverwinter to Phandalin along the Triboar Trail. Gundren and Sildar Hallwinter rode ahead on horseback.",
+      "timestamp": "2026-02-09T00:49:48.554503+00:00"
+    },
+    {
+      "fact": "Saul ambushed by 4 goblins at the dead horses. Killed one with Hellish Rebuke but was dropped by arrows while fleeing. Goblins stole the wagon and supplies. Saul stabilized on the road.",
+      "timestamp": "2026-02-09T01:00:54.985807+00:00"
+    }
+  ],
+  "combat": [
+    {
+      "fact": "Combat: Saul vs 4 goblins at Triboar Trail ambush site",
+      "timestamp": "2026-02-09T00:53:08.975022+00:00"
+    }
+  ]
+}

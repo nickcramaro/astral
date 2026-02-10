@@ -1,0 +1,77 @@
+# Chunk 111 of 140
+---
+
+Nezznar uses this room as his headquarters while he 
+explores the mines and searches for the Forge of Spells. 
+
+Six cracked marble pillars line the walls of this hall, at the 
+north end of which stands a nine-foot-tall statue of a dwarf 
+seated on a throne, a mighty stone warhammer across his 
+lap. Large emeralds gleam in the statue’s eyes. 
+
+The dust and debris covering the floor has been swept to 
+one side, and a campsite of sorts now spreads in front of the 
+statue. Haifa dozen bedrolls and packs are neatly arranged 
+around a rough-built fire pit. A wooden table stands on the 
+west side of the room between two pillars. 
+
+If the room’s occupants are not aware of the characters as 
+they enter, add the following: 
+
+Two bugbears stand by the table, flanking a dark elf dressed 
+in black leather armor and robes. He clutches a black staff 
+with a carved spider at the top and frowns as he sees you. 
+
+“It seems that I must deal with you myself. A pity it must 
+end this way.” 
+
+Nezznar the Black Spider is joined by four giant spiders 
+
+that defend their master to the death. If they are expecting 
+trouble, the spiders hide behind pillars, and Nezznar casts 
+invisibility on himself and stands near the table. Make a 
+Dexterity (Stealth) check for the spiders. When intruders 
+appear, the spiders try to entangle them in webs before 
+closing to melee range. Nezznar joins the fray on the 
+round after the spiders attack. 
+
+If the doppelganger from area 18 retreated to this 
+area, it assumes the guise of Nundro Rockseeker so that 
+Nezznar can use the “dwarf” as leverage to force the 
+party’s surrender (although the drow won’t actually harm 
+the doppelganger). See the “Roleplaying Nezznar” section 
+for more information on the drow villain. 
+
+Statue. The statue depicts Dumathoin, the dwarven god 
+of mining. Any character who has proficiency in Religion 
+recognizes the deity. The statue is beautifully carved, and 
+its emerald eyes appear extremely valuable. However, 
+the jewels are clever fakes made of worthless glass, as 
+close inspection and a successful DC 15 Intelligence 
+(Investigation) check reveals. Nevertheless, a powerful 
+spell protects them, and a detect magic spell reveals a 
+strong aura of abjuration magic surrounding the statue. 
+
+A character can climb the statue easily and pry a jewel 
+loose with a successful DC 10 Strength check. However, if 
+either eye is removed, the pillars that line the walls crack, 
+triggering a ceiling collapse. Each creature in the room 
+must make a DC 15 Dexterity saving throw, taking 4dl0 
+
+
+PART 4: WAVE ECHO CAVE 
+
+
+49 
+
+
+
+Nezznar the Black Spioer 
+
+
+Developments 
+
+The creatures in area 18 can hear sounds of combat in 
+this room. If they haven’t already been dealt with, they 
+arrive after 3 rounds and act immediately after Nezznar’s 
+giant spiders in the initiative count.

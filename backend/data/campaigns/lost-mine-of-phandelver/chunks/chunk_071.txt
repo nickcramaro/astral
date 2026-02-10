@@ -1,0 +1,69 @@
+# Chunk 72 of 140
+---
+
+The cavern continues for some distance to the south. You 
+can make out several passages that open up offthe larger 
+cavern, and what looks like a deep pit or crevasse in the floor. 
+
+This room contains two secret doors, one leading to area 
+6 and the other to area 12. See the “General Features” 
+section (page 20) for more information on secret doors. 
+
+Treasure 
+
+Most of the provisions and goods here aren’t valuable, 
+but lying among them are thirty beaver pelts (2 gp each). 
+They were looted from a caravan on the Triboar Trail a 
+few days ago. 
+
+8. Crevasse 
+
+The characters arrive here by one of three routes: the 
+tunnel from area 1, the storeroom at area 7, or the rough- 
+hewn passage to the south, which continues off the map 
+for about one hundred feet and emerges from a tunnel in 
+the woods south of Tresendar Manor. The passage is an 
+excellent way to smuggle people or goods in and out of 
+Phandalin without being seen, and is thus perfect for a 
+gang of slavers and thieves. 
+
+A cold breeze fills this large natural cavern, carrying with it 
+the faint scent of decaying flesh. A crevasse divides the cavern 
+and is flanked by two rough stone columns that support the 
+twenty-foot-high ceiling. Two arched wooden bridges span 
+the chasm. 
+
+
+Bridges. These bridges are made of wooden planks and 
+have no rails. The south one is rigged to collapse when 
+a creature weighing more than 50 pounds moves across 
+it. A character next to the bridge can discern that the 
+construction is faulty with a successful DC 15 Intelligence 
+(Investigation) check. Any creature can use an action 
+to dislodge one end of either bridge, dropping it into 
+the crevasse. 
+
+Crevasse. This steep-sided fissure is 5 to 10 feet wide 
+and 20 feet deep. Its rough walls are easily climbed 
+without an ability check. A creature that falls into the 
+crevasse takes 2d6 bludgeoning damage and lands prone 
+in a jumble of rubble that is difficult terrain (see “Difficult 
+Terrain” in the rulebook). 
+
+The bottom of the crevasse feels unnaturally cold. When 
+viewed with a detect magic spell, the area emanates a faint 
+necromantic aura. The magic causes all organic matter in 
+the crevasse to age and decompose at half the normal rate. 
+
+Currently heaped at the bottom among broken and well- 
+gnawed bones is the half-eaten body of Thel Dendrar, 
+the woodcarver of Phandalin who was murdered by 
+the Redbrands. The outlaws left his corpse here for the 
+nothic to feed on. 
+
+Treasure 
+
+The nothic keeps its hoard in a battered wooden chest 
+hidden in a cubbyhole at the bottom of the crevasse, under 
+the north bridge. The chest can’t be seen from the edge of 
+the crevasse, but is obvious to any character who descends

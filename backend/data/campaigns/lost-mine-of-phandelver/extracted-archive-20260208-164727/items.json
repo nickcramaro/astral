@@ -1,0 +1,564 @@
+{
+  "items": {
+    "Talon (+1 Longsword)": {
+      "description": "A +1 longsword in a silver-chased scabbard. The sword is inscribed with the name 'Talon,' and its hilt is worked in the shape of a bird of prey with outspread wings. It once belonged to a great knight named Aldith Tresendar, known as the Black Hawk. Sir Aldith died fighting off the orcs that attacked through the hidden caverns below his manor.",
+      "type": "weapon",
+      "value": "uncommon magic item",
+      "location": "Redbrand Hideout - Area 8 (Crevasse), in a treasure chest at the bottom of the fissure, guarded by the nothic",
+      "properties": ["+1 bonus to attack and damage rolls", "longsword", "historical significance to Tresendar family"]
+    },
+    "Staff of Defense": {
+      "description": "This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. While holding the staff, you have a +1 bonus to your Armor Class. The staff has 10 charges used to fuel spells. Regains 1d6+4 charges at dawn. If last charge is expended, roll d20; on a 1, the staff shatters and is destroyed.",
+      "type": "staff",
+      "value": "rare magic item",
+      "location": "Redbrand Hideout - Area 12 (Glasstaff's Quarters), carried by Iarno 'Glasstaff' Albrek",
+      "properties": ["+1 AC while holding", "requires attunement", "10 charges", "cast mage armor (1 charge)", "cast shield (2 charges)", "regains 1d6+4 charges at dawn"]
+    },
+    "Spider Staff": {
+      "description": "The top of this black, adamantine staff is shaped like a spider. The staff weighs 6 pounds. It deals 1d6 extra poison damage on a hit when used as a weapon attack. The staff has 10 charges. Regains 1d6+4 charges at dusk. If last charge is expended, roll d20; on a 1, the staff crumbles to dust.",
+      "type": "staff",
+      "value": "rare magic item",
+      "location": "Wave Echo Cave - Area 19 (Temple of Dumathoin), carried by Nezznar the Black Spider",
+      "properties": ["requires attunement", "can be wielded as quarterstaff", "1d6 extra poison damage on hit", "10 charges", "cast spider climb (1 charge)", "cast web (2 charges, DC 15)", "regains 1d6+4 charges at dusk"]
+    },
+    "Lightbringer (+1 Mace)": {
+      "description": "This +1 mace was made for a cleric of Lathander, the god of dawn. The head of the mace is shaped like a sunburst and made of solid brass. Named Lightbringer, this weapon glows as bright as a torch when its wielder commands. While glowing, the mace deals an extra 1d6 radiant damage to undead creatures.",
+      "type": "weapon",
+      "value": "uncommon magic item",
+      "location": "Wave Echo Cave - Area 15 (Forge of Spells), on the worktable in the southeast corner, guarded by a spectator",
+      "properties": ["+1 bonus to attack and damage rolls", "mace", "glows as bright as torch on command", "extra 1d6 radiant damage to undead while glowing"]
+    },
+    "Dragonguard (+1 Breastplate)": {
+      "description": "This +1 breastplate has a gold dragon motif worked into its design. Created for a human hero of Neverwinter named Tergon, it grants its wearer advantage on saving throws against the breath weapons of creatures that have the dragon type.",
+      "type": "armor",
+      "value": "rare magic item",
+      "location": "Wave Echo Cave - Area 15 (Forge of Spells), on the worktable in the southeast corner, guarded by a spectator",
+      "properties": ["+1 bonus to AC", "breastplate", "advantage on saving throws against dragon breath weapons"]
+    },
+    "Hew (+1 Battleaxe)": {
+      "description": "A rusty old battleaxe of dwarven manufacture. Runes in Dwarvish on the axe head read 'Hew,' and the rust is misleading. Hew deals maximum damage when the wielder hits a plant creature or an object made of wood. The axe's creator was a dwarf smith who feuded with the dryads of a forest where he cut firewood. Whoever carries the axe feels uneasy whenever traveling through a forest.",
+      "type": "weapon",
+      "value": "uncommon magic item",
+      "location": "Ruins of Thundertree - Area 7 (Dragon's Tower), beneath coins in the dead wizard's treasure chest, in Venomfang's lair",
+      "properties": ["+1 bonus to attack and damage rolls", "battleaxe", "deals maximum damage vs plant creatures", "deals maximum damage vs wooden objects", "wielder feels uneasy in forests"]
+    },
+    "Wand of Magic Missiles": {
+      "description": "This wand has 7 charges. You can use your action to fire the magic missile spell from the wand and expend 1 to 3 charges. For each charge beyond 1, the spell's level increases by 1. Can be used even if incapable of casting spells. Regains 1d6+1 charges at dawn. If last charge is expended, roll d20; on a 1, the wand crumbles to ash.",
+      "type": "wand",
+      "value": "uncommon magic item",
+      "location": "Wave Echo Cave - Area 10 (Dark Pool), clutched in the bony fingers of a skeleton at the bottom of the pool",
+      "properties": ["7 charges", "cast magic missile (1-3 charges)", "spell level increases per extra charge", "usable by non-spellcasters", "regains 1d6+1 charges at dawn"]
+    },
+    "Boots of Striding and Springing": {
+      "description": "Your speed while you wear these boots becomes 30 feet, unless your walking speed is higher, and your speed is not reduced if you are encumbered or wearing heavy armor. Whenever you jump, you can jump three times the normal distance.",
+      "type": "wondrous",
+      "value": "uncommon magic item",
+      "location": "Wave Echo Cave - Area 1 (Cave Entrance), worn by the dead dwarf Tharden Rockseeker",
+      "properties": ["walking speed becomes 30 ft minimum", "speed not reduced by encumbrance or heavy armor", "jump distance tripled"]
+    },
+    "Gauntlets of Ogre Power": {
+      "description": "While you wear these gauntlets, your Strength becomes 19. If your Strength is already 19 or higher, the gauntlets have no effect on you.",
+      "type": "wondrous",
+      "value": "uncommon magic item",
+      "location": "Wave Echo Cave - Area 18 (Collapsed Cavern), on the crushed skeleton of a dwarf buried under heavy rubble at the bottom of the rift (DC 20 Perception to find)",
+      "properties": ["Strength score becomes 19", "no effect if Strength already 19+", "requires attunement"]
+    },
+    "Ring of Protection": {
+      "description": "While you are wearing this ring and are attuned to it, you have a +1 bonus to your Armor Class and saving throws. This particular ring is from ancient Netheril.",
+      "type": "ring",
+      "value": "rare magic item",
+      "location": "Old Owl Well, in a tiny jeweled box (25 gp) within Hamun Kost's chest",
+      "properties": ["+1 bonus to AC", "+1 bonus to saving throws", "requires attunement", "from ancient Netheril"]
+    },
+    "Potion of Healing": {
+      "description": "When you drink this potion, you regain 2d4+2 hit points.",
+      "type": "potion",
+      "value": "50 gp",
+      "location": "Multiple locations: Cragmaw Hideout Area 8 (Klarg's Cave, 2 potions); Redbrand Hideout Area 1 (Cistern, 1 potion); Redbrand Hideout Area 8 (Crevasse, 2 potions); Sister Garaele's reward (3 potions); Thundertree Area 6 (Ruined Store, 1 potion); Cragmaw Castle Area 13 (Owlbear Tower, 1 potion); Cragmaw Castle Area 14 (King's Quarters, 3 potions); Old Owl Well (1 potion); Wave Echo Cave Area 19 (Temple of Dumathoin, 1 potion carried by Nezznar)",
+      "properties": ["consumable", "heals 2d4+2 HP"]
+    },
+    "Potion of Invisibility": {
+      "description": "When you drink this potion, you and your equipment become invisible for 1 hour. The invisibility ends if you attack or cast a spell.",
+      "type": "potion",
+      "value": "rare potion",
+      "location": "Redbrand Hideout - Area 1 (Cellar), in the waterproof satchel hidden in the cistern (Iarno's getaway kit)",
+      "properties": ["consumable", "invisibility for 1 hour", "ends on attack or casting spell"]
+    },
+    "Potion of Flying": {
+      "description": "This potion gives you a flying speed equal to your walking speed for 1 hour. If the potion wears off while flying and nothing else holds you aloft, you must use your movement to descend. If you fail to land before 1 minute passes, you fall.",
+      "type": "potion",
+      "value": "very rare potion",
+      "location": "Ruins of Thundertree - Area 13 (Dragon Cultists), carried by Favric the cult leader in a stoppered vial around his neck",
+      "properties": ["consumable", "flying speed equal to walking speed", "duration 1 hour"]
+    },
+    "Potion of Vitality": {
+      "description": "Drinking this potion removes any exhaustion you are suffering, cures any disease or poison affecting you, and maximizes the effect of any Hit Die you spend to regain hit points within the next 24 hours.",
+      "type": "potion",
+      "value": "very rare potion",
+      "location": "Wave Echo Cave - Area 11 (North Barracks), carried by the largest bugbear",
+      "properties": ["consumable", "removes exhaustion", "cures disease and poison", "maximizes Hit Die healing for 24 hours"]
+    },
+    "Scroll of Charm Person": {
+      "description": "A spell scroll bearing the charm person spell. Can be cast without components if the spell is on your class's spell list.",
+      "type": "scroll",
+      "value": "common scroll",
+      "location": "Redbrand Hideout - Area 12 (Glasstaff's Quarters), in the wooden chest at the foot of Iarno's bed",
+      "properties": ["consumable", "1st-level enchantment", "single use"]
+    },
+    "Scroll of Fireball": {
+      "description": "A spell scroll bearing the fireball spell. Can be cast without components if the spell is on your class's spell list. If of a higher level than you can normally cast, requires ability check DC 13.",
+      "type": "scroll",
+      "value": "uncommon scroll",
+      "location": "Redbrand Hideout - Area 12 (Glasstaff's Quarters), in the wooden chest at the foot of Iarno's bed",
+      "properties": ["consumable", "3rd-level evocation", "single use"]
+    },
+    "Scroll of Augury": {
+      "description": "A spell scroll bearing the augury spell. Can be cast without components if the spell is on your class's spell list.",
+      "type": "scroll",
+      "value": "common scroll",
+      "location": "Redbrand Hideout - Area 8 (Crevasse), in the treasure chest at the bottom of the fissure",
+      "properties": ["consumable", "2nd-level divination", "single use"]
+    },
+    "Scroll of Darkness": {
+      "description": "A spell scroll bearing the darkness spell, contained in a bone tube.",
+      "type": "scroll",
+      "value": "common scroll",
+      "location": "Old Owl Well, in Hamun Kost's chest",
+      "properties": ["consumable", "2nd-level evocation", "single use", "stored in bone tube"]
+    },
+    "Scroll of Misty Step": {
+      "description": "A spell scroll bearing the misty step spell. Can be cast without components if the spell is on your class's spell list.",
+      "type": "scroll",
+      "value": "common scroll",
+      "location": "Ruins of Thundertree - Area 7 (Dragon's Tower), in the dead wizard's treasure chest in Venomfang's lair",
+      "properties": ["consumable", "2nd-level conjuration", "single use"]
+    },
+    "Scroll of Lightning Bolt": {
+      "description": "A spell scroll bearing the lightning bolt spell. Can be cast without components if the spell is on your class's spell list.",
+      "type": "scroll",
+      "value": "uncommon scroll",
+      "location": "Ruins of Thundertree - Area 7 (Dragon's Tower), in the dead wizard's treasure chest in Venomfang's lair",
+      "properties": ["consumable", "3rd-level evocation", "single use"]
+    },
+    "Scroll of Silence": {
+      "description": "A spell scroll bearing the silence spell. Can be cast without components if the spell is on your class's spell list.",
+      "type": "scroll",
+      "value": "common scroll",
+      "location": "Cragmaw Castle - Area 13 (Owlbear Tower), in the battered wooden chest on the jagged ledge",
+      "properties": ["consumable", "2nd-level illusion", "single use"]
+    },
+    "Scroll of Revivify": {
+      "description": "A spell scroll bearing the revivify spell. Can be cast without components if the spell is on your class's spell list.",
+      "type": "scroll",
+      "value": "uncommon scroll",
+      "location": "Cragmaw Castle - Area 13 (Owlbear Tower), in the battered wooden chest on the jagged ledge",
+      "properties": ["consumable", "3rd-level necromancy", "single use"]
+    },
+    "Jade Frog Statuette": {
+      "description": "A jade statuette of a frog with tiny golden orbs for eyes. Small enough to fit in a pocket or pouch.",
+      "type": "treasure",
+      "value": "40 gp",
+      "location": "Cragmaw Hideout - Area 8 (Klarg's Cave), in Klarg's treasure chest",
+      "properties": ["art object", "jade with gold details"]
+    },
+    "Emerald Necklace (Mirna's Heirloom)": {
+      "description": "A gold necklace with a fine emerald pendant. A family heirloom hidden by Mirna Dendrar's family when they fled Thundertree. Hidden in a small wooden case beneath storage shelves in the old herb and alchemy shop.",
+      "type": "treasure",
+      "value": "200 gp",
+      "location": "Ruins of Thundertree - Area 9 (Herbalist's Shop), in a hidden compartment beneath storage shelves (DC 15 Perception, automatic if Mirna sent the party)",
+      "properties": ["art object", "gold with emerald pendant", "Dendrar family heirloom", "returning it to Mirna awards 200 XP"]
+    },
+    "Silver Comb (Sister Garaele's Gift)": {
+      "description": "A jeweled silver comb intended as a gift for the banshee Agatha. If presented to Agatha, the Charisma (Persuasion) check to get her to answer a question is automatically successful.",
+      "type": "wondrous",
+      "value": "quest item",
+      "location": "Given by Sister Garaele at the Shrine of Luck in Phandalin",
+      "properties": ["quest item", "gift for Agatha the banshee", "automatically succeeds on persuasion check with Agatha"]
+    },
+    "Gold Statuette of Sun Elf": {
+      "description": "A gold statuette of a sun elf wrapped in crimson cloth. Imbued with divination magic. Any non-evil creature grasping the statue can ask it a question and receive a telepathic response, as though it had cast augury. Once a creature has asked its question, it can never activate the statuette again.",
+      "type": "wondrous",
+      "value": "100 gp",
+      "location": "Cragmaw Castle - Area 8 (Dark Hall), hidden under a mound of coal in a stone brazier",
+      "properties": ["art object", "divination magic", "one-time augury effect per creature", "non-evil creatures only"]
+    },
+    "Platinum Signet Rings (Tresendar)": {
+      "description": "Platinum signet rings found amid the bones in the Tresendar family sarcophagi. Three rings total, one per sarcophagus.",
+      "type": "treasure",
+      "value": "50 gp each (150 gp total)",
+      "location": "Redbrand Hideout - Area 4 (Tresendar Crypts), inside the three stone sarcophagi",
+      "properties": ["art object", "platinum", "Tresendar family crest"]
+    },
+    "Gold Earring with Ruby": {
+      "description": "A gold earring set with a tiny ruby, found among gambling stakes.",
+      "type": "treasure",
+      "value": "30 gp",
+      "location": "Redbrand Hideout - Area 10 (Common Room), on the table among gambling stakes",
+      "properties": ["art object", "gold with ruby"]
+    },
+    "Mosk's Jeweled Eye Patch": {
+      "description": "An eye patch made of black leather set with semiprecious stones, worn by the bugbear Mosk despite having both eyes. He thinks it's fancy.",
+      "type": "treasure",
+      "value": "50 gp",
+      "location": "Redbrand Hideout - Area 9 (Guard Barracks), worn by the bugbear Mosk",
+      "properties": ["art object", "black leather with semiprecious stones"]
+    },
+    "Engraved Quarterstaff": {
+      "description": "A fine quarterstaff engraved with stylized feathers. Surprisingly light at only 1 lb.",
+      "type": "weapon",
+      "value": "10 gp",
+      "location": "Cragmaw Castle - Area 6 (Hobgoblin Barracks), mounted on the wall among other weapons",
+      "properties": ["quarterstaff", "engraved with feathers", "weighs only 1 lb."]
+    },
+    "Sildar's Longsword": {
+      "description": "A longsword with the emblem of Neverwinter worked into its hilt. Belongs to Sildar Hallwinter, who is grateful if it is returned.",
+      "type": "weapon",
+      "value": "15 gp",
+      "location": "Cragmaw Castle - Area 5 (Storeroom), along with Sildar's chain mail",
+      "properties": ["longsword", "Neverwinter emblem on hilt", "belongs to Sildar Hallwinter"]
+    },
+    "Sildar's Chain Mail": {
+      "description": "A bloody suit of chain mail belonging to Sildar Hallwinter.",
+      "type": "armor",
+      "value": "75 gp",
+      "location": "Cragmaw Castle - Area 5 (Storeroom), along with Sildar's longsword",
+      "properties": ["chain mail", "belongs to Sildar Hallwinter"]
+    },
+    "Golden Ritual Implements": {
+      "description": "Golden ritual implements including a chalice, a knife, and a censer, carefully arranged on a bloodstained altar dedicated to Maglubiyet. They are human-made art objects repurposed for goblin worship.",
+      "type": "treasure",
+      "value": "330 gp total (chalice 150 gp, knife 60 gp, censer 120 gp)",
+      "location": "Cragmaw Castle - Area 9 (Goblin Shrine), on the stone altar",
+      "properties": ["art objects", "golden chalice (150 gp)", "golden knife (60 gp)", "golden censer (120 gp)"]
+    },
+    "Silver Goblets with Moonstones": {
+      "description": "Four silver goblets set with moonstones, part of the dead wizard's treasure hoard now claimed by the green dragon Venomfang.",
+      "type": "treasure",
+      "value": "60 gp each (240 gp total)",
+      "location": "Ruins of Thundertree - Area 7 (Dragon's Tower), in the old wooden chest on the tower floor",
+      "properties": ["art objects", "silver with moonstones", "4 goblets"]
+    },
+    "Diamonds (Cultist Tribute)": {
+      "description": "Three diamonds carried by the dragon cultist Favric as tribute for the green dragon Venomfang.",
+      "type": "treasure",
+      "value": "100 gp each (300 gp total)",
+      "location": "Ruins of Thundertree - Area 13 (Dragon Cultists), in Favric's small coffer",
+      "properties": ["gemstones", "3 diamonds"]
+    },
+    "Wooden Pipe with Platinum Filigree": {
+      "description": "A wooden pipe adorned with platinum filigree, treasured by the wraith Mormesk. He will not relinquish it under any circumstances.",
+      "type": "treasure",
+      "value": "150 gp",
+      "location": "Wave Echo Cave - Area 14 (Wizards' Quarters), in the scorched iron chest",
+      "properties": ["art object", "wooden with platinum filigree", "Mormesk's prized possession"]
+    },
+    "Platinum Rings (Wave Echo Cave)": {
+      "description": "Two platinum rings found on the skeleton of a human wizard who died defending the mines.",
+      "type": "treasure",
+      "value": "75 gp each (150 gp total)",
+      "location": "Wave Echo Cave - Area 10 (Dark Pool), on a skeleton at the bottom of the pool",
+      "properties": ["jewelry", "platinum", "2 rings"]
+    },
+    "Dwarven Ale Mug (Electrum)": {
+      "description": "A dwarven ale mug made of hammered electrum, found among Nezznar's collected treasure.",
+      "type": "treasure",
+      "value": "100 gp",
+      "location": "Wave Echo Cave - Area 19 (Temple of Dumathoin), in Nezznar's treasure sack on the wooden table",
+      "properties": ["art object", "hammered electrum", "dwarven craftsmanship"]
+    },
+    "Gundren's Map to Wave Echo Cave": {
+      "description": "A map showing the location of Wave Echo Cave. Essential quest item that Gundren Rockseeker and his brothers used to find the lost mine. Sought by the Black Spider.",
+      "type": "quest item",
+      "value": "priceless (quest item)",
+      "location": "Cragmaw Castle - Area 14 (King's Quarters), hidden under King Grol's bed mattress in a stitched leather sack",
+      "properties": ["quest item", "map to Wave Echo Cave", "Rockseeker family discovery"]
+    },
+    "Black Spider's Letter": {
+      "description": "A letter from the Black Spider to Iarno/Glasstaff ordering him to capture or kill strangers arriving in Phandalin and to deliver any dwarven maps. Signed with the Black Spider's symbol.",
+      "type": "quest item",
+      "value": "quest item",
+      "location": "Redbrand Hideout - Area 12 (Glasstaff's Quarters), on the writing desk",
+      "properties": ["quest item", "evidence of Black Spider's plot", "connects Glasstaff to the Black Spider"]
+    },
+    "Dwarven Brandy": {
+      "description": "One small cask of exceptional dwarven brandy, overlooked by the goblins because of its small size. Contains the equivalent of twenty glasses. A character who imbibes a glass regains 1 hit point, but a character who drinks two glasses within 1 hour becomes poisoned for 1 hour.",
+      "type": "consumable",
+      "value": "unknown",
+      "location": "Cragmaw Castle - Area 5 (Storeroom), among the provisions",
+      "properties": ["consumable", "20 glasses", "heals 1 HP per glass", "poisoned condition if 2 glasses within 1 hour"]
+    },
+    "Brazier of Green Flame": {
+      "description": "A stone pedestal holding a small brazier in which an eerie green flame dances and crackles. The source of the magic that suffuses the Forge of Spells caverns. The magic has waned over the years but any nonmagical weapon or armor bathed in the green flame for at least 1 minute becomes a +1 weapon or +1 armor for 1d12 hours.",
+      "type": "wondrous",
+      "value": "priceless (immovable)",
+      "location": "Wave Echo Cave - Area 15 (Forge of Spells), in the middle of the room on a stone pedestal",
+      "properties": ["immovable", "cannot be removed", "temporarily enchants weapons/armor to +1 for 1d12 hours", "requires 1 minute of bathing in flame", "DC 15 Arcana to identify"]
+    },
+    "Urmon's Journal": {
+      "description": "A tome written in Dwarvish. The journal of an adventurer named Urmon that describes the history of the Lost Mine of Phandelver and the Forge of Spells. Records that a magic mace named Lightbringer was commissioned by priests of Lathander from the mages working with the gnomes and dwarves of the Phandelver's Pact.",
+      "type": "book",
+      "value": "historical significance",
+      "location": "Redbrand Hideout - Area 11 (Wizard's Workshop), among the books and notes on the shelves",
+      "properties": ["written in Dwarvish", "contains history of Lost Mine", "mentions Lightbringer mace", "mentions Forge of Spells"]
+    },
+    "Rare Reagents (Mercury, Dragon Bile, Powdered Nightshade)": {
+      "description": "Three small bottles holding rare alchemical reagents: mercury, dragon bile, and powdered nightshade. Part of Iarno's alchemical supplies.",
+      "type": "treasure",
+      "value": "25 gp each (75 gp total)",
+      "location": "Redbrand Hideout - Area 11 (Wizard's Workshop)",
+      "properties": ["alchemical reagents", "valuable to apothecaries and alchemists"]
+    },
+    "Garnets (Redbrand Barracks)": {
+      "description": "Two garnets found in a Redbrand ruffian's belt pouch.",
+      "type": "treasure",
+      "value": "10 gp each (20 gp total)",
+      "location": "Redbrand Hideout - Area 2 (Barracks), in the third ruffian's belt pouch",
+      "properties": ["gemstones"]
+    },
+    "Carnelians (Glasstaff's Chest)": {
+      "description": "Five carnelian gemstones found in Iarno's treasure chest.",
+      "type": "treasure",
+      "value": "10 gp each (50 gp total)",
+      "location": "Redbrand Hideout - Area 12 (Glasstaff's Quarters), in the wooden chest",
+      "properties": ["gemstones", "5 carnelians"]
+    },
+    "Peridots (Glasstaff's Chest)": {
+      "description": "Two peridot gemstones found in Iarno's treasure chest.",
+      "type": "treasure",
+      "value": "15 gp each (30 gp total)",
+      "location": "Redbrand Hideout - Area 12 (Glasstaff's Quarters), in the wooden chest",
+      "properties": ["gemstones", "2 peridots"]
+    },
+    "Pearl (Glasstaff's Chest)": {
+      "description": "A single pearl found in Iarno's treasure chest.",
+      "type": "treasure",
+      "value": "100 gp",
+      "location": "Redbrand Hideout - Area 12 (Glasstaff's Quarters), in the wooden chest",
+      "properties": ["gemstone"]
+    },
+    "Pearl (Old Owl Well)": {
+      "description": "A single pearl found in Hamun Kost's treasure.",
+      "type": "treasure",
+      "value": "100 gp",
+      "location": "Old Owl Well, in Hamun Kost's chest",
+      "properties": ["gemstone"]
+    },
+    "Malachite Gems": {
+      "description": "Five malachite gemstones found in the nothic's treasure chest.",
+      "type": "treasure",
+      "value": "15 gp each (75 gp total)",
+      "location": "Redbrand Hideout - Area 8 (Crevasse), in the treasure chest at the bottom of the fissure",
+      "properties": ["gemstones", "5 malachites"]
+    },
+    "Diamonds (Mormesk's Treasure)": {
+      "description": "Three diamonds found in the scorched chest of the wraith Mormesk.",
+      "type": "treasure",
+      "value": "100 gp each (300 gp total)",
+      "location": "Wave Echo Cave - Area 14 (Wizards' Quarters), in the scorched iron chest",
+      "properties": ["gemstones", "3 diamonds"]
+    },
+    "Small Gemstones (Nezznar's Treasure)": {
+      "description": "Nine small gemstones found in Nezznar's treasure sack.",
+      "type": "treasure",
+      "value": "10 gp each (90 gp total)",
+      "location": "Wave Echo Cave - Area 19 (Temple of Dumathoin), in Nezznar's treasure sack",
+      "properties": ["gemstones", "9 small gems"]
+    },
+    "Vials of Perfume": {
+      "description": "Three vials of perfume found in the orc camp treasure chest at Wyvern Tor.",
+      "type": "treasure",
+      "value": "10 gp each (30 gp total)",
+      "location": "Wyvern Tor - Orc Camp, in an unlocked treasure chest",
+      "properties": ["trade goods", "3 vials"]
+    },
+    "Tiny Jeweled Box": {
+      "description": "A tiny jeweled box containing the Ring of Protection from ancient Netheril.",
+      "type": "treasure",
+      "value": "25 gp",
+      "location": "Old Owl Well, in Hamun Kost's chest",
+      "properties": ["art object", "contains Ring of Protection"]
+    },
+    "Studded Leather Armor (Thundertree)": {
+      "description": "Studded leather armor worn by the corpse of an unfortunate male elf adventurer found cocooned in spider silk.",
+      "type": "armor",
+      "value": "45 gp",
+      "location": "Ruins of Thundertree - Area 6 (Ruined Store), on the spider-wrapped elf corpse",
+      "properties": ["studded leather", "found on dead elf adventurer"]
+    },
+    "Shortsword (Thundertree)": {
+      "description": "A shortsword in a scabbard at the hip of the dead elf adventurer found cocooned in spider silk.",
+      "type": "weapon",
+      "value": "10 gp",
+      "location": "Ruins of Thundertree - Area 6 (Ruined Store), on the spider-wrapped elf corpse",
+      "properties": ["shortsword"]
+    },
+    "Lionshield Coster Supplies": {
+      "description": "Stolen supplies marked with the blue lion symbol of the Lionshield Coster merchant company. Bulky crates and sacks of looted provisions requiring a wagon to transport. Returning them earns a reward.",
+      "type": "trade goods",
+      "value": "50 gp reward for return",
+      "location": "Cragmaw Hideout - Area 8 (Klarg's Cave), piled in the south end of the cave",
+      "properties": ["marked with blue lion symbol", "50 gp reward from Linene Graywind at Lionshield Coster", "requires wagon to transport"]
+    },
+    "Gundren's Wagon Supplies": {
+      "description": "A wagonload of mining supplies and food including a dozen sacks of flour, several casks of salted pork, two kegs of strong ale, shovels, picks, crowbars (about a dozen each), and five lanterns with a small barrel of oil (about fifty flasks in volume).",
+      "type": "trade goods",
+      "value": "100 gp total cargo value, 10 gp per character for delivery",
+      "location": "Triboar Trail - with the party's wagon from the start of the adventure",
+      "properties": ["mining supplies", "food", "tools", "delivery earns 10 gp per character from Barthen's Provisions"]
+    },
+    "Redbrand Armory Weapons": {
+      "description": "A stockpile of weapons the Redbrands have been gathering for expansion. Includes twelve spears, six shortswords, four longswords, six light crossbows, and eight quivers holding twenty crossbow bolts each.",
+      "type": "weapon",
+      "value": "various (standard weapon prices)",
+      "location": "Redbrand Hideout - Area 6 (Armory), in weapon racks along the walls",
+      "properties": ["12 spears", "6 shortswords", "4 longswords", "6 light crossbows", "160 crossbow bolts (8 quivers of 20)"]
+    },
+    "Scarlet Cloaks": {
+      "description": "Dirty red cloaks worn by the Redbrands. Can be used as disguises to fool Redbrands or even bugbears into thinking the party serves Iarno. A dozen hang in the armory, and more can be looted from defeated ruffians.",
+      "type": "equipment",
+      "value": "no monetary value",
+      "location": "Redbrand Hideout - Area 6 (Armory), hanging from hooks by the door; also worn by all Redbrand ruffians",
+      "properties": ["disguise item", "12 in armory", "recognized by Redbrands and Tresendar Crypt skeletons", "password 'Illefarn' also bypasses skeleton guards"]
+    },
+    "Coin Hoard - Klarg's Cave": {
+      "description": "Coins found in Klarg's treasure chest in the Cragmaw Hideout.",
+      "type": "treasure",
+      "value": "600 cp, 110 sp",
+      "location": "Cragmaw Hideout - Area 8 (Klarg's Cave), in the unlocked treasure chest",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Redbrand Cistern": {
+      "description": "Coins in Iarno's emergency getaway satchel hidden in the cistern.",
+      "type": "treasure",
+      "value": "50 gp",
+      "location": "Redbrand Hideout - Area 1 (Cellar), in waterproof satchel in the cistern",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Redbrand Crevasse": {
+      "description": "Coins in the nothic's treasure chest at the bottom of the crevasse.",
+      "type": "treasure",
+      "value": "160 sp, 120 gp",
+      "location": "Redbrand Hideout - Area 8 (Crevasse), in the treasure chest",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Glasstaff's Chest": {
+      "description": "Coins representing the Redbrands' best loot over two months.",
+      "type": "treasure",
+      "value": "180 sp, 130 gp",
+      "location": "Redbrand Hideout - Area 12 (Glasstaff's Quarters), in the wooden chest",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Common Room Gambling": {
+      "description": "Coins and trinkets on the gambling table in the Redbrand common room.",
+      "type": "treasure",
+      "value": "75 cp, 55 sp, 22 ep, 15 gp",
+      "location": "Redbrand Hideout - Area 10 (Common Room), on the table",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Thundertree Merchant": {
+      "description": "A chest of coins hidden under the flagstone floor of an old merchant's home in Thundertree.",
+      "type": "treasure",
+      "value": "700 cp, 160 sp, 90 gp",
+      "location": "Ruins of Thundertree - Area 2 (Blighted Cottages), under the flagstone floor of the eastern cottage (DC 10 Perception)",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Dragon's Tower": {
+      "description": "Coins from the dead wizard's treasure hoard, now guarded by the green dragon Venomfang.",
+      "type": "treasure",
+      "value": "800 sp, 150 gp",
+      "location": "Ruins of Thundertree - Area 7 (Dragon's Tower), in the old wooden chest on the tower floor",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Wyvern Tor": {
+      "description": "Coins in the orc camp's treasure chest at Wyvern Tor.",
+      "type": "treasure",
+      "value": "750 cp, 180 sp, 62 ep, 30 gp",
+      "location": "Wyvern Tor - Orc Camp, in an unlocked treasure chest",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Old Owl Well": {
+      "description": "Coins in Hamun Kost's traveling chest.",
+      "type": "treasure",
+      "value": "35 sp, 20 ep, 20 gp, 5 pp",
+      "location": "Old Owl Well, in Hamun Kost's chest",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Owlbear Tower": {
+      "description": "Coins found in a battered wooden chest on a jagged ledge in the owlbear tower.",
+      "type": "treasure",
+      "value": "90 ep, 120 gp",
+      "location": "Cragmaw Castle - Area 13 (Owlbear Tower), on a jagged second-floor ledge (DC 15 Perception to notice)",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - King Grol's Chamber": {
+      "description": "Coins hidden under King Grol's bed mattress in a stitched leather sack.",
+      "type": "treasure",
+      "value": "220 sp, 160 ep",
+      "location": "Cragmaw Castle - Area 14 (King's Quarters), under the bed mattress",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Assayers' Office": {
+      "description": "An old pay chest locked in an iron strongbox behind the counter of the mine's assayers' office.",
+      "type": "treasure",
+      "value": "600 cp, 180 sp, 90 ep, 60 gp",
+      "location": "Wave Echo Cave - Area 5 (Assayers' Office), in a locked iron strongbox behind the counter (DC 20 Dexterity to pick)",
+      "properties": ["coins", "locked strongbox"]
+    },
+    "Coin Hoard - Mormesk's Chest": {
+      "description": "Coins in the scorched chest of the wraith Mormesk.",
+      "type": "treasure",
+      "value": "1,100 cp, 160 sp, 50 ep",
+      "location": "Wave Echo Cave - Area 14 (Wizards' Quarters), in the scorched iron chest",
+      "properties": ["coins"]
+    },
+    "Coin Hoard - Nezznar's Sack": {
+      "description": "Coins collected by Nezznar during his exploration of Wave Echo Cave.",
+      "type": "treasure",
+      "value": "190 ep, 130 gp, 15 pp",
+      "location": "Wave Echo Cave - Area 19 (Temple of Dumathoin), in Nezznar's treasure sack on the wooden table",
+      "properties": ["coins"]
+    },
+    "Yeemik's Pouch": {
+      "description": "A pouch containing three gold teeth and some silver coins, carried by the goblin leader Yeemik.",
+      "type": "treasure",
+      "value": "3 gp (gold teeth) + 15 sp",
+      "location": "Cragmaw Hideout - Area 6 (Goblin Den), carried by goblin leader Yeemik",
+      "properties": ["coins", "3 gold teeth (1 gp each)"]
+    },
+    "Mosk's Belt Pouch": {
+      "description": "A belt pouch carried by the bugbear leader Mosk in the Redbrand Hideout.",
+      "type": "treasure",
+      "value": "33 sp",
+      "location": "Redbrand Hideout - Area 9 (Guard Barracks), carried by bugbear Mosk",
+      "properties": ["coins"]
+    },
+    "Hobgoblin Bounty Sketch": {
+      "description": "A crudely drawn sketch of one party member carried by a hobgoblin, with '25 gold pieces for this one' and a symbol of a black spider drawn beneath it.",
+      "type": "quest item",
+      "value": "no monetary value (plot item)",
+      "location": "Random wilderness encounter - carried by hobgoblin patrol",
+      "properties": ["plot item", "evidence of Black Spider's bounty on the party"]
+    },
+    "Iron Key (Redbrand)": {
+      "description": "An iron key that locks and unlocks all the doors in the Redbrand hideout. Carried by the bugbear Mosk.",
+      "type": "equipment",
+      "value": "no monetary value",
+      "location": "Redbrand Hideout - Area 9 (Guard Barracks), carried by bugbear Mosk",
+      "properties": ["master key for Redbrand Hideout"]
+    },
+    "Iron Key (Wave Echo Cave)": {
+      "description": "An iron key with a head shaped like an anvil. Unlocks the door to Area 20 (Priests' Quarters) in Wave Echo Cave. Carried by Nezznar.",
+      "type": "equipment",
+      "value": "no monetary value",
+      "location": "Wave Echo Cave - Area 19 (Temple of Dumathoin), carried by Nezznar the Black Spider",
+      "properties": ["unlocks Area 20 door", "anvil-shaped head"]
+    },
+    "Heavy Crossbow (Cragmaw Castle)": {
+      "description": "A heavy crossbow found among the stores in Cragmaw Castle, alongside Sildar's gear.",
+      "type": "weapon",
+      "value": "50 gp",
+      "location": "Cragmaw Castle - Area 5 (Storeroom)",
+      "properties": ["heavy crossbow"]
+    }
+  }
+}

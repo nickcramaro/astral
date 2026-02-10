@@ -1,0 +1,29 @@
+{
+  "source_file": "source-material/lost-mine-of-phandelver.txt",
+  "document_name": "lost-mine-of-phandelver",
+  "extraction_date": "2026-02-08T16:36:30.472167",
+  "extraction_method": "rag",
+  "total_chunks": 140,
+  "total_chars": 424153,
+  "chunk_size": 3000,
+  "rag_stats": {
+    "campaign_dir": "world-state/campaigns/lost-mine-of-phandelver",
+    "vector_store": {
+      "campaign_dir": "world-state/campaigns/lost-mine-of-phandelver",
+      "vectors_dir": "world-state/campaigns/lost-mine-of-phandelver/vectors",
+      "collection_name": "document_chunks",
+      "total_chunks": 140,
+      "by_category": {
+        "uncategorized": 140
+      }
+    },
+    "extraction": {
+      "source_file": "source-material/lost-mine-of-phandelver.txt",
+      "document_name": "lost-mine-of-phandelver",
+      "extraction_date": "2026-02-08T16:36:30.461323",
+      "total_chars": 424153,
+      "total_chunks": 140,
+      "chunk_size": 3000
+    }
+  }
+}
