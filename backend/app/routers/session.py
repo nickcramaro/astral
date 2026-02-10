@@ -78,6 +78,7 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
     cached = _load_opening_cache(campaign_dir, log_hash)
 
     if cached is not None:
+        log.info("Opening cache HIT for %s — replaying %d messages", campaign_id, len(cached))
         # Replay cached text + audio messages
         for msg in cached:
             await websocket.send_json(msg)
@@ -86,6 +87,7 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
         if cached_text:
             dm.messages.append({"role": "assistant", "content": [{"type": "text", "text": cached_text}]})
     else:
+        log.info("Opening cache MISS for %s — generating fresh opening", campaign_id)
         # Generate fresh opening
         log_path = campaign_dir / "session-log.md"
         has_history = False

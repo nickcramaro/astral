@@ -36,6 +36,32 @@ interface AudioCallbacks {
   playSfx: (data: ArrayBuffer) => void;
 }
 
+const CACHE_KEY = "astral-opening";
+
+/** Save opening messages to sessionStorage for instant replay on refresh. */
+function saveOpeningCache(campaignId: string, msgs: ChatMessage[]) {
+  try {
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify({ campaignId, messages: msgs }));
+  } catch {
+    // sessionStorage full or unavailable — not critical
+  }
+}
+
+/** Load cached opening messages if they match this campaign. */
+function loadOpeningCache(campaignId: string): ChatMessage[] | null {
+  try {
+    const raw = sessionStorage.getItem(CACHE_KEY);
+    if (!raw) return null;
+    const cache = JSON.parse(raw);
+    if (cache.campaignId === campaignId && cache.messages?.length > 0) {
+      return cache.messages;
+    }
+  } catch {
+    // Corrupted cache — ignore
+  }
+  return null;
+}
+
 export function useSession(
   campaignId: string | null,
   audio?: AudioCallbacks
@@ -49,15 +75,35 @@ export function useSession(
   const audioRef = useRef(audio);
   audioRef.current = audio;
 
+  // Track whether we hydrated from frontend cache — skip duplicate WS opening messages
+  const hydratedRef = useRef(false);
+  const playerSentRef = useRef(false);
+  const openingCountRef = useRef(0);
+  const skippedRef = useRef(0);
+
   useEffect(() => {
     if (!campaignId) return;
 
-    // Reset state when switching campaigns
-    setMessages([]);
+    // Reset state
     setCharacter(null);
     setConnected(false);
-    setLoading(true);
     setWaiting(false);
+    playerSentRef.current = false;
+    skippedRef.current = 0;
+
+    // Check frontend cache — show opening text instantly
+    const cached = loadOpeningCache(campaignId);
+    if (cached) {
+      setMessages(cached);
+      setLoading(false);
+      hydratedRef.current = true;
+      openingCountRef.current = cached.length;
+    } else {
+      setMessages([]);
+      setLoading(true);
+      hydratedRef.current = false;
+      openingCountRef.current = 0;
+    }
 
     const socket = new WebSocket(`ws://localhost:8000/ws/session/${campaignId}`);
     ws.current = socket;
@@ -69,17 +115,33 @@ export function useSession(
       const msg: ServerMessage = JSON.parse(event.data);
 
       if (msg.type === "text") {
+        // If hydrated from cache, skip the backend's replayed opening text messages
+        if (hydratedRef.current && !playerSentRef.current) {
+          skippedRef.current++;
+          if (skippedRef.current >= openingCountRef.current) {
+            hydratedRef.current = false;
+          }
+          return;
+        }
+
         setLoading(false);
         setWaiting(false);
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: crypto.randomUUID(),
-            role: "dm",
-            content: msg.content,
-            timestamp: Date.now(),
-          },
-        ]);
+
+        const chatMsg: ChatMessage = {
+          id: crypto.randomUUID(),
+          role: "dm",
+          content: msg.content,
+          timestamp: Date.now(),
+        };
+
+        setMessages((prev) => {
+          const next = [...prev, chatMsg];
+          // Cache opening messages (everything before first player send)
+          if (!playerSentRef.current && campaignId) {
+            saveOpeningCache(campaignId, next.filter((m) => m.role === "dm"));
+          }
+          return next;
+        });
       } else if (msg.type === "state") {
         setCharacter((prev) => {
           const updates = msg.updates as Record<string, unknown>;
@@ -89,6 +151,11 @@ export function useSession(
           return { ...prev, ...updates };
         });
       } else if (msg.type === "audio") {
+        // If hydrated from cache, skip replayed audio too (already heard it)
+        if (hydratedRef.current && !playerSentRef.current) {
+          return;
+        }
+
         const ab = base64ToArrayBuffer(msg.data);
         if (msg.channel === "voice") {
           audioRef.current?.playVoice(ab);
@@ -106,6 +173,8 @@ export function useSession(
   const send = useCallback((message: string) => {
     if (!ws.current || ws.current.readyState !== WebSocket.OPEN) return;
 
+    playerSentRef.current = true;
+    hydratedRef.current = false;
     setWaiting(true);
     setMessages((prev) => [
       ...prev,
