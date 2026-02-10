@@ -73,7 +73,7 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
     # Initialize orchestrator and audio pipeline
     dm = DMOrchestrator(campaign_dir=campaign_dir, data_dir=DATA_DIR)
     audio = AudioPipeline(campaign_dir=campaign_dir)
-    audio_task: asyncio.Task | None = None
+    audio_tasks: list[asyncio.Task] = []
 
     # Send initial state
     char_path = campaign_dir / "character.json"
@@ -171,11 +171,12 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
                 continue
 
             # Cancel any in-flight audio generation from the previous turn
-            if audio_task and not audio_task.done():
-                audio_task.cancel()
+            for t in audio_tasks:
+                if not t.done():
+                    t.cancel()
+            audio_tasks.clear()
 
-            # Run DM turn and stream text results immediately
-            raw_texts: list[str] = []
+            # Run DM turn — stream text immediately, kick off audio per chunk
             async for msg in dm.run_turn(player_message):
                 raw = msg.pop("_raw", None)
 
@@ -209,19 +210,15 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
                 else:
                     await websocket.send_json(msg)
                     if raw:
-                        raw_texts.append(raw)
-
-            # Spawn background audio generation for the full turn
-            if raw_texts:
-                full_raw = "\n\n".join(raw_texts)
-                audio_task = asyncio.create_task(
-                    _generate_audio(websocket, audio, full_raw)
-                )
+                        # Start audio generation for this chunk immediately
+                        audio_tasks.append(asyncio.create_task(
+                            _generate_audio(websocket, audio, raw)
+                        ))
 
     except WebSocketDisconnect:
-        # Cancel audio on disconnect
-        if audio_task and not audio_task.done():
-            audio_task.cancel()
+        for t in audio_tasks:
+            if not t.done():
+                t.cancel()
 
 
 async def _generate_audio(websocket: WebSocket, pipeline: AudioPipeline, raw_text: str) -> None:

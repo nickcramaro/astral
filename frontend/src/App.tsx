@@ -20,8 +20,8 @@ function App() {
     playSfx,
     playDiceRoll,
     stopVoice,
-    pauseVoice,
-    resumeVoice,
+    pauseAll,
+    resumeAll,
     replayVoice,
     voiceStatus,
     setMode,
@@ -148,9 +148,9 @@ function App() {
           rollResult={rollResult}
           onRollDice={rollDice}
           voiceStatus={voiceStatus}
-          onPauseVoice={pauseVoice}
-          onResumeVoice={resumeVoice}
-          onReplayVoice={replayVoice}
+          onPause={pauseAll}
+          onResume={resumeAll}
+          onReplay={replayVoice}
         />
       </main>
 

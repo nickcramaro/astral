@@ -16,9 +16,9 @@ interface Props {
   rollResult: RollResultMessage | null;
   onRollDice: () => void;
   voiceStatus: VoiceStatus;
-  onPauseVoice: () => void;
-  onResumeVoice: () => void;
-  onReplayVoice: () => void;
+  onPause: () => void;
+  onResume: () => void;
+  onReplay: () => void;
 }
 
 export function Chat({
@@ -30,9 +30,9 @@ export function Chat({
   rollResult,
   onRollDice,
   voiceStatus,
-  onPauseVoice,
-  onResumeVoice,
-  onReplayVoice,
+  onPause,
+  onResume,
+  onReplay,
 }: Props) {
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -76,9 +76,9 @@ export function Chat({
       <div className="chat-bottom">
         <NarrationControls
           status={voiceStatus}
-          onPause={onPauseVoice}
-          onResume={onResumeVoice}
-          onReplay={onReplayVoice}
+          onPause={onPause}
+          onResume={onResume}
+          onReplay={onReplay}
         />
         <form onSubmit={handleSubmit} className="chat-input">
           <input

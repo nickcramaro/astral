@@ -146,25 +146,19 @@ export function useAudio() {
     setVoiceStatus("idle");
   }, []);
 
-  /** Pause voice at current position. Turn buffers preserved for resume/replay. */
-  const pauseVoice = useCallback(() => {
-    const source = voiceSourceRef.current;
-    if (!source) return;
-    const ac = getContext();
-    voicePauseOffsetRef.current += ac.currentTime - voiceStartTimeRef.current;
-    voiceSourceRef.current = null; // Prevent onended from chaining
-    try { source.stop(); } catch { /* already stopped */ }
-    voicePlaying.current = false;
+  /** Pause all audio (voice, ambient, sfx) by suspending the AudioContext. */
+  const pauseAll = useCallback(() => {
+    if (!ctx.current || ctx.current.state !== "running") return;
+    ctx.current.suspend();
     setVoiceStatus("paused");
-  }, [getContext]);
+  }, []);
 
-  /** Resume voice from paused position. */
-  const resumeVoice = useCallback(() => {
-    const buffer = voiceBufferRef.current;
-    const onEnd = voiceOnEndRef.current;
-    if (!buffer || !onEnd) return;
-    playDecodedBuffer(buffer, voiceChannelRef.current, voicePauseOffsetRef.current, onEnd);
-  }, [playDecodedBuffer]);
+  /** Resume all audio by resuming the AudioContext. */
+  const resumeAll = useCallback(() => {
+    if (!ctx.current || ctx.current.state !== "suspended") return;
+    ctx.current.resume();
+    setVoiceStatus(voicePlaying.current ? "playing" : "idle");
+  }, []);
 
   /** Replay the entire current turn's voice from the beginning. */
   const replayVoice = useCallback(() => {
@@ -340,8 +334,8 @@ export function useAudio() {
     playSfx,
     playDiceRoll,
     stopVoice,
-    pauseVoice,
-    resumeVoice,
+    pauseAll,
+    resumeAll,
     replayVoice,
     voiceStatus,
     setMode,
