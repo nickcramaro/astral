@@ -1,30 +1,53 @@
-/** Web Audio API — three-channel audio engine. */
+/** Web Audio API — four-channel audio engine with per-channel volume. */
 
 import { useCallback, useRef } from "react";
 import type { AudioMode } from "../types";
+
+export type AudioChannel = "narrator" | "npc" | "ambient" | "sfx";
 
 export function useAudio() {
   const ctx = useRef<AudioContext | null>(null);
   const mode = useRef<AudioMode>("full");
 
+  // Per-channel gain nodes
+  const gains = useRef<Record<AudioChannel, GainNode | null>>({
+    narrator: null,
+    npc: null,
+    ambient: null,
+    sfx: null,
+  });
+
   // Voice channel: sequential queue
-  const voiceQueue = useRef<ArrayBuffer[]>([]);
+  const voiceQueue = useRef<{ data: ArrayBuffer; speaker: string }[]>([]);
   const voicePlaying = useRef(false);
 
   // Ambient channel: looping with crossfade
   const ambientSource = useRef<AudioBufferSourceNode | null>(null);
-  const ambientGain = useRef<GainNode | null>(null);
+  const ambientFadeGain = useRef<GainNode | null>(null);
 
   const getContext = useCallback(() => {
     if (!ctx.current) {
       ctx.current = new AudioContext();
     }
-    // Resume if suspended (browser autoplay policy)
     if (ctx.current.state === "suspended") {
       ctx.current.resume();
     }
     return ctx.current;
   }, []);
+
+  /** Get or create a persistent gain node for a channel. */
+  const getGain = useCallback(
+    (channel: AudioChannel): GainNode => {
+      if (!gains.current[channel]) {
+        const ac = getContext();
+        const gain = ac.createGain();
+        gain.connect(ac.destination);
+        gains.current[channel] = gain;
+      }
+      return gains.current[channel]!;
+    },
+    [getContext]
+  );
 
   const drainVoiceQueue = useCallback(async () => {
     if (voicePlaying.current) return;
@@ -33,12 +56,13 @@ export function useAudio() {
 
     voicePlaying.current = true;
     const ac = getContext();
+    const channel: AudioChannel = next.speaker === "narrator" ? "narrator" : "npc";
 
     try {
-      const buffer = await ac.decodeAudioData(next);
+      const buffer = await ac.decodeAudioData(next.data);
       const source = ac.createBufferSource();
       source.buffer = buffer;
-      source.connect(ac.destination);
+      source.connect(getGain(channel));
       source.onended = () => {
         voicePlaying.current = false;
         drainVoiceQueue();
@@ -48,11 +72,11 @@ export function useAudio() {
       voicePlaying.current = false;
       drainVoiceQueue();
     }
-  }, [getContext]);
+  }, [getContext, getGain]);
 
   const playVoice = useCallback(
-    async (audioData: ArrayBuffer) => {
-      voiceQueue.current.push(audioData);
+    async (audioData: ArrayBuffer, speaker: string = "narrator") => {
+      voiceQueue.current.push({ data: audioData, speaker });
       drainVoiceQueue();
     },
     [drainVoiceQueue]
@@ -62,10 +86,11 @@ export function useAudio() {
     async (audioData: ArrayBuffer) => {
       const ac = getContext();
       const buffer = await ac.decodeAudioData(audioData);
+      const masterGain = getGain("ambient");
 
       // Crossfade: fade out old ambient over 2s
-      if (ambientSource.current && ambientGain.current) {
-        const oldGain = ambientGain.current;
+      if (ambientSource.current && ambientFadeGain.current) {
+        const oldGain = ambientFadeGain.current;
         const oldSource = ambientSource.current;
         oldGain.gain.setValueAtTime(oldGain.gain.value, ac.currentTime);
         oldGain.gain.linearRampToValueAtTime(0, ac.currentTime + 2);
@@ -78,22 +103,22 @@ export function useAudio() {
         }, 2100);
       }
 
-      // Create new ambient source with fade in
-      const gain = ac.createGain();
-      gain.gain.setValueAtTime(0, ac.currentTime);
-      gain.gain.linearRampToValueAtTime(1, ac.currentTime + 2);
-      gain.connect(ac.destination);
+      // Create new ambient source with fade in — connects through crossfade gain → master gain
+      const fadeGain = ac.createGain();
+      fadeGain.gain.setValueAtTime(0, ac.currentTime);
+      fadeGain.gain.linearRampToValueAtTime(1, ac.currentTime + 2);
+      fadeGain.connect(masterGain);
 
       const source = ac.createBufferSource();
       source.buffer = buffer;
       source.loop = true;
-      source.connect(gain);
+      source.connect(fadeGain);
       source.start();
 
       ambientSource.current = source;
-      ambientGain.current = gain;
+      ambientFadeGain.current = fadeGain;
     },
-    [getContext]
+    [getContext, getGain]
   );
 
   const playSfx = useCallback(
@@ -102,16 +127,15 @@ export function useAudio() {
       const buffer = await ac.decodeAudioData(audioData);
       const source = ac.createBufferSource();
       source.buffer = buffer;
-      source.connect(ac.destination);
+      source.connect(getGain("sfx"));
       source.start();
     },
-    [getContext]
+    [getContext, getGain]
   );
 
   const setMode = useCallback(
     (newMode: AudioMode) => {
       mode.current = newMode;
-      // Stop ambient when switching to off
       if (newMode === "off" && ambientSource.current) {
         try {
           ambientSource.current.stop();
@@ -119,11 +143,20 @@ export function useAudio() {
           /* already stopped */
         }
         ambientSource.current = null;
-        ambientGain.current = null;
+        ambientFadeGain.current = null;
       }
     },
     []
   );
 
-  return { playVoice, playAmbient, playSfx, setMode, getContext };
+  /** Set volume for a specific channel (0–1). */
+  const setVolume = useCallback(
+    (channel: AudioChannel, value: number) => {
+      const gain = getGain(channel);
+      gain.gain.setValueAtTime(value, getContext().currentTime);
+    },
+    [getContext, getGain]
+  );
+
+  return { playVoice, playAmbient, playSfx, setMode, setVolume, getContext };
 }

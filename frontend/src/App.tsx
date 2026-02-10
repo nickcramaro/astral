@@ -1,17 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSession } from "./hooks/useSession";
 import { useAudio } from "./hooks/useAudio";
+import type { AudioChannel } from "./hooks/useAudio";
 import { Chat } from "./components/Chat";
 import { CharacterSheet } from "./components/CharacterSheet";
 import { CampaignPicker } from "./components/CampaignPicker";
-import { AudioControls } from "./components/AudioControls";
+import { SettingsPanel } from "./components/SettingsPanel";
 import type { AudioMode, Campaign } from "./types";
 import "./App.css";
 
 function App() {
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [selectedCampaign, setSelectedCampaign] = useState<string | null>(null);
-  const { playVoice, playAmbient, playSfx, setMode, getContext } = useAudio();
+  const { playVoice, playAmbient, playSfx, setMode, setVolume, getContext } = useAudio();
 
   const audioCallbacks = useMemo(
     () => ({ playVoice, playAmbient, playSfx }),
@@ -33,6 +34,10 @@ function App() {
   const handleModeChange = (newMode: AudioMode) => {
     setMode(newMode);
     sendRaw({ type: "set_audio_mode", mode: newMode });
+  };
+
+  const handleVolumeChange = (channel: AudioChannel, value: number) => {
+    setVolume(channel, value);
   };
 
   // Resume AudioContext on first user interaction
@@ -74,7 +79,7 @@ function App() {
           <CharacterSheet character={character} />
         </div>
         <div className="sidebar-section">
-          <AudioControls onModeChange={handleModeChange} />
+          <SettingsPanel onModeChange={handleModeChange} onVolumeChange={handleVolumeChange} />
         </div>
       </aside>
       <main className="main-panel">

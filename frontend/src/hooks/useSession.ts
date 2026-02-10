@@ -31,7 +31,7 @@ function base64ToArrayBuffer(base64: string): ArrayBuffer {
 }
 
 interface AudioCallbacks {
-  playVoice: (data: ArrayBuffer) => void;
+  playVoice: (data: ArrayBuffer, speaker?: string) => void;
   playAmbient: (data: ArrayBuffer) => void;
   playSfx: (data: ArrayBuffer) => void;
 }
@@ -158,7 +158,7 @@ export function useSession(
 
         const ab = base64ToArrayBuffer(msg.data);
         if (msg.channel === "voice") {
-          audioRef.current?.playVoice(ab);
+          audioRef.current?.playVoice(ab, msg.speaker);
         } else if (msg.channel === "ambient") {
           audioRef.current?.playAmbient(ab);
         } else if (msg.channel === "sfx") {

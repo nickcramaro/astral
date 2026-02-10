@@ -449,19 +449,55 @@
   border-color: var(--accent-gold);
 }
 
-/* ========== Audio Controls ========== */
-.audio-controls {
+/* ========== Settings Panel ========== */
+.settings-panel {
   margin-top: 0;
 }
 
-.audio-label {
+.settings-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  background: transparent;
+  border: 1px solid var(--border-warm);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.settings-toggle:hover {
+  border-color: var(--accent-dim);
+  color: var(--text-warm);
+}
+
+.settings-toggle svg {
+  flex-shrink: 0;
+}
+
+.settings-content {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.settings-label {
   font-family: "Cinzel", serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent-gold);
-  margin-bottom: 0.5rem;
 }
 
 .mode-toggle {
@@ -475,7 +511,7 @@
 .mode-toggle button {
   flex: 1;
   padding: 0.4rem 0;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background: transparent;
@@ -500,4 +536,68 @@
   background: rgba(201, 165, 90, 0.2);
   color: var(--accent-gold);
   font-weight: 600;
+}
+
+/* Mixer */
+.mixer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mixer-channel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mixer-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  width: 70px;
+  flex-shrink: 0;
+}
+
+.mixer-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--border-warm);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.mixer-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  border: 2px solid var(--bg-deep);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.mixer-slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 8px rgba(201, 165, 90, 0.4);
+}
+
+.mixer-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  border: 2px solid var(--bg-deep);
+  cursor: pointer;
+}
+
+.mixer-value {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  width: 24px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
