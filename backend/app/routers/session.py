@@ -1,6 +1,7 @@
 """WebSocket gameplay session."""
 
 import asyncio
+import hashlib
 import json
 import logging
 from pathlib import Path
@@ -15,6 +16,39 @@ log = logging.getLogger(__name__)
 router = APIRouter()
 
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
+
+CACHE_FILE = "opening-cache.json"
+
+
+def _session_log_hash(campaign_dir: Path) -> str:
+    """Hash the session log content to detect changes."""
+    log_path = campaign_dir / "session-log.md"
+    if not log_path.exists():
+        return ""
+    return hashlib.sha256(log_path.read_bytes()).hexdigest()
+
+
+def _load_opening_cache(campaign_dir: Path, current_hash: str) -> list[dict] | None:
+    """Load cached opening messages if the session log hasn't changed."""
+    cache_path = campaign_dir / CACHE_FILE
+    if not cache_path.exists():
+        return None
+    try:
+        cache = json.loads(cache_path.read_text())
+        if cache.get("session_log_hash") == current_hash:
+            return cache.get("messages", [])
+    except (json.JSONDecodeError, KeyError):
+        pass
+    return None
+
+
+def _save_opening_cache(campaign_dir: Path, current_hash: str, messages: list[dict]) -> None:
+    """Save opening messages to cache."""
+    cache_path = campaign_dir / CACHE_FILE
+    cache_path.write_text(json.dumps({
+        "session_log_hash": current_hash,
+        "messages": messages,
+    }))
 
 
 @router.websocket("/ws/session/{campaign_id}")
@@ -39,39 +73,58 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
         char = json.loads(char_path.read_text())
         await websocket.send_json({"type": "state", "updates": char})
 
-    # Generate an opening DM turn — recap if there's session history, otherwise fresh start
-    log_path = campaign_dir / "session-log.md"
-    has_history = False
-    if log_path.exists():
-        log_text = log_path.read_text().strip()
-        # Check for actual session content beyond the boilerplate header
-        has_history = "### Session Ended:" in log_text
+    # Opening turn — serve from cache if session log hasn't changed
+    log_hash = _session_log_hash(campaign_dir)
+    cached = _load_opening_cache(campaign_dir, log_hash)
 
-    if has_history:
-        opening_prompt = (
-            "[System] The player has reconnected. Give a brief, atmospheric recap of where "
-            "they are and what just happened based on the session log. Set the scene, remind "
-            "them of their situation, and end with a prompt for action. Use your inline markers."
-        )
+    if cached is not None:
+        # Replay cached text + audio messages
+        for msg in cached:
+            await websocket.send_json(msg)
+        # Seed the DM conversation history with the cached text so follow-up turns have context
+        cached_text = " ".join(m["content"] for m in cached if m.get("type") == "text")
+        if cached_text:
+            dm.messages.append({"role": "assistant", "content": [{"type": "text", "text": cached_text}]})
     else:
-        opening_prompt = (
-            "[System] This is the start of a new campaign. Set the opening scene — describe "
-            "where the player character is, what's happening around them, and draw them into "
-            "the story. Use your inline markers."
-        )
+        # Generate fresh opening
+        log_path = campaign_dir / "session-log.md"
+        has_history = False
+        if log_path.exists():
+            log_text = log_path.read_text().strip()
+            has_history = "### Session Ended:" in log_text
 
-    raw_texts: list[str] = []
-    async for msg in dm.run_turn(opening_prompt):
-        raw = msg.pop("_raw", None)
-        await websocket.send_json(msg)
-        if raw:
-            raw_texts.append(raw)
+        if has_history:
+            opening_prompt = (
+                "[System] The player has reconnected. Give a brief, atmospheric recap of where "
+                "they are and what just happened based on the session log. Set the scene, remind "
+                "them of their situation, and end with a prompt for action. Use your inline markers."
+            )
+        else:
+            opening_prompt = (
+                "[System] This is the start of a new campaign. Set the opening scene — describe "
+                "where the player character is, what's happening around them, and draw them into "
+                "the story. Use your inline markers."
+            )
 
-    if raw_texts:
-        full_raw = "\n\n".join(raw_texts)
-        audio_task = asyncio.create_task(
-            _generate_audio(websocket, audio, full_raw)
-        )
+        # Collect all messages (text + audio) to cache
+        opening_messages: list[dict] = []
+        raw_texts: list[str] = []
+
+        async for msg in dm.run_turn(opening_prompt):
+            raw = msg.pop("_raw", None)
+            opening_messages.append(msg)
+            await websocket.send_json(msg)
+            if raw:
+                raw_texts.append(raw)
+
+        # Generate audio and collect those messages too
+        if raw_texts:
+            full_raw = "\n\n".join(raw_texts)
+            async for msg in audio.process_text(full_raw):
+                opening_messages.append(msg)
+                await websocket.send_json(msg)
+
+        _save_opening_cache(campaign_dir, log_hash, opening_messages)
 
     try:
         while True:
