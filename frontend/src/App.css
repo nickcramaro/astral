@@ -431,11 +431,14 @@
   30% { transform: translateY(-6px); opacity: 1; }
 }
 
+.chat-bottom {
+  border-top: 1px solid var(--border-warm);
+}
+
 .chat-input {
   display: flex;
   gap: 0.5rem;
   padding: 1rem 1.5rem;
-  border-top: 1px solid var(--border-warm);
 }
 
 .chat-input input {
@@ -733,4 +736,238 @@
   width: 24px;
   text-align: right;
   font-variant-numeric: tabular-nums;
+}
+
+/* ========== Narration Controls ========== */
+.narration-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.5rem;
+  background: rgba(201, 165, 90, 0.04);
+  border-bottom: 1px solid rgba(201, 165, 90, 0.1);
+  animation: fade-in 0.2s ease-out;
+}
+
+.narration-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-warm);
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.narration-btn:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent-gold);
+  background: rgba(201, 165, 90, 0.08);
+}
+
+/* ========== Dice Roller ========== */
+.dice-roller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 2px solid var(--accent-dim);
+  background: var(--bg-surface);
+  animation: dice-panel-enter 0.3s ease-out;
+}
+
+@keyframes dice-panel-enter {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dice-header {
+  font-family: "Cinzel", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin: 0;
+  text-align: center;
+}
+
+.dice-notation {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.dice-click-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.15s;
+}
+
+.dice-click-area:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.dice-click-area:disabled {
+  cursor: default;
+}
+
+.dice-d20 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  filter: drop-shadow(0 0 12px rgba(201, 165, 90, 0.3));
+  animation: dice-glow-pulse 2s ease-in-out infinite;
+}
+
+.dice-d20 svg {
+  display: block;
+}
+
+.dice-number {
+  position: absolute;
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  pointer-events: none;
+}
+
+.dice-prompt {
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-gold);
+  opacity: 0.8;
+}
+
+/* Rolling state */
+.dice-d20.rolling {
+  animation: dice-spin 0.6s linear infinite;
+  filter: drop-shadow(0 0 20px rgba(201, 165, 90, 0.5));
+}
+
+/* Landed state */
+.dice-d20.landed {
+  animation: dice-settle 0.4s ease-out forwards;
+  filter: drop-shadow(0 0 24px rgba(201, 165, 90, 0.6));
+}
+
+/* Dice result breakdown */
+.dice-result {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dice-total {
+  font-family: "Cinzel", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-warm);
+}
+
+.dice-crit-label {
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f0c040;
+  text-shadow: 0 0 12px rgba(240, 192, 64, 0.6);
+  animation: crit-pulse 0.5s ease-in-out 3;
+}
+
+.dice-fumble-label {
+  font-family: "Cinzel", serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #dc5050;
+  text-shadow: 0 0 12px rgba(220, 80, 80, 0.4);
+}
+
+/* Critical hit — golden burst */
+.dice-roller.crit .dice-d20.landed {
+  color: #f0c040;
+  filter: drop-shadow(0 0 30px rgba(240, 192, 64, 0.8));
+  animation: dice-settle 0.4s ease-out forwards, crit-burst 0.6s ease-out 0.4s;
+}
+
+/* Critical miss — red shake */
+.dice-roller.fumble .dice-d20.landed {
+  color: #dc5050;
+  filter: drop-shadow(0 0 20px rgba(220, 80, 80, 0.6));
+  animation: fumble-shake 0.4s ease-in-out 2;
+}
+
+/* Roll result in chat */
+.message-bubble.role-roll {
+  text-align: center;
+  color: var(--accent-gold);
+  font-style: normal;
+  font-family: "Cinzel", serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  max-width: 100%;
+  padding: 0.25rem 0;
+  border-top: 1px solid rgba(201, 165, 90, 0.15);
+  border-bottom: 1px solid rgba(201, 165, 90, 0.15);
+}
+
+/* ========== Dice Keyframes ========== */
+@keyframes dice-glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(201, 165, 90, 0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(201, 165, 90, 0.6)); }
+}
+
+@keyframes dice-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(1.05); }
+  50% { transform: rotate(180deg) scale(1); }
+  75% { transform: rotate(270deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes dice-settle {
+  0% { transform: scale(1.15); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes crit-burst {
+  0% { filter: drop-shadow(0 0 30px rgba(240, 192, 64, 0.8)); }
+  50% { filter: drop-shadow(0 0 60px rgba(240, 192, 64, 1)) drop-shadow(0 0 100px rgba(240, 192, 64, 0.4)); }
+  100% { filter: drop-shadow(0 0 30px rgba(240, 192, 64, 0.6)); }
+}
+
+@keyframes crit-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fumble-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
 }

@@ -18,7 +18,33 @@ export interface StateMessage {
   updates: Partial<CharacterState>;
 }
 
-export type ServerMessage = TextMessage | AudioMessage | StateMessage;
+export interface RollRequestMessage {
+  type: "roll_request";
+  tool_use_id: string;
+  notation: string;
+  reason: string;
+}
+
+export interface RollResultMessage {
+  type: "roll_result";
+  notation: string;
+  rolls: number[];
+  modifier: number;
+  total: number;
+  reason: string;
+  roll_type: "standard" | "advantage" | "disadvantage";
+  natural_20?: boolean;
+  natural_1?: boolean;
+  kept?: number[];
+  discarded?: number[];
+}
+
+export type ServerMessage =
+  | TextMessage
+  | AudioMessage
+  | StateMessage
+  | RollRequestMessage
+  | RollResultMessage;
 
 /** Player → server */
 export interface PlayerMessage {

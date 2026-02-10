@@ -1,9 +1,10 @@
-/** Web Audio API — four-channel audio engine with per-channel volume. */
+/** Web Audio API — four-channel audio engine with per-channel volume and voice controls. */
 
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import type { AudioMode } from "../types";
 
 export type AudioChannel = "narrator" | "npc" | "ambient" | "sfx";
+export type VoiceStatus = "idle" | "playing" | "paused";
 
 export function useAudio() {
   const ctx = useRef<AudioContext | null>(null);
@@ -20,6 +21,20 @@ export function useAudio() {
   // Voice channel: sequential queue
   const voiceQueue = useRef<{ data: ArrayBuffer; speaker: string }[]>([]);
   const voicePlaying = useRef(false);
+
+  // Voice playback control
+  const voiceSourceRef = useRef<AudioBufferSourceNode | null>(null);
+  const voiceBufferRef = useRef<AudioBuffer | null>(null);
+  const voiceChannelRef = useRef<AudioChannel>("narrator");
+  const voiceStartTimeRef = useRef(0);
+  const voicePauseOffsetRef = useRef(0);
+  const voiceOnEndRef = useRef<(() => void) | null>(null);
+
+  // Turn buffers for replay
+  const turnBuffersRef = useRef<{ buffer: AudioBuffer; channel: AudioChannel }[]>([]);
+
+  // Reactive voice status for UI
+  const [voiceStatus, setVoiceStatus] = useState<VoiceStatus>("idle");
 
   // Ambient channel: looping with crossfade
   const ambientSource = useRef<AudioBufferSourceNode | null>(null);
@@ -49,10 +64,45 @@ export function useAudio() {
     [getContext]
   );
 
+  /** Play a decoded AudioBuffer on the given channel from offset. */
+  const playDecodedBuffer = useCallback(
+    (buffer: AudioBuffer, channel: AudioChannel, offset: number, onEnd: () => void) => {
+      const ac = getContext();
+      const source = ac.createBufferSource();
+      source.buffer = buffer;
+      source.connect(getGain(channel));
+
+      source.onended = () => {
+        // Only chain to next if this source is still the active one.
+        // If stop/pause nullified the ref, skip.
+        if (voiceSourceRef.current !== source) return;
+        voicePlaying.current = false;
+        voiceSourceRef.current = null;
+        voicePauseOffsetRef.current = 0;
+        onEnd();
+      };
+
+      voiceSourceRef.current = source;
+      voiceBufferRef.current = buffer;
+      voiceChannelRef.current = channel;
+      voiceStartTimeRef.current = ac.currentTime;
+      voicePauseOffsetRef.current = offset;
+      voiceOnEndRef.current = onEnd;
+      voicePlaying.current = true;
+      setVoiceStatus("playing");
+
+      source.start(0, offset);
+    },
+    [getContext, getGain]
+  );
+
   const drainVoiceQueue = useCallback(async () => {
     if (voicePlaying.current) return;
     const next = voiceQueue.current.shift();
-    if (!next) return;
+    if (!next) {
+      setVoiceStatus("idle");
+      return;
+    }
 
     voicePlaying.current = true;
     const ac = getContext();
@@ -60,19 +110,18 @@ export function useAudio() {
 
     try {
       const buffer = await ac.decodeAudioData(next.data);
-      const source = ac.createBufferSource();
-      source.buffer = buffer;
-      source.connect(getGain(channel));
-      source.onended = () => {
-        voicePlaying.current = false;
+
+      // Store decoded buffer for replay
+      turnBuffersRef.current.push({ buffer, channel });
+
+      playDecodedBuffer(buffer, channel, 0, () => {
         drainVoiceQueue();
-      };
-      source.start();
+      });
     } catch {
       voicePlaying.current = false;
       drainVoiceQueue();
     }
-  }, [getContext, getGain]);
+  }, [getContext, playDecodedBuffer]);
 
   const playVoice = useCallback(
     async (audioData: ArrayBuffer, speaker: string = "narrator") => {
@@ -81,6 +130,74 @@ export function useAudio() {
     },
     [drainVoiceQueue]
   );
+
+  /** Stop voice playback and clear turn buffers (for new turns). */
+  const stopVoice = useCallback(() => {
+    voiceQueue.current = [];
+    const source = voiceSourceRef.current;
+    voiceSourceRef.current = null; // Nullify before stop so onended doesn't chain
+    if (source) {
+      try { source.stop(); } catch { /* already stopped */ }
+    }
+    voicePlaying.current = false;
+    voicePauseOffsetRef.current = 0;
+    voiceOnEndRef.current = null;
+    turnBuffersRef.current = [];
+    setVoiceStatus("idle");
+  }, []);
+
+  /** Pause voice at current position. Turn buffers preserved for resume/replay. */
+  const pauseVoice = useCallback(() => {
+    const source = voiceSourceRef.current;
+    if (!source) return;
+    const ac = getContext();
+    voicePauseOffsetRef.current += ac.currentTime - voiceStartTimeRef.current;
+    voiceSourceRef.current = null; // Prevent onended from chaining
+    try { source.stop(); } catch { /* already stopped */ }
+    voicePlaying.current = false;
+    setVoiceStatus("paused");
+  }, [getContext]);
+
+  /** Resume voice from paused position. */
+  const resumeVoice = useCallback(() => {
+    const buffer = voiceBufferRef.current;
+    const onEnd = voiceOnEndRef.current;
+    if (!buffer || !onEnd) return;
+    playDecodedBuffer(buffer, voiceChannelRef.current, voicePauseOffsetRef.current, onEnd);
+  }, [playDecodedBuffer]);
+
+  /** Replay the entire current turn's voice from the beginning. */
+  const replayVoice = useCallback(() => {
+    // Stop current playback
+    const source = voiceSourceRef.current;
+    voiceSourceRef.current = null;
+    if (source) {
+      try { source.stop(); } catch { /* already stopped */ }
+    }
+    voiceQueue.current = [];
+    voicePlaying.current = false;
+    voicePauseOffsetRef.current = 0;
+
+    const buffers = turnBuffersRef.current;
+    if (buffers.length === 0) {
+      setVoiceStatus("idle");
+      return;
+    }
+
+    let index = 0;
+    const playNext = () => {
+      if (index >= buffers.length) {
+        voicePlaying.current = false;
+        voiceSourceRef.current = null;
+        // Drain any items that arrived during replay
+        drainVoiceQueue();
+        return;
+      }
+      const { buffer: buf, channel } = buffers[index++];
+      playDecodedBuffer(buf, channel, 0, playNext);
+    };
+    playNext();
+  }, [playDecodedBuffer, drainVoiceQueue]);
 
   const playAmbient = useCallback(
     async (audioData: ArrayBuffer) => {
@@ -160,9 +277,16 @@ export function useAudio() {
 
   /** Stop all audio playback — voice queue, ambient, everything. */
   const stopAll = useCallback(() => {
-    // Clear voice queue and stop current playback
+    // Stop voice
     voiceQueue.current = [];
+    const source = voiceSourceRef.current;
+    voiceSourceRef.current = null;
+    if (source) {
+      try { source.stop(); } catch { /* already stopped */ }
+    }
     voicePlaying.current = false;
+    turnBuffersRef.current = [];
+    setVoiceStatus("idle");
 
     // Stop ambient
     if (ambientSource.current) {
@@ -179,10 +303,50 @@ export function useAudio() {
     if (ctx.current) {
       ctx.current.close();
       ctx.current = null;
-      // Reset gain node refs so they're recreated fresh
       gains.current = { narrator: null, npc: null, ambient: null, sfx: null };
     }
   }, []);
 
-  return { playVoice, playAmbient, playSfx, setMode, setVolume, stopAll, getContext };
+  /** Synthesize a short dice-clatter sound via Web Audio API. */
+  const playDiceRoll = useCallback(() => {
+    const ac = getContext();
+    const duration = 0.3;
+
+    // White noise burst through a bandpass filter for a "clatter" sound
+    const bufferSize = Math.floor(ac.sampleRate * duration);
+    const buffer = ac.createBuffer(1, bufferSize, ac.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      const env = Math.exp(-i / (bufferSize * 0.15));
+      data[i] = (Math.random() * 2 - 1) * env;
+    }
+
+    const source = ac.createBufferSource();
+    source.buffer = buffer;
+
+    const filter = ac.createBiquadFilter();
+    filter.type = "bandpass";
+    filter.frequency.value = 3000;
+    filter.Q.value = 1.5;
+
+    source.connect(filter);
+    filter.connect(getGain("sfx"));
+    source.start();
+  }, [getContext, getGain]);
+
+  return {
+    playVoice,
+    playAmbient,
+    playSfx,
+    playDiceRoll,
+    stopVoice,
+    pauseVoice,
+    resumeVoice,
+    replayVoice,
+    voiceStatus,
+    setMode,
+    setVolume,
+    stopAll,
+    getContext,
+  };
 }

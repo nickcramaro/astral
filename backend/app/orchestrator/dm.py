@@ -65,6 +65,11 @@ class DMOrchestrator:
         self.system_prompt = load_system_prompt()
         self.context = build_context_block(campaign_dir)
         self.messages: list[dict] = []
+        self._roll_result: dict | None = None
+
+    def resolve_roll(self, result: dict):
+        """Called by session router after the player completes a dice roll."""
+        self._roll_result = result
 
     async def run_turn(self, player_message: str) -> AsyncGenerator[dict, None]:
         """Execute one DM turn. Yields message dicts for the WebSocket.
@@ -72,7 +77,7 @@ class DMOrchestrator:
         Yields:
             {"type": "text", "content": "..."} — streamed narration text
             {"type": "state", "updates": {...}} — character state changes
-            {"type": "tool_use", "name": "...", "result": {...}} — tool results (for dice, etc.)
+            {"type": "roll_request", ...} — dice roll request (generator suspends until resolve_roll)
         """
         self.messages.append({"role": "user", "content": player_message})
 
@@ -104,8 +109,19 @@ class DMOrchestrator:
                         "input": block.input,
                     })
 
-                    # Execute the tool once
-                    result = self.tools.execute(block.name, block.input)
+                    if block.name == "roll_dice":
+                        # Yield roll request — generator suspends here
+                        yield {
+                            "type": "roll_request",
+                            "tool_use_id": block.id,
+                            "notation": block.input["notation"],
+                            "reason": block.input.get("reason", ""),
+                        }
+                        # After __anext__() resumes us, _roll_result is set
+                        result = self._roll_result
+                        self._roll_result = None
+                    else:
+                        result = self.tools.execute(block.name, block.input)
 
                     # Cache for the continuation message
                     tool_results.append({
@@ -114,10 +130,7 @@ class DMOrchestrator:
                         "content": json.dumps(result, default=str),
                     })
 
-                    # Emit dice rolls and state changes to the client
-                    if block.name == "roll_dice":
-                        yield {"type": "tool_use", "name": "roll_dice", "result": result}
-                    elif block.name in ("update_hp", "update_xp", "update_inventory", "update_gold"):
+                    if block.name in ("update_hp", "update_xp", "update_inventory", "update_gold"):
                         yield {"type": "state", "updates": result}
 
             # Add assistant response to history

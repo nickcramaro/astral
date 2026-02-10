@@ -1,7 +1,13 @@
 /** WebSocket connection for gameplay session. */
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { ChatMessage, CharacterState, ServerMessage } from "../types";
+import type {
+  ChatMessage,
+  CharacterState,
+  RollRequestMessage,
+  RollResultMessage,
+  ServerMessage,
+} from "../types";
 
 /** Map the backend character JSON to our frontend CharacterState. */
 function parseCharacter(raw: Record<string, unknown>): CharacterState {
@@ -20,6 +26,18 @@ function parseCharacter(raw: Record<string, unknown>): CharacterState {
   };
 }
 
+function formatRollResult(r: RollResultMessage): string {
+  const die = r.rolls.join(" + ");
+  const mod =
+    r.modifier !== 0
+      ? ` ${r.modifier > 0 ? "+" : ""}${r.modifier}`
+      : "";
+  let text = `${r.reason}: ${die}${mod} = ${r.total}`;
+  if (r.natural_20) text += " — Critical Hit!";
+  if (r.natural_1) text += " — Critical Miss!";
+  return text;
+}
+
 /** Decode base64 string to ArrayBuffer. */
 function base64ToArrayBuffer(base64: string): ArrayBuffer {
   const binary = atob(base64);
@@ -34,6 +52,7 @@ interface AudioCallbacks {
   playVoice: (data: ArrayBuffer, speaker?: string) => void;
   playAmbient: (data: ArrayBuffer) => void;
   playSfx: (data: ArrayBuffer) => void;
+  stopVoice: () => void;
 }
 
 const CACHE_KEY = "astral-opening";
@@ -72,6 +91,8 @@ export function useSession(
   const [connected, setConnected] = useState(false);
   const [loading, setLoading] = useState(true);
   const [waiting, setWaiting] = useState(false);
+  const [pendingRoll, setPendingRoll] = useState<RollRequestMessage | null>(null);
+  const [rollResult, setRollResult] = useState<RollResultMessage | null>(null);
   const audioRef = useRef(audio);
   audioRef.current = audio;
 
@@ -150,6 +171,30 @@ export function useSession(
           }
           return { ...prev, ...updates };
         });
+      } else if (msg.type === "roll_request") {
+        setPendingRoll(msg);
+        setWaiting(false);
+      } else if (msg.type === "roll_result") {
+        // Keep pendingRoll alive so DiceRoller stays mounted for the result animation
+        setRollResult(msg);
+
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: crypto.randomUUID(),
+            role: "system",
+            content: formatRollResult(msg),
+            timestamp: Date.now(),
+          },
+        ]);
+
+        // Send ack after animation delay, then unmount the roller
+        setTimeout(() => {
+          socket.send(JSON.stringify({ type: "roll_ack" }));
+          setPendingRoll(null);
+          setRollResult(null);
+          setWaiting(true);
+        }, 1500);
       } else if (msg.type === "audio") {
         // If hydrated from cache, skip replayed audio too (already heard it)
         if (hydratedRef.current && !playerSentRef.current) {
@@ -173,6 +218,9 @@ export function useSession(
   const send = useCallback((message: string) => {
     if (!ws.current || ws.current.readyState !== WebSocket.OPEN) return;
 
+    // Stop any playing narration when the player sends a new message
+    audioRef.current?.stopVoice();
+
     playerSentRef.current = true;
     hydratedRef.current = false;
     setWaiting(true);
@@ -195,5 +243,21 @@ export function useSession(
     ws.current.send(JSON.stringify(data));
   }, []);
 
-  return { messages, character, connected, loading, waiting, send, sendRaw };
+  const rollDice = useCallback(() => {
+    if (!ws.current || ws.current.readyState !== WebSocket.OPEN) return;
+    ws.current.send(JSON.stringify({ type: "roll_execute" }));
+  }, []);
+
+  return {
+    messages,
+    character,
+    connected,
+    loading,
+    waiting,
+    pendingRoll,
+    rollResult,
+    send,
+    sendRaw,
+    rollDice,
+  };
 }

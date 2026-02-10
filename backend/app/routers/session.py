@@ -17,6 +17,14 @@ router = APIRouter()
 
 DATA_DIR = Path(__file__).parent.parent.parent / "data"
 
+
+def _roll_result_msg(result: dict) -> dict:
+    """Build a roll_result WS message, remapping dice 'type' to 'roll_type'."""
+    msg = {"type": "roll_result"}
+    for k, v in result.items():
+        msg["roll_type" if k == "type" else k] = v
+    return msg
+
 CACHE_FILE = "opening-cache.json"
 
 
@@ -114,10 +122,29 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
 
         async for msg in dm.run_turn(opening_prompt):
             raw = msg.pop("_raw", None)
-            opening_messages.append(msg)
-            await websocket.send_json(msg)
-            if raw:
-                raw_texts.append(raw)
+
+            if msg["type"] == "roll_request":
+                # Handle interactive dice roll during opening (rare, e.g. reconnection mid-combat)
+                await websocket.send_json(msg)
+                while True:
+                    client_data = await websocket.receive_json()
+                    if client_data.get("type") == "roll_execute":
+                        break
+                result = dm.tools.execute("roll_dice", {
+                    "notation": msg["notation"],
+                    "reason": msg.get("reason", ""),
+                })
+                await websocket.send_json(_roll_result_msg(result))
+                while True:
+                    client_data = await websocket.receive_json()
+                    if client_data.get("type") == "roll_ack":
+                        break
+                dm.resolve_roll(result)
+            else:
+                opening_messages.append(msg)
+                await websocket.send_json(msg)
+                if raw:
+                    raw_texts.append(raw)
 
         # Generate audio and collect those messages too
         if raw_texts:
@@ -150,11 +177,39 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
             # Run DM turn and stream text results immediately
             raw_texts: list[str] = []
             async for msg in dm.run_turn(player_message):
-                # Extract raw text before sending (don't leak to client)
                 raw = msg.pop("_raw", None)
-                await websocket.send_json(msg)
-                if raw:
-                    raw_texts.append(raw)
+
+                if msg["type"] == "roll_request":
+                    # Send roll request to player
+                    await websocket.send_json(msg)
+
+                    # Wait for player to click "Roll"
+                    while True:
+                        client_data = await websocket.receive_json()
+                        if client_data.get("type") == "roll_execute":
+                            break
+
+                    # Execute the actual roll server-side
+                    result = dm.tools.execute("roll_dice", {
+                        "notation": msg["notation"],
+                        "reason": msg.get("reason", ""),
+                    })
+
+                    # Send result to frontend for animation
+                    await websocket.send_json(_roll_result_msg(result))
+
+                    # Wait for frontend to acknowledge animation complete
+                    while True:
+                        client_data = await websocket.receive_json()
+                        if client_data.get("type") == "roll_ack":
+                            break
+
+                    # Feed result to orchestrator so generator can resume
+                    dm.resolve_roll(result)
+                else:
+                    await websocket.send_json(msg)
+                    if raw:
+                        raw_texts.append(raw)
 
             # Spawn background audio generation for the full turn
             if raw_texts:

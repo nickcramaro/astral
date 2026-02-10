@@ -14,17 +14,46 @@ function App() {
   const [selectedCampaign, setSelectedCampaign] = useState<string | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [confirmLeave, setConfirmLeave] = useState(false);
-  const { playVoice, playAmbient, playSfx, setMode, setVolume, stopAll, getContext } = useAudio();
+  const {
+    playVoice,
+    playAmbient,
+    playSfx,
+    playDiceRoll,
+    stopVoice,
+    pauseVoice,
+    resumeVoice,
+    replayVoice,
+    voiceStatus,
+    setMode,
+    setVolume,
+    stopAll,
+    getContext,
+  } = useAudio();
 
   const audioCallbacks = useMemo(
-    () => ({ playVoice, playAmbient, playSfx }),
-    [playVoice, playAmbient, playSfx]
+    () => ({ playVoice, playAmbient, playSfx, stopVoice }),
+    [playVoice, playAmbient, playSfx, stopVoice]
   );
 
-  const { messages, character, connected, loading, waiting, send, sendRaw } = useSession(
-    selectedCampaign,
-    audioCallbacks
-  );
+  const {
+    messages,
+    character,
+    connected,
+    loading,
+    waiting,
+    pendingRoll,
+    rollResult,
+    send,
+    sendRaw,
+    rollDice,
+  } = useSession(selectedCampaign, audioCallbacks);
+
+  // Play dice clatter SFX when a roll result arrives
+  useEffect(() => {
+    if (rollResult) {
+      playDiceRoll();
+    }
+  }, [rollResult, playDiceRoll]);
 
   useEffect(() => {
     fetch("http://localhost:8000/campaigns/")
@@ -110,7 +139,19 @@ function App() {
         </div>
       </aside>
       <main className="main-panel">
-        <Chat messages={messages} onSend={send} connected={connected} waiting={waiting} />
+        <Chat
+          messages={messages}
+          onSend={send}
+          connected={connected}
+          waiting={waiting}
+          pendingRoll={pendingRoll}
+          rollResult={rollResult}
+          onRollDice={rollDice}
+          voiceStatus={voiceStatus}
+          onPauseVoice={pauseVoice}
+          onResumeVoice={resumeVoice}
+          onReplayVoice={replayVoice}
+        />
       </main>
 
       <SettingsPanel
