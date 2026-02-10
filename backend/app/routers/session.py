@@ -9,6 +9,7 @@ from pathlib import Path
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
 from app.audio.pipeline import AudioPipeline
+from app.audio.streaming import StreamingAudioBuffer
 from app.orchestrator.dm import DMOrchestrator
 
 log = logging.getLogger(__name__)
@@ -73,7 +74,14 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
     # Initialize orchestrator and audio pipeline
     dm = DMOrchestrator(campaign_dir=campaign_dir, data_dir=DATA_DIR)
     audio = AudioPipeline(campaign_dir=campaign_dir)
-    audio_tasks: list[asyncio.Task] = []
+    audio_buf: StreamingAudioBuffer | None = None
+
+    # WebSocket lock — main loop and audio drain task both write
+    ws_lock = asyncio.Lock()
+
+    async def ws_send(msg: dict):
+        async with ws_lock:
+            await websocket.send_json(msg)
 
     # Send initial state
     char_path = campaign_dir / "character.json"
@@ -116,16 +124,38 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
                 "the story. Use your inline markers."
             )
 
-        # Collect all messages (text + audio) to cache
+        # Collect collapsed messages for cache (text + audio)
         opening_messages: list[dict] = []
-        raw_texts: list[str] = []
+        current_text = ""
+        audio_buf = StreamingAudioBuffer(pipeline=audio, send_fn=ws_send)
 
         async for msg in dm.run_turn(opening_prompt):
-            raw = msg.pop("_raw", None)
+            if msg["type"] == "_raw_delta":
+                audio_buf.feed(msg["content"])
 
-            if msg["type"] == "roll_request":
-                # Handle interactive dice roll during opening (rare, e.g. reconnection mid-combat)
-                await websocket.send_json(msg)
+            elif msg["type"] == "text_delta":
+                current_text += msg["content"]
+                await ws_send(msg)
+
+            elif msg["type"] == "text_end":
+                stripped = msg.get("content", "")
+                await ws_send({"type": "text_end", "content": stripped})
+                if stripped:
+                    opening_messages.append({"type": "text", "content": stripped})
+                    current_text = ""
+                await audio_buf.flush()
+                opening_messages.extend(audio_buf.sent_messages)
+                # Fresh buffer for next content block
+                audio_buf = StreamingAudioBuffer(pipeline=audio, send_fn=ws_send)
+
+            elif msg["type"] == "roll_request":
+                if current_text:
+                    opening_messages.append({"type": "text", "content": current_text})
+                    current_text = ""
+                await audio_buf.flush()
+                opening_messages.extend(audio_buf.sent_messages)
+                audio_buf = StreamingAudioBuffer(pipeline=audio, send_fn=ws_send)
+                await ws_send(msg)
                 while True:
                     client_data = await websocket.receive_json()
                     if client_data.get("type") == "roll_execute":
@@ -134,26 +164,19 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
                     "notation": msg["notation"],
                     "reason": msg.get("reason", ""),
                 })
-                await websocket.send_json(_roll_result_msg(result))
+                await ws_send(_roll_result_msg(result))
                 while True:
                     client_data = await websocket.receive_json()
                     if client_data.get("type") == "roll_ack":
                         break
                 dm.resolve_roll(result)
+
             else:
                 opening_messages.append(msg)
-                await websocket.send_json(msg)
-                if raw:
-                    raw_texts.append(raw)
-
-        # Generate audio and collect those messages too
-        if raw_texts:
-            full_raw = "\n\n".join(raw_texts)
-            async for msg in audio.process_text(full_raw):
-                opening_messages.append(msg)
-                await websocket.send_json(msg)
+                await ws_send(msg)
 
         _save_opening_cache(campaign_dir, log_hash, opening_messages)
+        audio_buf = None
 
     try:
         while True:
@@ -170,63 +193,51 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
             if not player_message.strip():
                 continue
 
-            # Cancel any in-flight audio generation from the previous turn
-            for t in audio_tasks:
-                if not t.done():
-                    t.cancel()
-            audio_tasks.clear()
+            # Cancel any in-flight audio from the previous turn
+            if audio_buf is not None:
+                audio_buf.cancel()
+            audio_buf = StreamingAudioBuffer(pipeline=audio, send_fn=ws_send)
 
-            # Run DM turn — stream text immediately, kick off audio per chunk
+            # Run DM turn — stream clean text + feed raw deltas to audio buffer
             async for msg in dm.run_turn(player_message):
-                raw = msg.pop("_raw", None)
+                if msg["type"] == "_raw_delta":
+                    audio_buf.feed(msg["content"])
 
-                if msg["type"] == "roll_request":
-                    # Send roll request to player
-                    await websocket.send_json(msg)
+                elif msg["type"] == "text_delta":
+                    await ws_send(msg)
 
-                    # Wait for player to click "Roll"
+                elif msg["type"] == "text_end":
+                    await ws_send({"type": "text_end", "content": msg.get("content", "")})
+                    await audio_buf.flush()
+                    # Fresh buffer for next content block
+                    audio_buf = StreamingAudioBuffer(pipeline=audio, send_fn=ws_send)
+
+                elif msg["type"] == "roll_request":
+                    await audio_buf.flush()
+                    audio_buf = StreamingAudioBuffer(pipeline=audio, send_fn=ws_send)
+                    await ws_send(msg)
+
                     while True:
                         client_data = await websocket.receive_json()
                         if client_data.get("type") == "roll_execute":
                             break
 
-                    # Execute the actual roll server-side
                     result = dm.tools.execute("roll_dice", {
                         "notation": msg["notation"],
                         "reason": msg.get("reason", ""),
                     })
 
-                    # Send result to frontend for animation
-                    await websocket.send_json(_roll_result_msg(result))
+                    await ws_send(_roll_result_msg(result))
 
-                    # Wait for frontend to acknowledge animation complete
                     while True:
                         client_data = await websocket.receive_json()
                         if client_data.get("type") == "roll_ack":
                             break
 
-                    # Feed result to orchestrator so generator can resume
                     dm.resolve_roll(result)
                 else:
-                    await websocket.send_json(msg)
-                    if raw:
-                        # Start audio generation for this chunk immediately
-                        audio_tasks.append(asyncio.create_task(
-                            _generate_audio(websocket, audio, raw)
-                        ))
+                    await ws_send(msg)
 
     except WebSocketDisconnect:
-        for t in audio_tasks:
-            if not t.done():
-                t.cancel()
-
-
-async def _generate_audio(websocket: WebSocket, pipeline: AudioPipeline, raw_text: str) -> None:
-    """Background task: parse raw DM text, generate audio, send over WebSocket."""
-    try:
-        async for msg in pipeline.process_text(raw_text):
-            await websocket.send_json(msg)
-    except asyncio.CancelledError:
-        pass
-    except Exception:
-        log.exception("Audio generation failed")
+        if audio_buf is not None:
+            audio_buf.cancel()

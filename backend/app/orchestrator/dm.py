@@ -59,7 +59,7 @@ class DMOrchestrator:
     def __init__(self, campaign_dir: Path, data_dir: Path):
         self.campaign_dir = campaign_dir
         self.data_dir = data_dir
-        self.client = anthropic.Anthropic()
+        self.client = anthropic.AsyncAnthropic()
         self.model = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-5-20250929")
         self.tools = ToolHandler(campaign_dir, data_dir)
         self.system_prompt = load_system_prompt()
@@ -75,7 +75,8 @@ class DMOrchestrator:
         """Execute one DM turn. Yields message dicts for the WebSocket.
 
         Yields:
-            {"type": "text", "content": "..."} — streamed narration text
+            {"type": "text_delta", "content": "..."} — incremental narration text
+            {"type": "text_end", "_raw": "..."} — full text block complete (triggers audio)
             {"type": "state", "updates": {...}} — character state changes
             {"type": "roll_request", ...} — dice roll request (generator suspends until resolve_roll)
         """
@@ -84,61 +85,83 @@ class DMOrchestrator:
         system = f"{self.system_prompt}\n\n## Current Campaign State\n\n{self.context}"
 
         for _ in range(MAX_TOOL_ROUNDS):
-            response = self.client.messages.create(
+            assistant_content = []
+            pending_tools = []  # (block, ...) — processed after stream closes
+            sent_len = 0  # Clean-delta tracking, reset per content block
+
+            async with self.client.messages.stream(
                 model=self.model,
                 max_tokens=4096,
                 system=system,
                 messages=self.messages,
                 tools=TOOL_SCHEMAS,
-            )
+            ) as stream:
+                async for event in stream:
+                    if event.type == "text":
+                        # Snapshot-diff: strip markers from accumulated text,
+                        # hold back from any '[' that might be an incomplete marker
+                        clean = strip_markers(event.snapshot)
+                        last_bracket = clean.rfind('[')
+                        safe_end = last_bracket if last_bracket >= sent_len else len(clean)
 
-            # Collect text and tool uses from this response
-            assistant_content = []
-            tool_results = []  # Cache results to avoid double-execution
+                        if safe_end > sent_len:
+                            yield {
+                                "type": "text_delta",
+                                "content": clean[sent_len:safe_end],
+                            }
+                            sent_len = safe_end
 
-            for block in response.content:
-                if block.type == "text":
-                    assistant_content.append({"type": "text", "text": block.text})
-                    yield {"type": "text", "content": strip_markers(block.text), "_raw": block.text}
+                        # Raw delta for audio buffer (processed separately)
+                        yield {"type": "_raw_delta", "content": event.text}
 
-                elif block.type == "tool_use":
-                    assistant_content.append({
-                        "type": "tool_use",
-                        "id": block.id,
-                        "name": block.name,
-                        "input": block.input,
-                    })
+                    elif event.type == "content_block_stop":
+                        block = event.content_block
 
-                    if block.name == "roll_dice":
-                        # Yield roll request — generator suspends here
-                        yield {
-                            "type": "roll_request",
-                            "tool_use_id": block.id,
-                            "notation": block.input["notation"],
-                            "reason": block.input.get("reason", ""),
-                        }
-                        # After __anext__() resumes us, _roll_result is set
-                        result = self._roll_result
-                        self._roll_result = None
-                    else:
-                        result = self.tools.execute(block.name, block.input)
+                        if block.type == "text":
+                            assistant_content.append({"type": "text", "text": block.text})
+                            yield {
+                                "type": "text_end",
+                                "content": strip_markers(block.text),
+                                "_raw": block.text,
+                            }
+                            sent_len = 0
 
-                    # Cache for the continuation message
-                    tool_results.append({
-                        "type": "tool_result",
+                        elif block.type == "tool_use":
+                            assistant_content.append({
+                                "type": "tool_use",
+                                "id": block.id,
+                                "name": block.name,
+                                "input": block.input,
+                            })
+                            pending_tools.append(block)
+
+            # Stream closed — now process tools (safe to yield/suspend)
+            tool_results = []
+            for block in pending_tools:
+                if block.name == "roll_dice":
+                    yield {
+                        "type": "roll_request",
                         "tool_use_id": block.id,
-                        "content": json.dumps(result, default=str),
-                    })
+                        "notation": block.input["notation"],
+                        "reason": block.input.get("reason", ""),
+                    }
+                    result = self._roll_result
+                    self._roll_result = None
+                else:
+                    result = self.tools.execute(block.name, block.input)
 
-                    if block.name in ("update_hp", "update_xp", "update_inventory", "update_gold"):
-                        yield {"type": "state", "updates": result}
+                tool_results.append({
+                    "type": "tool_result",
+                    "tool_use_id": block.id,
+                    "content": json.dumps(result, default=str),
+                })
 
-            # Add assistant response to history
+                if block.name in ("update_hp", "update_xp", "update_inventory", "update_gold"):
+                    yield {"type": "state", "updates": result}
+
             self.messages.append({"role": "assistant", "content": assistant_content})
 
             if not tool_results:
-                # No tool calls — DM is done narrating
                 break
 
-            # Continue the loop with tool results
             self.messages.append({"role": "user", "content": tool_results})

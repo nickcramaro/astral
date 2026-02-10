@@ -32,18 +32,15 @@ class AudioPipeline:
 
     async def process_text(self, raw_text: str) -> AsyncGenerator[dict, None]:
         """Parse raw DM text and generate audio messages for each segment."""
-        allowed = MODE_FILTER.get(self.audio_mode, set())
-        if not allowed:
-            return
-
         for segment in parse_segments(raw_text):
-            async for msg in self._process_segment(segment, allowed):
+            async for msg in self.process_segment(segment):
                 yield msg
 
-    async def _process_segment(
-        self, segment: Segment, allowed: set[str]
+    async def process_segment(
+        self, segment: Segment
     ) -> AsyncGenerator[dict, None]:
         """Generate audio for a single segment if its type is allowed."""
+        allowed = MODE_FILTER.get(self.audio_mode, set())
         if segment.type not in allowed:
             return
 

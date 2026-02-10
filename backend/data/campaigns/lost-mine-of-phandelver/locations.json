@@ -1839,9 +1839,47 @@
       {
         "to": "Triboar Trail",
         "path": "traveled"
+      },
+      {
+        "to": "Phandalin",
+        "path": "traveled"
+      },
+      {
+        "to": "Goblin Trail",
+        "path": "traveled"
       }
     ],
     "description": "",
     "discovered": "2026-02-10 16:55:21 UTC"
+  },
+  "Goblin Trail": {
+    "position": "unknown",
+    "connections": [
+      {
+        "to": "Phandalin",
+        "path": "traveled"
+      },
+      {
+        "to": "Goblin Trail",
+        "path": "traveled"
+      },
+      {
+        "to": "Triboar Trail (South toward Phandalin)",
+        "path": "traveled"
+      }
+    ],
+    "description": "",
+    "discovered": "2026-02-10 21:24:37 UTC"
+  },
+  "Triboar Trail (South toward Phandalin)": {
+    "position": "unknown",
+    "connections": [
+      {
+        "to": "Goblin Trail",
+        "path": "traveled"
+      }
+    ],
+    "description": "",
+    "discovered": "2026-02-10 22:32:54 UTC"
   }
 }

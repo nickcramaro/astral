@@ -101,6 +101,7 @@ export function useSession(
   const playerSentRef = useRef(false);
   const openingCountRef = useRef(0);
   const skippedRef = useRef(0);
+  const streamingMsgId = useRef<string | null>(null);
 
   useEffect(() => {
     if (!campaignId) return;
@@ -111,6 +112,7 @@ export function useSession(
     setWaiting(false);
     playerSentRef.current = false;
     skippedRef.current = 0;
+    streamingMsgId.current = null;
 
     // Check frontend cache — show opening text instantly
     const cached = loadOpeningCache(campaignId);
@@ -135,8 +137,72 @@ export function useSession(
     socket.onmessage = (event) => {
       const msg: ServerMessage = JSON.parse(event.data);
 
-      if (msg.type === "text") {
-        // If hydrated from cache, skip the backend's replayed opening text messages
+      if (msg.type === "text_delta") {
+        // If hydrated from cache, skip streamed opening deltas
+        if (hydratedRef.current && !playerSentRef.current) {
+          return;
+        }
+
+        setLoading(false);
+        setWaiting(false);
+
+        setMessages((prev) => {
+          if (streamingMsgId.current) {
+            const found = prev.some((m) => m.id === streamingMsgId.current);
+            if (!found) {
+              // Stale ref (e.g. StrictMode remount wiped messages) — create fresh
+              const id = crypto.randomUUID();
+              streamingMsgId.current = id;
+              return [...prev, { id, role: "dm" as const, content: msg.content, timestamp: Date.now() }];
+            }
+            // Append to existing streaming message
+            return prev.map((m) =>
+              m.id === streamingMsgId.current
+                ? { ...m, content: m.content + msg.content }
+                : m
+            );
+          }
+
+          // First delta — create a new message
+          const id = crypto.randomUUID();
+          streamingMsgId.current = id;
+          const chatMsg: ChatMessage = {
+            id,
+            role: "dm",
+            content: msg.content,
+            timestamp: Date.now(),
+          };
+
+          const next = [...prev, chatMsg];
+          if (!playerSentRef.current && campaignId) {
+            saveOpeningCache(campaignId, next.filter((m) => m.role === "dm"));
+          }
+          return next;
+        });
+
+      } else if (msg.type === "text_end") {
+        // Replace raw streaming content with clean stripped text
+        const finalId = streamingMsgId.current;
+        if (finalId && msg.content) {
+          setMessages((prev) => {
+            const updated = prev.map((m) =>
+              m.id === finalId ? { ...m, content: msg.content } : m
+            );
+            if (!playerSentRef.current && campaignId) {
+              saveOpeningCache(campaignId, updated.filter((m) => m.role === "dm"));
+            }
+            return updated;
+          });
+        }
+        streamingMsgId.current = null;
+
+        // If hydrated from cache, mark as caught up after text_end
+        if (hydratedRef.current && !playerSentRef.current) {
+          hydratedRef.current = false;
+        }
+
+      } else if (msg.type === "text") {
+        // Complete message from cache replay — existing handler
         if (hydratedRef.current && !playerSentRef.current) {
           skippedRef.current++;
           if (skippedRef.current >= openingCountRef.current) {
@@ -157,7 +223,6 @@ export function useSession(
 
         setMessages((prev) => {
           const next = [...prev, chatMsg];
-          // Cache opening messages (everything before first player send)
           if (!playerSentRef.current && campaignId) {
             saveOpeningCache(campaignId, next.filter((m) => m.role === "dm"));
           }

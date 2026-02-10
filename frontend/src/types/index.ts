@@ -39,8 +39,20 @@ export interface RollResultMessage {
   discarded?: number[];
 }
 
+export interface TextDeltaMessage {
+  type: "text_delta";
+  content: string;
+}
+
+export interface TextEndMessage {
+  type: "text_end";
+  content: string;
+}
+
 export type ServerMessage =
   | TextMessage
+  | TextDeltaMessage
+  | TextEndMessage
   | AudioMessage
   | StateMessage
   | RollRequestMessage
