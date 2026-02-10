@@ -7,6 +7,7 @@ from typing import AsyncGenerator
 
 import anthropic
 
+from app.orchestrator.parser import strip_markers
 from app.orchestrator.tools import TOOL_SCHEMAS, ToolHandler
 
 PROMPTS_DIR = Path(__file__).parent / "prompts"
@@ -93,7 +94,7 @@ class DMOrchestrator:
             for block in response.content:
                 if block.type == "text":
                     assistant_content.append({"type": "text", "text": block.text})
-                    yield {"type": "text", "content": block.text}
+                    yield {"type": "text", "content": strip_markers(block.text), "_raw": block.text}
 
                 elif block.type == "tool_use":
                     assistant_content.append({
