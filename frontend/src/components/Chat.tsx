@@ -1,7 +1,8 @@
 /** Main chat panel — streaming DM text + player input. */
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ChatMessage } from "../types";
+import { MessageBubble } from "./MessageBubble";
 
 interface Props {
   messages: ChatMessage[];
@@ -12,6 +13,10 @@ interface Props {
 export function Chat({ messages, onSend, connected }: Props) {
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,9 +29,7 @@ export function Chat({ messages, onSend, connected }: Props) {
     <div className="chat">
       <div className="chat-messages">
         {messages.map((msg) => (
-          <div key={msg.id} className={`message message-${msg.role}`}>
-            {msg.content}
-          </div>
+          <MessageBubble key={msg.id} message={msg} />
         ))}
         <div ref={bottomRef} />
       </div>
@@ -38,7 +41,7 @@ export function Chat({ messages, onSend, connected }: Props) {
           placeholder={connected ? "What do you do?" : "Connecting..."}
           disabled={!connected}
         />
-        <button type="submit" disabled={!connected}>
+        <button type="submit" className="send-btn" disabled={!connected}>
           Send
         </button>
       </form>

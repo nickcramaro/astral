@@ -19,6 +19,7 @@ export function AudioControls({ onModeChange }: Props) {
 
   return (
     <div className="audio-controls">
+      <div className="audio-label">Audio</div>
       <div className="mode-toggle">
         {MODES.map((m) => (
           <button

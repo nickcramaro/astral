@@ -11,8 +11,12 @@ interface Props {
 export function CampaignPicker({ campaigns, onSelect, onImport }: Props) {
   return (
     <div className="campaign-picker">
-      <h1>Astral</h1>
-      <p>Choose a campaign or import a new one.</p>
+      <h1 className="campaign-title">Astral</h1>
+      <p className="campaign-subtitle">Choose a campaign or import a new one.</p>
+
+      <div className="campaign-divider">
+        <div className="campaign-divider-diamond" />
+      </div>
 
       <div className="campaign-list">
         {campaigns.map((c) => (
