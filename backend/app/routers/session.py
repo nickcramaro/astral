@@ -9,6 +9,7 @@ from pathlib import Path
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
 from app.audio.pipeline import AudioPipeline
+from app.audio.providers import get_sfx_provider, get_voice_provider
 from app.audio.streaming import StreamingAudioBuffer
 from app.orchestrator.dm import DMOrchestrator
 
@@ -71,9 +72,15 @@ async def session_ws(websocket: WebSocket, campaign_id: str):
         await websocket.close()
         return
 
-    # Initialize orchestrator and audio pipeline
+    # Initialize orchestrator and audio pipeline with configured providers
     dm = DMOrchestrator(campaign_dir=campaign_dir, data_dir=DATA_DIR)
-    audio = AudioPipeline(campaign_dir=campaign_dir)
+    voice_provider = get_voice_provider()
+    sfx_provider = get_sfx_provider()
+    audio = AudioPipeline(
+        campaign_dir=campaign_dir,
+        voice_provider=voice_provider,
+        sfx_provider=sfx_provider,
+    )
     audio_buf: StreamingAudioBuffer | None = None
 
     # WebSocket lock — main loop and audio drain task both write
